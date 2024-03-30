@@ -43,8 +43,12 @@ const CTA = () => {
         <div
           className={`absolute p-[1rem] flex justify-center items-center h-[100%] w-[100%] z-[2] rounded-[1.5rem]`}
           style={{
-            transform: 'translate3D(0, 0, 0)',
-            WebkitTransform: 'translate3D(0, 0, 0)',
+            perspective: 1000,
+            transform: 'translate3d(0,0,0) translateZ(0)',
+            WebkitTransform: 'translate3d(0,0,0) translateZ(0)',
+            WebkitBackfaceVisibility: 'hidden',
+            backfaceVisibility: 'hidden',
+            WebkitPerspective: '1000',
             backdropFilter: `blur(10rem)`,
             WebkitBackdropFilter: `blur(10rem)`
           }}
