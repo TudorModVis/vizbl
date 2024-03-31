@@ -21,9 +21,9 @@ const HeroInstallBtn = () => {
         } else if (userAgent.indexOf("MSIE") !== -1 || userAgent.indexOf("Trident") !== -1) {
             browserName = "Internet Explorer"
         } else if (userAgent.indexOf("Edge") !== -1) {
-            browserName = "Microsoft Edge"
+            browserName = "Edge"
         }
-        
+
         setBrowser(browserName)
     }, [])
 

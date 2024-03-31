@@ -97,23 +97,13 @@ const CTA = () => {
             }}
             transition={{ type: 'tween', ease: 'backOut', duration: 2}}
           >
-            <svg className='w-full h-full' width="1368" height="1368" viewBox="0 0 1368 1368" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g filter="url(#filter0_f_89_56)">
-                <circle cx="684" cy="684" r="301" fill="url(#paint0_linear_89_56)" fill-opacity="0.5"/>
-              </g>
-              <defs>
-                <filter id="filter0_f_89_56" x="0.0364685" y="0.0364685" width="1367.93" height="1367.93" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                  <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                  <feGaussianBlur stdDeviation="131.482" result="effect1_foregroundBlur_89_56"/>
-                </filter>
-                <linearGradient id="paint0_linear_89_56" x1="242.831" y1="244.291" x2="1263.57" y2="446.58" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#FDA2FF"/>
-                  <stop offset="0.505208" stop-color="#782AD5"/>
-                  <stop offset="1" stop-color="#52B8FF"/>
-                </linearGradient>
-              </defs>
-            </svg>
+            <img 
+              src="/images/hover_blob_cta.png" 
+              alt="blob"
+              width={350}
+              height={350}
+              className="w-full h-full max-ss:scale-125 max-xs:scale-150"
+            />
           </motion.div>
         
     </div>

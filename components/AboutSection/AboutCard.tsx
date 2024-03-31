@@ -95,23 +95,13 @@ interface CardProps {
                 }}
                 transition={{ type: 'tween', ease: 'backOut', duration: isVisible ? 2 : 0 }}
               >
-                <svg className='w-full h-full scale-[1.5]' width="1036" height="1036" viewBox="0 0 1036 1036" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g filter="url(#filter0_f_92_113)">
-                    <circle cx="518" cy="518" r="175" fill="url(#paint0_linear_92_113)" fill-opacity="0.5"/>
-                  </g>
-                  <defs>
-                  <filter id="filter0_f_92_113" x="0.0364685" y="0.0364685" width="1035.93" height="1035.93" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="171.482" result="effect1_foregroundBlur_92_113"/>
-                  </filter>
-                  <linearGradient id="paint0_linear_92_113" x1="307.5" y1="343" x2="684.189" y2="406.147" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#FDA2FF"/>
-                    <stop offset="0.505208" stop-color="#782AD5"/>
-                    <stop offset="1" stop-color="#52B8FF"/>
-                  </linearGradient>
-                  </defs>
-                </svg>
+                <img 
+                  src="/images/hover_blob_about.png" 
+                  alt="blob" 
+                  width={350}
+                  height={350}
+                  className='w-full h-full scale-150 max-mmd:hidden'
+                />
               </motion.div>
   
       </div>
