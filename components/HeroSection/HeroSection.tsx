@@ -1,6 +1,4 @@
 import MainStar from "./MainStar"
-import Image from "next/image"
-import GradientButton from "../GradientButton"
 import HeroInstallBtn from "./HeroInstallBtn"
 
 const HeroSection: React.FC = () => {

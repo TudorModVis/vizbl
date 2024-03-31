@@ -39,8 +39,8 @@ const MainStar: React.FC = () => {
                 <Image
                   priority
                   draggable={false}
-                  width={617}
-                  height={720}
+                  width={813}
+                  height={1000}
                   src="/gifs/star.gif"
                   alt="star"
                   className="ss:h-[70vh] h-[37vh] max-ss:mb-[5rem]  max-md:max-h-[30rem]"
