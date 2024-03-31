@@ -1,6 +1,7 @@
 import MainStar from "./MainStar"
 import Image from "next/image"
 import GradientButton from "../GradientButton"
+import HeroInstallBtn from "./HeroInstallBtn"
 
 const HeroSection: React.FC = () => {
   return (
@@ -46,7 +47,8 @@ const HeroSection: React.FC = () => {
                   <p>YOUR FRIENDS' VIDEO INTERESTS?</p>
                 </div>
                   <div className="mt-[1.5rem] w-full flex ss:justify-start justify-center">
-                    <GradientButton text="ADD TO CHROME - IT'S FREE" route="https://chromewebstore.google.com/detail/vizbl-get-to-know-your-fr/lcaeomijnkkglaabildphmdinpoodaho"/>
+                    {/* <GradientButton text="ADD TO CHROME - IT'S FREE" route="https://chromewebstore.google.com/detail/vizbl-get-to-know-your-fr/lcaeomijnkkglaabildphmdinpoodaho"/> */}
+                    <HeroInstallBtn />
                   </div>
               </div>
 
