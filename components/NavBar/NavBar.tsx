@@ -66,9 +66,9 @@ const NavBar:React.FC = () => {
           </div>
       </div>
         <div className='flex items-center'>
-          <div className='hidden'>
-            <NavButtonRight text="Log In"/>
-            <NavButtonRight text="Plans & Pricing"/>
+          <div className='sm:flex hidden'>
+            <NavButtonRight text="Log In" route='/log-in'/>
+            <NavButtonRight text="Plans & Pricing" route='/plans-and-pricing'/>
           </div>
             <GradientButton text="GET STARTED" route='https://chromewebstore.google.com/detail/vizbl-get-to-know-your-fr/lcaeomijnkkglaabildphmdinpoodaho'/>
         </div>

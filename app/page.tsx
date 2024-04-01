@@ -1,5 +1,5 @@
 'use client'
-import { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { NavBar, HeroSection, About, HowItWorks, Contacts, Footer, Loader, ScrollToTop } from '@/components'
 import { NextPage } from 'next'
 import { SectionProvider } from '@/components/SectionContext'

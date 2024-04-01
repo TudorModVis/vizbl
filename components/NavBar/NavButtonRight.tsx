@@ -1,19 +1,49 @@
+'use client'
 
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 interface NavButtonProps {
   text: string;
+  route: string;
 }
 
-const NavButtonRight: React.FC<NavButtonProps> = ({ text }) => {
+const NavButtonRight: React.FC<NavButtonProps> = ({ text, route }) => {
+
+  const [isEntered, setIsEntered] = useState(false)
 
   return (
-    <div className={`select-none h-[3rem] rounded-[1rem] cursor-pointer z-[4] relative overflow-hidden border border-gray-border duration-[0.5] nav-button`}>
+    <Link 
+      href={route} 
+      className={`select-none h-[3rem] rounded-[1rem] cursor-pointer relative overflow-hidden border border-gray-border`}
+      onMouseEnter={() => setIsEntered(true)}
+      onMouseLeave={() => setIsEntered(false)}
+      style={{
+        backdropFilter: 'blur(12.5px)',
+        WebkitBackdropFilter: 'blur(12.5px)'
+      }}
+    >
+      <div className='absolute z-[-3] bg-body-bg opacity-50 w-full h-full top-0'/>
 
-      <div className=' z-[5] transition-none duration-[0.5s] group nav-button-chlid h-[3rem] rounded-[1rem]'>
-        <p className='text-[1rem] text-transparent hover:text-body-bg bg-gray-border duration-[0.7s] uppercase z-[6] font-bold nav-button-text px-[1.5rem] grid place-content-center w-full h-full'>{text}</p>
-      </div>
-    </div>
+      <motion.div
+        className='absolute bg-custom-white top-0 left-[-100%] z-[-1] w-full h-full rounded-[1rem]'
+        initial={{
+          translateX: '0%'
+        }}
+        animate={{
+          translateX: isEntered ? '100%' : '0%'
+        }}
+        transition={{
+          type: 'linear',
+          duration: 0.7,
+        }}
+      />
+
+        <p 
+          className='text-[1rem] mix-blend-difference text-transparent bg-gray-border uppercase z-[6] font-black nav-button-text px-[1.5rem] flex justify-center items-center w-full h-full'
+        >{text}</p>
+    </Link>
   )
 }
 
