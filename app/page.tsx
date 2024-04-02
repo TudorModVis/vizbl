@@ -6,13 +6,9 @@ import { SectionProvider } from '@/components/SectionContext'
 
 const HomePage:NextPage = () => {
 
-  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-
   return (
       <SectionProvider>
-        <div ref={scrollContainerRef} className='relative'>
-
-        {/* <Loader /> */}
+        <div  className='relative'>
 
           <div className='bg-body-bg'>
             <NavBar />
