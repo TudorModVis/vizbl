@@ -16,7 +16,7 @@ const HomePage:NextPage = () => {
 
         <div className='bg-body-bg'>
           <NavBar />
-          <div className='overflow-hidden  lg:px-[10.5rem] xxl:px-[14.5rem] 2k:px-[9.5rem] md:px-[10rem] px-[1rem]'>
+          <div className='overflow-hidden lg:px-[10.5rem] xxl:px-[14.5rem] 2k:px-[9.5rem] md:px-[10rem] px-[1rem]'>
             <HeroSection />
             <About />
             <HowItWorks />

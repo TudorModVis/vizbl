@@ -1,0 +1,91 @@
+body {
+  background-color: #050505;
+}
+
+p, input, label, button {
+  font-size: 14px;
+}
+
+@media (min-width: 1536px) {
+  p, input, label, button {
+    font-size: 16px;
+  }
+}
+
+html {
+  color: #F1F1F1;
+  font-family: 'Roboto', sans-serif;
+  line-height: 140%;
+  font-size: 12px;
+}
+
+@media (min-width: 1536px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1900px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.colored-button {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+  border-radius: .5rem;
+}
+
+.colored-button:before {
+  background: linear-gradient(93deg, #FDA2FF -64.38%, #782AD5 48.4%, #52B8FF 158.85%);
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  opacity: 1;
+  transition: opacity 0.2s ease-out;
+  border-radius: .5rem;
+}
+
+.colored-button.small:before {
+  border-radius: 4px;
+}
+
+.colored-button.reverse:before {
+  opacity: 0;
+  border-radius: 7px;
+  box-sizing: content-box;
+  transform: translate(-1px, -1px);
+  border: 1px solid #A0A0A0;
+}
+
+.colored-button.reverse:hover:before, .colored-button.reverse.active:before {
+  opacity: 1;
+}
+
+
+.colored-button:hover:before {
+  opacity: 0;
+}
+
+.colored-button.flat:hover:before {
+  opacity: .5;
+}
+
+@keyframes horizontal-shaking {
+  0% { transform: translateX(0) }
+  25% { transform: translateX(5px) }
+  50% { transform: translateX(-5px) }
+  75% { transform: translateX(5px) }
+  100% { transform: translateX(0) }
+}
+
+.MuiInput-root.error {
+  animation: horizontal-shaking 0.3s;
+}

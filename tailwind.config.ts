@@ -20,7 +20,12 @@ const config: Config = {
         'custom-white' : '#F1F1F1',
         'gray-border' : '#A0A0A0',
         'card-bg' : '#1E1E1E',
-        'dark-gray' : '#111111'
+        'dark-gray' : '#111111',
+        'white': '#F1F1F1',
+        'accent': '#F74264',
+        'black': '#050505',
+        'semi-black': '#1E1E1E',
+        'gray': "#A0A0A0"
       },
       fontFamily: {
         'roboto' : "'Roboto', sans-serif"
