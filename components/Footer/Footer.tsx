@@ -43,10 +43,10 @@ const Footer: React.FC = () => {
                             <div className="">
                                 <h4 className="text-gray-border font-[600] text-[1rem] uppercase">Company</h4>
                                 <div className="mt-[1.5rem] flex flex-col gap-[16px] text-custom-white">
-                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://studiomodvis.com/EN/home">About Us</a>
-                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://studiomodvis.com/EN/portfolio">Portfolio</a>
-                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://studiomodvis.com/EN/services">Services</a>
-                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://studiomodvis.com/EN/contacts">Contacts</a>
+                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://studiomodvis.com/EN/home">About Us</a>
+                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://studiomodvis.com/EN/portfolio">Portfolio</a>
+                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://studiomodvis.com/EN/services">Services</a>
+                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://studiomodvis.com/EN/contacts">Contacts</a>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
                         <div>
                             <h4 className="text-gray-border font-[600] text-[1rem] uppercase">Stay in touch</h4>
                             <div className="mt-[1.5rem] grid grid-cols-3 grid-rows-2 gap-[16px] text-custom-white">
-                                <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=vizbl.team@gmail.com">
+                                <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=help@myvizbl.com">
                                     <div className="group transition-colors duration-[0.5s] hover:bg-body-bg p-[0.1875rem] rounded-[0.3125rem] w-[2rem] h-[2rem] flex justify-center items-center bg-custom-white">
                                         <Image 
                                             draggable={false}
@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
                                     </div>
                                 </a>
 
-                                <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://www.instagram.com/myvizbl">
+                                <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://www.instagram.com/myvizbl">
                                     <div className="group transition-colors duration-[0.5s] hover:bg-body-bg p-[0.1875rem] rounded-[0.3125rem] w-[2rem] h-[2rem] flex justify-center items-center bg-custom-white">
                                         <Image
                                             draggable={false}
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
                                     </div>
                                 </a>
 
-                                <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://twitter.com/myvizbl">
+                                <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://twitter.com/myvizbl">
                                     <div className="group transition-colors duration-[0.5s] hover:bg-body-bg p-[0.1875rem] rounded-[0.3125rem] w-[2rem] h-[2rem] flex justify-center items-center bg-custom-white">
                                         <Image 
                                             draggable={false}
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
                                     </div>
                                 </a>
 
-                                <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://discord.gg/eKAjhV2CwW">
+                                <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://discord.gg/eKAjhV2CwW">
                                     <div className="group transition-colors duration-[0.5s] hover:bg-body-bg p-[0.1875rem] rounded-[0.3125rem] w-[2rem] h-[2rem] flex justify-center items-center bg-custom-white">
                                         <Image 
                                             draggable={false}
@@ -106,7 +106,7 @@ const Footer: React.FC = () => {
                                     </div>
                                 </a>
 
-                                <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://www.tiktok.com/@myvizbl">
+                                <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://www.tiktok.com/@myvizbl">
                                     <div className="group transition-colors duration-[0.5s] hover:bg-body-bg p-[0.1875rem] rounded-[0.3125rem] w-[2rem] h-[2rem] flex justify-center items-center bg-custom-white">
                                         <Image 
                                             draggable={false}
@@ -119,7 +119,7 @@ const Footer: React.FC = () => {
                                     </div>
                                 </a>
 
-                                <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="#">
+                                <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="#">
                                     <div className="group transition-colors duration-[0.5s] hover:bg-body-bg p-[0.1875rem] rounded-[0.3125rem] w-[2rem] h-[2rem] flex justify-center items-center bg-custom-white">
                                         <Image 
                                             draggable={false}
