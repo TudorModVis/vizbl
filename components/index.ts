@@ -7,6 +7,10 @@ import { default as Contacts } from './ContactsSection/Contacts'
 import { default as Footer } from './Footer/Footer'
 import { default as ScrollToTop } from './ScrollToTop'
 import { default as Loader } from './Loader'
+
+import { default as PPNavbar } from './NavBar/PPNavbar/PPNavBar'
+import { default as PlansSection } from './PPSectionComponents/PlansSection'
+import { default as FAQ } from './PPSectionComponents/FAQ'
  
 export{
     NavBar,
@@ -17,5 +21,9 @@ export{
     Contacts,
     Footer,
     ScrollToTop,
-    Loader
+    Loader,
+
+    PPNavbar,
+    PlansSection,
+    FAQ
 }

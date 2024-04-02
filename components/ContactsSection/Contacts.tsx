@@ -4,7 +4,7 @@ import { useSectionRefs } from '../SectionContext'
 import Gradient from "./Gradient";
 import CTA from "./CTA";
 
-const Contacts: React.FC = () => {
+const Contacts: React.FC = ({ }) => {
   const { contactsRef } = useSectionRefs();
 
   return (
