@@ -64,7 +64,7 @@ const Loader:React.FC = () => {
     <AnimatePresence>
         {
             isLoading && (
-                <div>
+                <div className="">
                     <motion.div
                         className="fixed top-0 z-[2000] w-full h-[100vh] flex items-end"
                         variants={overlayVariants}

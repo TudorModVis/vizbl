@@ -36,9 +36,9 @@ const RootLayout = ({ children } : { children: ReactNode }) => {
         </head>
 
           <body className='bg-body-bg relative'>
-              <SmoothScroll>
-                {children}
-              </SmoothScroll>
+            <SmoothScroll>
+              {children}
+            </SmoothScroll>
           </body>
 
     </html>
