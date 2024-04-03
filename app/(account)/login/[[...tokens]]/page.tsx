@@ -52,7 +52,7 @@ export default function login ({ params }: { params: { tokens: []} }) {
             return;
         }
 
-        fetch("https://server.studiomodvis.com/api/login", {
+        fetch("https://api.myvizbl.com/api/login", {
             method: "POST",
             mode: "cors",
             headers: {

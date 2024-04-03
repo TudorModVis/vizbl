@@ -22,7 +22,7 @@ export const metadata = {
 }
 
 const ExtensionLayout = ({ children } : { children: ReactNode }) => {
-
+  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID !== undefined ? process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID : '';
   return (
     <html lang='en'>
         <head>
@@ -33,7 +33,7 @@ const ExtensionLayout = ({ children } : { children: ReactNode }) => {
         </head>
 
           <body className='bg-body-bg relative'>
-            <GoogleOAuthProvider clientId="452387761121-qd7jls2a56srfh8pqkj39to743dtjg87.apps.googleusercontent.com">
+            <GoogleOAuthProvider clientId={clientId}>
                 {children}
             </GoogleOAuthProvider>;
           </body>
