@@ -9,7 +9,7 @@ import { default as ScrollToTop } from './ScrollToTop'
 import { default as Loader } from './Loader'
 
 import { default as PPNavbar } from './NavBar/PPNavbar/PPNavBar'
-import { default as PlansSection } from './PPSectionComponents/PlansSection'
+import { default as PlansSection } from './PPSectionComponents/PlansSection/PlansSection'
 import { default as FAQ } from './PPSectionComponents/FAQ'
  
 export{
