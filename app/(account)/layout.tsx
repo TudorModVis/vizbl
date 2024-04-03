@@ -22,7 +22,7 @@ export const metadata = {
 }
 
 const ExtensionLayout = ({ children } : { children: ReactNode }) => {
-  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID !== undefined ? process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID : '';
+  const clientId = process.env.GOOGLE_CLIENT_ID !== undefined ? process.env.GOOGLE_CLIENT_ID : '';
   return (
     <html lang='en'>
         <head>
