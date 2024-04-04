@@ -25,7 +25,7 @@ export default function Page ({ params }: { params: { token: string } }) {
         });
     }, []);
 
-    if (!isSignedIn || !pageContent) return;
+    if (isSignedIn === null || pageContent === null) return;
 
     const acceptFriendRequest = () => {
         setPageContent('requestProccesed');
