@@ -89,7 +89,7 @@ export default function login ({ params }: { params: { tokens: []} }) {
         })
             .then((res) => res.json())
             .then((data) => {
-                redirect('/invite');
+                router.push("/invite");
             })
             .catch(error => console.error('Error:', error));
         },
