@@ -1,6 +1,6 @@
 'use client'
 
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 import { useState } from 'react';
@@ -18,6 +18,7 @@ export default function login ({ params }: { params: { tokens: []} }) {
     const [emailError, setEmailError] = useState<string | null>(null);
 
     const [forgotPasswordPanel, setForgotPasswordPanel] = useState(false);
+    const router = useRouter()
 
     const checkPassword = () => {
         if (password === '') {
@@ -52,8 +53,6 @@ export default function login ({ params }: { params: { tokens: []} }) {
             return;
         }
 
-        let success = false;
-
         fetch("https://api.myvizbl.com/api/login", {
             method: "POST",
             mode: "cors",
@@ -68,13 +67,10 @@ export default function login ({ params }: { params: { tokens: []} }) {
         .then(res => res.json())
         .then(data => {
             if (data.id !== undefined) {
-                success = true;
+                router.push("/invite");
             } else {
                 data.type === 'email' ? setEmailError(data.msg) : setPasswordError(data.msg);
             }
-        })
-        .finally(() => {    
-            if (success) redirect('/invite');
         })
     }
 
