@@ -52,6 +52,8 @@ export default function login ({ params }: { params: { tokens: []} }) {
             return;
         }
 
+        let success = false;
+
         fetch("https://api.myvizbl.com/api/login", {
             method: "POST",
             mode: "cors",
@@ -66,15 +68,34 @@ export default function login ({ params }: { params: { tokens: []} }) {
         .then(res => res.json())
         .then(data => {
             if (data.id !== undefined) {
-                redirect('/invite');
+                success = true;
+            } else {
+                data.type === 'email' ? setEmailError(data.msg) : setPasswordError(data.msg);
             }
-            data.type === 'email' ? setEmailError(data.msg) : setPasswordError(data.msg);
-        });
+        })
+        .finally(() => {    
+            if (success) redirect('/invite');
+        })
     }
 
     const googleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
           console.log(tokenResponse);  
+          fetch("https://server.studiomodvis.com/api/google-auth", {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                token: tokenResponse.access_token
+            }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                redirect('/invite');
+            })
+            .catch(error => console.error('Error:', error));
         },
         onError: errorResponse => console.log(errorResponse),
       });
@@ -116,44 +137,3 @@ export default function login ({ params }: { params: { tokens: []} }) {
         </>
     );
 }
-
-// const authorize = async () => {
-//     const redirectURL = browser.identity.getRedirectURL('index.html');
-//     const { oauth2 } = browser.runtime.getManifest();
-//     const clientId = oauth2.client_id;
-
-//     const authParams = new URLSearchParams({
-//         client_id: clientId,
-//         response_type: 'token',
-//         redirect_uri: redirectURL,
-//         scope: oauth2.scopes.join(' '),
-//     });
-
-//     const authURL = `https://accounts.google.com/o/oauth2/v2/auth?${authParams.toString()}`;
-
-//     browser.identity.launchWebAuthFlow({ interactive: true, url: authURL }).then( async (responseUrl: string) => {
-//         const url = new URL(responseUrl);
-//         const urlParams = new URLSearchParams(url.hash.slice(1));
-//         const params = Object.fromEntries(urlParams.entries());
-
-//         fetch("https://server.studiomodvis.com/api/google-auth", {
-//             method: "POST",
-//             mode: "cors",
-//             headers: {
-//                 "Content-Type": "application/json",
-//             },
-//             body: JSON.stringify({
-//                 token: params.access_token
-//             }),
-//         })
-//             .then((res) => res.json())
-//             .then((data) => {
-//                 browser.storage.local.set({
-//                     "userData" : JSON.stringify(data)
-//                 });
-//                 redirect('/invite');
-//             })
-//             .catch(error => console.error('Error:', error));
-
-//       });
-// }
