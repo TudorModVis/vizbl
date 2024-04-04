@@ -92,7 +92,13 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
             }),
         })
             .then((res) => {
-                if (res.ok) router.push("/invite");
+                if (res.ok) {
+                    if (params.tokens === undefined) {
+                        router.push("/authenticated");
+                    } else {
+                        router.push('/invite/' + params.tokens[0])
+                    }
+                }
             })
             .catch(error => console.error('Error:', error));
         },

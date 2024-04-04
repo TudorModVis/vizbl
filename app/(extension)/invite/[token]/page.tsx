@@ -4,17 +4,28 @@ import { useEffect, useState } from "react"
 import LinkState from "@/app/(extension)/shared/LinkState"
 
 export default function Page ({ params }: { params: { token: string } }) {
-    const [isSignedIn, setIsSignedIn] = useState(true);
-    const [pageContent, setPageContent] = useState('main');
+    const [isSignedIn, setIsSignedIn] = useState<boolean | null>(null);
+    const [pageContent, setPageContent] = useState<string | null>('main');
 
     // useEffect(() => {
-    //     fetch("https://server.studiomodvis.com/api/invite?token=" + params.token, {
+    //     fetch("https://api.myvizbl.com/api/invite?token=" + params.token, {
     //         credentials: 'include',
     //     })
     //     .then(res => {
     //        res.ok ? setPageContent('success') : setPageContent('invalid');
     //     });
     // }, []);
+
+    useEffect(() => {
+        fetch("https://api.myvizbl.co//api/check-user", {
+            credentials: 'include',
+        })
+        .then(res => {
+           res.ok ? setIsSignedIn(true) : setIsSignedIn(false);
+        });
+    }, []);
+
+    if (!isSignedIn || !pageContent) return;
 
     const acceptFriendRequest = () => {
         setPageContent('requestProccesed');
