@@ -67,7 +67,7 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
         .then(res => res.json())
         .then(data => {
             if (data.id !== undefined) {
-                if (params.tokens.length === 0) {
+                if (params.tokens === undefined) {
                     router.push("/authenticated");
                 } else {
                     router.push('/invite/' + params.tokens[0])

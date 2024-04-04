@@ -90,7 +90,7 @@ const EmailField: React.FC<EmailProps> = ({email, setEmail, error, setError}) =>
                 borderColor: (error !== null) ? "#C41C1C" : "#a0a0a0",
                 color: (error !== null) ? "#C41C1C" : "#f1f1f1",
                 borderRadius: "8px",
-                marginBottom: "8px",
+                marginBottom: "16px",
                 fontSize: '16px'
               }}
             className={error !== null ? "error" : ""}
