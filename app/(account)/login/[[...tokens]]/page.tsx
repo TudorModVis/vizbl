@@ -10,7 +10,7 @@ import React from 'react';
 import ResetPasswordPanel from '../../shared/ResetPasswordPanel';
 import { useGoogleLogin } from '@react-oauth/google';
 
-export default function login ({ params }: { params: { tokens: []} }) {
+export default function login ({ params }: { params: { tokens: string[]} }) {
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState<string | null>(null);
 
@@ -67,7 +67,11 @@ export default function login ({ params }: { params: { tokens: []} }) {
         .then(res => res.json())
         .then(data => {
             if (data.id !== undefined) {
-                router.push("/invite");
+                if (params.tokens.length === 0) {
+                    router.push("/authenticated");
+                } else {
+                    router.push('/invite/' + params.tokens[0])
+                }
             } else {
                 data.type === 'email' ? setEmailError(data.msg) : setPasswordError(data.msg);
             }
@@ -87,9 +91,8 @@ export default function login ({ params }: { params: { tokens: []} }) {
                 token: tokenResponse.access_token
             }),
         })
-            .then((res) => res.json())
-            .then((data) => {
-                router.push("/invite");
+            .then((res) => {
+                if (res.ok) router.push("/invite");
             })
             .catch(error => console.error('Error:', error));
         },
