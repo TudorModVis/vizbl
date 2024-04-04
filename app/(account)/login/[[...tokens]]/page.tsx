@@ -18,7 +18,7 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
     const [emailError, setEmailError] = useState<string | null>(null);
 
     const [forgotPasswordPanel, setForgotPasswordPanel] = useState(false);
-    const router = useRouter()
+    const router = useRouter();
 
     const checkPassword = () => {
         if (password === '') {

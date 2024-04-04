@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from "react"
 import LinkState from "@/app/(extension)/shared/LinkState"
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export default function Page ({ params }: { params: { token: string } }) {
     const [isSignedIn, setIsSignedIn] = useState<boolean | null>(null);
     const [pageContent, setPageContent] = useState<string | null>('main');
+    const router = useRouter();
 
     // useEffect(() => {
     //     fetch("https://api.myvizbl.com/api/invite?token=" + params.token, {
@@ -41,7 +42,7 @@ export default function Page ({ params }: { params: { token: string } }) {
             <button className="py-4 lg:py-[0.875rem] w-48 colored-button flat border border-white font-bold" onClick={acceptFriendRequest}>ACCEPT</button>
             <button className="py-4 lg:py-[0.875rem] w-48 border border-white font-bold bg-white bg-opacity-0 hover:bg-opacity-10 rounded-lg transition-all duration-200" onClick={declineFriendRequest}>DECLINE</button>
         </div> :
-        <button className="py-4 lg:py-[0.875rem] px-12 colored-button border border-white font-bold" onClick={() => {redirect('/signup')}}>SIGN UP & INSTALL</button>
+        <button className="py-4 lg:py-[0.875rem] px-12 colored-button border border-white font-bold" onClick={() => {router.push("/signup");}}>SIGN UP & INSTALL</button>
 
         let contentToLoad = 
         <>
