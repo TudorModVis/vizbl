@@ -17,7 +17,7 @@ export default function Page ({ params }: { params: { token: string } }) {
     // }, []);
 
     useEffect(() => {
-        fetch("https://api.myvizbl.co//api/check-user", {
+        fetch("https://api.myvizbl.com/api/check-user", {
             credentials: 'include',
         })
         .then(res => {
