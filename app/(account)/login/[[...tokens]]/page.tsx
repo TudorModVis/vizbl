@@ -81,7 +81,7 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
     const googleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
           console.log(tokenResponse);  
-          fetch("https://server.studiomodvis.com/api/google-auth", {
+          fetch("https://api.myvizbl.com/api/google-auth", {
             method: "POST",
             mode: "cors",
             headers: {
