@@ -67,6 +67,7 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
         .then(res => res.json())
         .then(data => {
             if (data.id !== undefined) {
+                console.log(data);
                 if (params.tokens === undefined) {
                     router.push("/authenticated");
                 } else {
