@@ -1,6 +1,6 @@
 'use client'
 
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 import { useState } from 'react';
@@ -10,8 +10,7 @@ import React from 'react';
 import Confirmation from './Confirmation';
 import { useGoogleLogin } from '@react-oauth/google';
 
-const LogIn : React.FC = () => {
-    const [isLoggedIn, setLoggedIn] = useState<boolean>(false);
+export default function signup ({ params }: { params: { tokens: string[]} }) {
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState<string | null>(null);
 
@@ -19,10 +18,7 @@ const LogIn : React.FC = () => {
     const [emailError, setEmailError] = useState<string | null>(null);
 
     const [confirmation, setConfirmation] = useState(false);
-
-    if (isLoggedIn) {
-        redirect('/invite');
-    }
+    const router = useRouter();
 
     const checkPassword = () => {
         if (password === '') {
@@ -57,7 +53,7 @@ const LogIn : React.FC = () => {
             return;
         }
 
-        fetch("https://server.studiomodvis.com/api/signup", {
+        fetch("https://api.myvizbl.com/api/signup", {
             method: "POST",
             mode: "cors",
             headers: {
@@ -71,26 +67,40 @@ const LogIn : React.FC = () => {
         .then(res => res.json())
         .then(data => {
             if (data.id !== undefined) {
-                // browser.storage.local.set({
-                //     "userData" : JSON.stringify({
-                //         id: data.id,
-                //         name: '',
-                //         image: '',
-                //         dob: '',
-                //         authMethod: 'password',
-                //         email: email,
-                //     })
-                // });
-
-                redirect('/confirmation');
+                if (params.tokens === undefined) {
+                    router.push("/authenticated");
+                } else {
+                    setConfirmation(true);
+                }
+            } else {
+                setEmailError(data.msg);
             }
-            setEmailError(data.msg);
         });
     }
 
     const googleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
           console.log(tokenResponse);  
+          fetch("https://api.myvizbl.com/api/google-auth", {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                token: tokenResponse.access_token
+            }),
+        })
+            .then((res) => {
+                if (res.ok) {
+                    if (params.tokens === undefined) {
+                        router.push("/authenticated");
+                    } else {
+                        router.push('/invite/' + params.tokens[0])
+                    }
+                }
+            })
+            .catch(error => console.error('Error:', error));
         },
         onError: errorResponse => console.log(errorResponse),
       });
@@ -100,7 +110,7 @@ const LogIn : React.FC = () => {
             <img src="/images/bg.png" alt="background color" className="absolute w-full h-full object-cover -z-10 left-0 top-0"/>
             <div className='flex justify-center items-center h-screen'>
                 {confirmation ? 
-                    <Confirmation /> :
+                    <Confirmation email={email}/> :
                     <div className='w-[22.5rem] mt-24 mb-16'>
                         <p className='text-[2.5rem] leading-[110%] font-bold mb-1 text-center relative z-10'>WELCOME TO</p>
                         <div className='relative'>
@@ -137,46 +147,3 @@ const LogIn : React.FC = () => {
         </>
     );
 }
-
-// const authorize = async (setLoggedIn: (value: boolean) => void) => {
-//     const redirectURL = browser.identity.getRedirectURL('index.html');
-//     const { oauth2 } = browser.runtime.getManifest();
-//     const clientId = oauth2.client_id;
-
-//     const authParams = new URLSearchParams({
-//         client_id: clientId,
-//         response_type: 'token',
-//         redirect_uri: redirectURL,
-//         scope: oauth2.scopes.join(' '),
-//     });
-
-//     const authURL = `https://accounts.google.com/o/oauth2/v2/auth?${authParams.toString()}`;
-
-//     browser.identity.launchWebAuthFlow({ interactive: true, url: authURL }).then( async (responseUrl: string) => {
-//         const url = new URL(responseUrl);
-//         const urlParams = new URLSearchParams(url.hash.slice(1));
-//         const params = Object.fromEntries(urlParams.entries());
-
-//         fetch("https://server.studiomodvis.com/api/google-auth", {
-//             method: "POST",
-//             mode: "cors",
-//             headers: {
-//                 "Content-Type": "application/json",
-//             },
-//             body: JSON.stringify({
-//                 token: params.access_token
-//             }),
-//         })
-//             .then((res) => res.json())
-//             .then((data) => {
-//                 browser.storage.local.set({
-//                     "userData" : JSON.stringify(data)
-//                 });
-//                 setLoggedIn(true);
-//             })
-//             .catch(error => console.error('Error:', error));
-
-//       });
-// }
-
-export default LogIn;

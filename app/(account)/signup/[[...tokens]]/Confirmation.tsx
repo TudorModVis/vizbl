@@ -1,27 +1,20 @@
 import { useState } from "react";
 import Countdown from "./Countdown";
 
-export default function Confirmation () {
-    const [email, setEmail] = useState('tudorcebotarenco@gmail.com');
+export default function Confirmation ({email}: {email:string}) {
     const [disabled, setDisabled] = useState(false);
 
-    // useEffect(() => {
-    //     storage.local.get("userData").then((user) => {
-    //       const rawUserData = JSON.parse(user.userData);
-    //       setEmail(rawUserData.email);
-    //     });
-    //   }, []);
-
-      const resendEmail = () => {
-        // fetch("https://server.studiomodvis.com/api/resend-email", {
-        //     method: "POST",
-        //     body: JSON.stringify({email: email}),
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        // }).catch (err => console.error(err));
-        setDisabled(true);
-      }
+    const resendEmail = () => {
+        fetch("https://server.studiomodvis.com/api/resend-email", {
+            method: "POST",
+            body: JSON.stringify({email: email}),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then (res => {if (res.ok) setDisabled(true);})
+        .catch (err => console.error(err));
+    }
       
     return(
         <>
