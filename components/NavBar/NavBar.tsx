@@ -70,7 +70,9 @@ const NavBar:React.FC = () => {
             <div className='hidden'>
               <NavButtonRight text="Log In" route='/log-in' active={false}/>
             </div>
-            <NavButtonRight text="Plans & Pricing" route='/plans-and-pricing' active={false}/>
+            <div className='hidden'>
+              <NavButtonRight text="Plans & Pricing" route='/plans-and-pricing' active={false}/>
+            </div>
           </div>
             <GradientButton text="GET STARTED" route='https://chromewebstore.google.com/detail/vizbl-get-to-know-your-fr/lcaeomijnkkglaabildphmdinpoodaho'/>
         </div>
