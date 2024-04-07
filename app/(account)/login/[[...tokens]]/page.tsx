@@ -56,6 +56,7 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
         fetch("https://api.myvizbl.com/api/login", {
             method: "POST",
             mode: "cors",
+            credentials: 'include',
             headers: {
                 "Content-Type": "application/json",
             },
@@ -85,6 +86,7 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
           fetch("https://api.myvizbl.com/api/google-auth", {
             method: "POST",
             mode: "cors",
+            credentials: 'include',
             headers: {
                 "Content-Type": "application/json",
             },
