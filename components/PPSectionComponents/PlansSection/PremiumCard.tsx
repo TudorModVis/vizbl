@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SaleSpan from "./SaleSpan";
 
 interface PremiumCardProps{
     plan: string;
@@ -20,18 +21,8 @@ const PremiumCard:React.FC<PremiumCardProps> = ({ plan, price }) => {
             <p className='text-gray-border text-[1.125rem] font-[500] leading-normal'>Maximize the amount of possibilities the extension can offer.</p>
 
             <div className="relative">
-                {
-                    plan === 'annually' && (
-                        <div 
-                            className="absolute top-[-1.75rem] py-[2px] px-[4px] rounded-[0.25rem]"
-                            style={{
-                                background: 'linear-gradient(93deg, #FDA2FF -64.38%, #782AD5 48.4%, #52B8FF 158.85%)'
-                            }}
-                        >
-                            <span className="text-custom-white text-[1rem] font-[500]">-40%</span>
-                        </div>
-                    )
-                }
+                <SaleSpan plan={plan}/>
+  
                 <h1 className='mt-[3.25rem] text-custom-white font-[700] text-[2.5rem]'>${price} <span className='text-[1.125rem]'>USD /<span className='font-[500] text-[1rem]'>month, billed annually</span></span></h1>
             </div>
 
