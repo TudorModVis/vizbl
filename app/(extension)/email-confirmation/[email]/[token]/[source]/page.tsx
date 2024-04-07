@@ -7,7 +7,7 @@ export default function Page({ params }: { params: { token: string, email: strin
     const [pageContent, setPageContent] = useState<string | null>(null);
 
     useEffect(() => {
-        fetch("https://api.myvizbl/api/email-confirmation?token=" + params.token + "&email=" + decodeURIComponent(params.email), {
+        fetch("https://api.myvizbl.com/api/email-confirmation?token=" + params.token + "&email=" + decodeURIComponent(params.email), {
             credentials: 'include',
         })
         .then(res => {

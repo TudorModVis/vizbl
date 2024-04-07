@@ -13,7 +13,7 @@ export default function Page({ params }: { params: { token: string, email: strin
 
     const [pageContent, setPageContent] = useState<string | null>(null);
     useEffect(() => {
-        fetch("https://server.studiomodvis.com/api/reset-password?token=" + params.token + "&email=" + decodeURIComponent(params.email), {
+        fetch("https://api.myvizbl.com/api/reset-password?token=" + params.token + "&email=" + decodeURIComponent(params.email), {
             credentials: 'include'
         })
         .then(res => {
@@ -49,7 +49,7 @@ export default function Page({ params }: { params: { token: string, email: strin
             return;
         }
 
-        fetch("https://server.studiomodvis.com/api/reset-password", {
+        fetch("https://api.myvizbl.com/api/reset-password", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
