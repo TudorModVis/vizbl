@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import LinkState from "@/app/(extension)/shared/LinkState"
 import { useRouter } from 'next/navigation';
 
-export default function Page ({ params }: { params: { friendUsername: string } }) {
+export default function Page ({ params }: { params: { token: string } }) {
     const [isSignedIn, setIsSignedIn] = useState<boolean | null>(null);
     const [pageContent, setPageContent] = useState<string | null>(null);
     const [friendImage, setFriendImage] = useState<string>('');
@@ -12,8 +12,7 @@ export default function Page ({ params }: { params: { friendUsername: string } }
     const router = useRouter();
 
     useEffect(() => {
-        console.log(params.friendUsername);
-        fetch(`https://api.myvizbl.com/api/invite?friend=${params.friendUsername}`, {
+        fetch(`https://api.myvizbl.com/api/invite?friend=${params.token}`, {
             credentials: 'include',
         })
         .then (res => res.json())
@@ -50,7 +49,7 @@ export default function Page ({ params }: { params: { friendUsername: string } }
                 "Content-Type": "application/json",
                 },
             body: JSON.stringify({
-                friend: params.friendUsername
+                friend: params.token
             })
         })
         .then(res => {
@@ -64,7 +63,7 @@ export default function Page ({ params }: { params: { friendUsername: string } }
             <button className="py-4 lg:py-[0.875rem] w-48 colored-button flat border border-white font-bold" onClick={acceptFriendRequest}>ACCEPT</button>
             <button className="py-4 lg:py-[0.875rem] w-48 border border-white font-bold bg-white bg-opacity-0 hover:bg-opacity-10 rounded-lg transition-all duration-200" onClick={declineFriendRequest}>DECLINE</button>
         </div> :
-        <button className="py-4 lg:py-[0.875rem] px-12 colored-button border border-white font-bold" onClick={() => {router.push(`/signup/${params.friendUsername}`);}}>SIGN UP & INSTALL</button>
+        <button className="py-4 lg:py-[0.875rem] px-12 colored-button border border-white font-bold" onClick={() => {router.push(`/signup/${params.token}`);}}>SIGN UP & INSTALL</button>
 
         let contentToLoad = 
         <>
