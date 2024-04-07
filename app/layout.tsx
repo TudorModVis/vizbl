@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 import { ReactNode } from 'react'
 
-import { SmoothScroll} from '@/components'
+import { SmoothScroll } from '@/components'
 
 export const metadata = {
     title: "Vizbl"
@@ -36,9 +36,9 @@ const RootLayout = ({ children } : { children: ReactNode }) => {
         </head>
 
           <body className='bg-body-bg relative'>
-              <SmoothScroll>
-                {children}
-              </SmoothScroll>
+            <SmoothScroll>
+              {children}
+            </SmoothScroll>
           </body>
 
     </html>

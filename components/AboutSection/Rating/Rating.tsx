@@ -72,6 +72,7 @@ const Rating = () => {
                     percentage={star.percentage}
                     delay={star.delay}
                     noAnimation={star.noAnimation}
+                    id={index}
                     />
                 )) : 
                     stars.map((star, index) => (
@@ -81,6 +82,7 @@ const Rating = () => {
                       percentage={star.percentage}
                       delay={0}
                       noAnimation={true}
+                      id={index}
                       />
                     ))
                 }

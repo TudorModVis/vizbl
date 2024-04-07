@@ -1,39 +1,14 @@
 'use client'
 
-import { useSectionRefs } from '../SectionContext'
-
-import Link from 'next/link'
-
-import GradientButton from "../GradientButton"
-import NavButton from './NavButton'
-import NavButtonRight from './NavButtonRight'
 import { useLenis } from '@studio-freight/react-lenis'
 
-import { useEffect, useState } from 'react'
-import HamburgerBtn from './HamburgerBtn'
+import NavButtonRight from '../NavButtonRight'
+import GradientButton from '@/components/GradientButton'
 
-const NavBar:React.FC = () => {
+
+const PPNavBar:React.FC = () => {
 
   const lenis = useLenis(() => {})
-  
-  const { aboutRef, howItWorksRef, contactsRef } = useSectionRefs();
-
-  const [navLinks, setNavLinks] = useState([
-    { text: 'About', divEl: aboutRef },
-    { text: 'How does it work', divEl: howItWorksRef },
-    { text: 'Contacts', divEl: contactsRef },
-  ]);
-
-  useEffect(() => {
-    if (aboutRef && howItWorksRef && contactsRef) {
-      setNavLinks([
-        { text: 'About', divEl: aboutRef },
-        { text: 'How does it work', divEl: howItWorksRef },
-        { text: 'Contacts', divEl: contactsRef },
-      ]);
-    }
-  }, [aboutRef, howItWorksRef, contactsRef]);
-
 
   return (
     <nav className='w-full sm:h-[6rem] h-[5rem] smm:px-[3.5rem] px-[1rem] flex justify-between items-end sticky left-0 top-0 z-[100]'>
@@ -53,15 +28,13 @@ const NavBar:React.FC = () => {
         </div>
 
           {/* Phone Menu */}
-            <HamburgerBtn />
+            {/* <HamburgerBtn /> */}
           {/* Phone Menu */}
 
 
           <div className='sm:flex hidden'>
             {
-              navLinks.map((navLink, index) => (
-                navLink.divEl && <NavButton key={index} text={navLink.text} divEl={navLink.divEl} id={index}/>
-              ))
+              <NavButtonRight text="Home" route='/' active={false}/>
             }
           </div>
       </div>
@@ -70,7 +43,7 @@ const NavBar:React.FC = () => {
             <div className='hidden'>
               <NavButtonRight text="Log In" route='/log-in' active={false}/>
             </div>
-            <NavButtonRight text="Plans & Pricing" route='/plans-and-pricing' active={false}/>
+            <NavButtonRight text="Plans & Pricing" route='/plans-and-pricing' active={true}/>
           </div>
             <GradientButton text="GET STARTED" route='https://chromewebstore.google.com/detail/vizbl-get-to-know-your-fr/lcaeomijnkkglaabildphmdinpoodaho'/>
         </div>
@@ -78,4 +51,4 @@ const NavBar:React.FC = () => {
   )
 }
 
-export default NavBar
+export default PPNavBar

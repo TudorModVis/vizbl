@@ -12,7 +12,7 @@ const FooterNav = () => {
   const { aboutRef, howItWorksRef, contactsRef } = useSectionRefs();
 
   return (
-    <div className="mt-[1.5rem] flex flex-col gap-[16px] text-custom-white">
+    <>
           <p 
             className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer"
             onClick={() => aboutRef.current && lenis?.scrollTo(aboutRef.current, {
@@ -33,10 +33,7 @@ const FooterNav = () => {
               duration: 2,
               easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
             })}>Contacts</p>
-
-        <Link className="hidden opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="/">Plans & Pricing</Link>
-        <Link className="hidden opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="/">Log in</Link>
-    </div>
+    </>
   )
 }
 
