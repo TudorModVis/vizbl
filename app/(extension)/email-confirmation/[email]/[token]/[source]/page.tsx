@@ -4,7 +4,7 @@ import LinkState from "@/app/(extension)/shared/LinkState";
 import { useEffect, useState } from "react";
 
 export default function Page({ params }: { params: { token: string, email: string, source: string } }) {
-    const [pageContent, setPageContent] = useState<string | null>('success');
+    const [pageContent, setPageContent] = useState<string | null>(null);
 
     useEffect(() => {
         fetch("https://api.myvizbl/api/email-confirmation?token=" + params.token + "&email=" + decodeURIComponent(params.email), {
