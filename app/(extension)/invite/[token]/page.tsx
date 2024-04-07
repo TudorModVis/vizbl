@@ -36,7 +36,7 @@ export default function Page ({ params }: { params: { token: string } }) {
     if (isSignedIn === null || pageContent === null) return;
 
     const sendFriendRequest = () => {
-        fetch("https://server.studiomodvis.com/api/send-friend-request", {
+        fetch("https://api.myvizbl.com/api/send-friend-request", {
             method: "POST",
             mode: "cors",
             credentials: 'include',
