@@ -35,32 +35,29 @@ export default function Page ({ params }: { params: { token: string } }) {
 
     if (isSignedIn === null || pageContent === null) return;
 
-    const acceptFriendRequest = () => {
-        setPageContent('requestProccesed');
-    }
-
-    const declineFriendRequest = () => {
-        
-        fetch("https://api.myvizbl/api/reject-friend-request", {
+    const sendFriendRequest = () => {
+        fetch("https://server.studiomodvis.com/api/send-friend-request", {
             method: "POST",
             mode: "cors",
             credentials: 'include',
             headers: {
                 "Content-Type": "application/json",
-                },
+            },
             body: JSON.stringify({
-                friend: params.token
-            })
+                friend: decodeURIComponent(params.token)
+            }),
         })
-        .then(res => {
-            if (res.ok) setPageContent('requestProccesed');
-        })
-        .catch(error => console.error('Error when /api/add-friend: ', error));
+        .then(res => {setPageContent('requestProccesed');})
+        .catch(error => console.error('Error when /api/send-friend-request: ', error));
+    }
+
+    const declineFriendRequest = () => {
+        setPageContent('requestProccesed');
     }
 
     const buttons = isSignedIn ?
         <div className="flex gap-6">
-            <button className="py-4 lg:py-[0.875rem] w-48 colored-button flat border border-white font-bold" onClick={acceptFriendRequest}>SEND REQUEST</button>
+            <button className="py-4 lg:py-[0.875rem] w-48 colored-button flat border border-white font-bold" onClick={sendFriendRequest}>SEND REQUEST</button>
             <button className="py-4 lg:py-[0.875rem] w-48 border border-white font-bold bg-white bg-opacity-0 hover:bg-opacity-10 rounded-lg transition-all duration-200" onClick={declineFriendRequest}>NO, THANK YOU</button>
         </div> :
         <button className="py-4 lg:py-[0.875rem] px-12 colored-button border border-white font-bold" onClick={() => {router.push(`/signup/${params.token}`);}}>SIGN UP & INSTALL</button>
@@ -72,7 +69,7 @@ export default function Page ({ params }: { params: { token: string } }) {
                 <div className="relative rounded-lg overflow-hidden border-[2px] border-white bounce mb-12" onClick={(e) => {e.stopPropagation()}}>
                     <img src={friendImage} alt="profile image" className="w-[9.5rem]"/>
                 </div>
-                <p className="font-bold text-[4rem] leading-[140%] mb-12 text-center">{params.token} <br/> WANTS TO BE FRIENDS ON ViZBL </p>
+                <p className="font-bold text-[4rem] leading-[140%] mb-12 text-center">{decodeURIComponent(params.token)} <br/> WANTS TO BE FRIENDS ON ViZBL </p>
                 <p className="text-gray text-2xl font-bold leading-[140%] text-center mb-12"> This person wants to share their YouTube activity with you. <br/> Maybe they’ll also interact with you for much more fun.</p>
                 {buttons}
             </div>
