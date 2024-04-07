@@ -12,6 +12,7 @@ export default function Page ({ params }: { params: { friendUsername: string } }
     const router = useRouter();
 
     useEffect(() => {
+        console.log(params.friendUsername);
         fetch(`https://api.myvizbl.com/api/invite?friend=${params.friendUsername}`, {
             credentials: 'include',
         })
