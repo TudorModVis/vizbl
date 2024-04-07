@@ -10,6 +10,33 @@ import HamburgerTransitionBtn from './HamburgerTransitionBtn'
 import { usePathname, useRouter } from 'next/navigation';
 
 const HamburgerBtn = () => {
+
+    const [scrollbarWidth, setScrollbarWidth] = useState(0);
+
+    useEffect(() => {
+        const measureScrollbar = () => {
+            const outer = document.createElement('div');
+            outer.style.visibility = 'hidden';
+            outer.style.width = '100px';
+            outer.style.overflow = 'scroll';
+        
+            outer.style.scrollbarWidth = 'thin';
+            outer.style.scrollbarColor = '#696969 #F1F1F1';
+        
+            document.body.appendChild(outer);
+        
+            const inner = document.createElement('div');
+            outer.appendChild(inner);
+        
+            const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
+            document.body.removeChild(outer);
+        
+            return scrollbarWidth;
+        };
+    
+        setScrollbarWidth(measureScrollbar());
+      }, []);
+
     const router = useRouter()
     const pathname = usePathname()
 
@@ -41,17 +68,17 @@ const HamburgerBtn = () => {
   const { aboutRef, howItWorksRef, contactsRef } = useSectionRefs();
 
   const [navLinks, setNavLinks] = useState([
-    { text: 'About', divEl: aboutRef },
-    { text: 'How does it work', divEl: howItWorksRef },
-    { text: 'Contacts', divEl: contactsRef },
+    { text: 'About', divEl: aboutRef, id: 'about' },
+    { text: 'How does it work', divEl: howItWorksRef, id: 'how-it-works' },
+    { text: 'Contacts', divEl: contactsRef, id: 'contacts' },
   ]);
 
   useEffect(() => {
     if (aboutRef && howItWorksRef && contactsRef) {
       setNavLinks([
-        { text: 'About', divEl: aboutRef },
-        { text: 'How does it work', divEl: howItWorksRef },
-        { text: 'Contacts', divEl: contactsRef },
+        { text: 'About', divEl: aboutRef, id: 'about' },
+        { text: 'How does it work', divEl: howItWorksRef, id: 'how-it-works' },
+        { text: 'Contacts', divEl: contactsRef, id: 'contacts' },
       ]);
     }
   }, [aboutRef, howItWorksRef, contactsRef]);
@@ -169,7 +196,10 @@ const HamburgerBtn = () => {
                     {
                         toggle && (
                             <motion.div 
-                                className="fixed top-0 left-0 w-full h-[97%] border-b border-gray-border rounded-b-[3rem] bg-card-bg z-[-1]"
+                                className={`fixed top-0 left-0 h-[97%] border-b border-gray-border rounded-b-[3rem] bg-card-bg z-[-1]`}
+                                style={{
+                                    width: `calc(100vw - ${scrollbarWidth}px)`
+                                  }}
                                 initial={{
                                     translateY: '-100%'
                                 }}
@@ -214,7 +244,7 @@ const HamburgerBtn = () => {
                                         navLinks.map((link, index) => (
                                             <motion.p
                                                 key={index}
-                                                className='cursor-pointer'
+                                                className='cursor-pointer relative'
                                                 initial={{
                                                     translateY: '-20px'
                                                 }}
@@ -229,10 +259,17 @@ const HamburgerBtn = () => {
                                                 }}
                                                 onClick={() => {
                                                     lenis?.start()
-                                                    lenis?.scrollTo(link.divEl.current!, {
-                                                        duration: 2,
-                                                        easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
-                                                    })
+                                                    if(pathname === '/'){
+                                                        lenis?.scrollTo(link.divEl.current!, {
+                                                            duration: 2,
+                                                            easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+                                                        })
+                                                    } else {
+                                                        setClickedRoute({
+                                                            isClicked: true,
+                                                            route: `/#${link.id}`
+                                                        })
+                                                    }
                                                     setToggle(false)
                                                 }}
                                             >
@@ -241,6 +278,7 @@ const HamburgerBtn = () => {
                                         ))
                                     }
                                     <div 
+                                        className='hidden'
                                         onClick={() => { 
                                             if(pathname !== '/plans-and-pricing') {
                                                 setClickedRoute({

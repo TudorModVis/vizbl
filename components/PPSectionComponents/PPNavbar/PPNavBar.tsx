@@ -2,7 +2,7 @@
 
 import { useLenis } from '@studio-freight/react-lenis'
 
-import NavButtonRight from '../NavButtonRight'
+import NavButtonRight from '../../NavBar/NavButtonRight'
 import GradientButton from '@/components/GradientButton'
 
 

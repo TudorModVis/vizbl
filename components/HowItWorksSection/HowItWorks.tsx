@@ -28,7 +28,7 @@ const HowItWorks: React.FC = () => {
 
 
   return (
-    <div className="sm:pt-[9rem] pt-[5rem] pb-[2rem] sm:mt-[5rem] mt-[2rem] bg-body-bg" ref={howItWorksRef}>
+    <div className="sm:pt-[9rem] pt-[5rem] pb-[2rem] sm:mt-[5rem] mt-[2rem] bg-body-bg" ref={howItWorksRef} id="how-it-works">
         <div className="smm:px-[6rem] px-[0rem]">
           <div className="w-full flex justify-center sm:mb-[10rem] mb-[6rem]">
             <div className="text-custom-white uppercase text-[4rem] font-[600] w-[55rem] max-mmd:hidden">

@@ -1,9 +1,7 @@
 'use client'
 
-import Link from "next/link"
 import { useSectionRefs } from '../SectionContext'
 import { useLenis } from '@studio-freight/react-lenis'
-import { useEffect, useState } from "react"
 
 const FooterNav = () => {
 

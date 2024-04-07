@@ -27,7 +27,7 @@ const ScrollToTop:React.FC = () => {
 
   return (
     <motion.div 
-        className="bottom-[0] left-0 fixed w-full z-[1000] flex justify-center"
+        className="bottom-[0] left-1/2 -translate-x-1/2 fixed z-[1000] flex justify-center"
         initial={{
             translateY: '100%'
         }}

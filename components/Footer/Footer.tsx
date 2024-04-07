@@ -3,11 +3,37 @@
 import Image from "next/image"
 import FooterNav from "./FooterNav"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { usePathname, useRouter } from 'next/navigation';
 import { motion } from "framer-motion";
 
 const Footer: React.FC = () => {
+
+    const [scrollbarWidth, setScrollbarWidth] = useState(0);
+
+    useEffect(() => {
+        const measureScrollbar = () => {
+            const outer = document.createElement('div');
+            outer.style.visibility = 'hidden';
+            outer.style.width = '100px';
+            outer.style.overflow = 'scroll';
+        
+            outer.style.scrollbarWidth = 'thin';
+            outer.style.scrollbarColor = '#696969 #F1F1F1';
+        
+            document.body.appendChild(outer);
+        
+            const inner = document.createElement('div');
+            outer.appendChild(inner);
+        
+            const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
+            document.body.removeChild(outer);
+        
+            return scrollbarWidth;
+        };
+    
+        setScrollbarWidth(measureScrollbar());
+      }, []);
 
     const router = useRouter()
     const pathname = usePathname()
@@ -16,6 +42,8 @@ const Footer: React.FC = () => {
         isClicked: false,
         route: pathname
       })
+
+
 
 
 
@@ -44,7 +72,12 @@ const Footer: React.FC = () => {
         }
         {/* Overlay on page transition */}
 
-        <div className='flex flex-col justify-between select-none sm:h-[80vh] h-[85vh] w-full bg-body-bg fixed z-[-1] bottom-0 lg:px-[10.5rem] xxl:px-[14.5rem] 2k:px-[9.5rem] mmd:px-[10rem] px-[1rem]'>
+        <div 
+            className='flex flex-col justify-between select-none sm:h-[80vh] h-[85vh] bg-body-bg fixed z-[-1] bottom-0 lg:px-[10.5rem] xxl:px-[14.5rem] 2k:px-[9.5rem] mmd:px-[10rem] px-[1rem]'
+            style={{
+                width: `calc(100vw - ${scrollbarWidth}px)`
+            }}
+        >
             <div className="w-full h-[30%] flex justify-center">
                 <div className="w-full vizbl-logo-footer mmd:pt-[6.5rem] flex justify-center items-center">
                     <img
@@ -196,7 +229,22 @@ const Footer: React.FC = () => {
 
                     <div className=" flex pb-[2.25rem] justify-between text-gray-border font-[500] sm:text-[1rem] text-[0.8rem] mt-[3.5rem]">
                         <p>All rights reserved © <br className="ss:hidden"/>Studio ModVis, 2024</p>
-                        <p className="text-right">Terms of Services <br className="ss:hidden"/>| Privacy Policy</p>
+                        <p className="text-right">
+                            Terms of Services 
+                            <br className="ss:hidden"/>&nbsp;|&nbsp;
+                            <span 
+                                className="cursor-pointer"
+                                onClick={() => { 
+                                    if(pathname !== '/privacy-and-policy') {
+                                        setClickedRoute({
+                                            isClicked: true,
+                                            route: '/privacy-and-policy'
+                                        })
+                                        document.body.style.overflow = 'hidden';
+                                    } 
+                                }}
+                            >Privacy Policy</span>
+                        </p>
                     </div>
                 </div>
         </div>
