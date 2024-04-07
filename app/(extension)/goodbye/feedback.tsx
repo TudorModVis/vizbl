@@ -12,7 +12,7 @@ export default function Feedback ({setIsSent}: feedbackProps) {
     const [other, setOther] = useState('');
 
     const sendFeedback = () => {
-        fetch("https://server.studiomodvis.com/api/feedback", {
+        fetch("https://api.myvizbl/api/feedback", {
             method: 'post',
             headers: {
                 "Content-Type": "application/json",

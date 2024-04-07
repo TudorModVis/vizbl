@@ -6,14 +6,14 @@ import { useEffect, useState } from "react";
 export default function Page({ params }: { params: { token: string, email: string, source: string } }) {
     const [pageContent, setPageContent] = useState<string | null>('success');
 
-    // useEffect(() => {
-    //     fetch("https://server.studiomodvis.com/api/email-confirmation?token=" + params.token + "&email=" + decodeURIComponent(params.email), {
-    //         credentials: 'include',
-    //     })
-    //     .then(res => {
-    //        res.ok ? setPageContent('success') : setPageContent('invalid');
-    //     });
-    // }, []);
+    useEffect(() => {
+        fetch("https://api.myvizbl/api/email-confirmation?token=" + params.token + "&email=" + decodeURIComponent(params.email), {
+            credentials: 'include',
+        })
+        .then(res => {
+           res.ok ? setPageContent('success') : setPageContent('invalid');
+        });
+    }, []);
 
     const contentToLoad = pageContent === 'invalid' ? 
     <LinkState title="YOUR VERIFICATION LINK HAS EXPIRED" text="Your verification link has expired, if you aren’t yet verified open the extension to resend the link." succes={false} /> : 

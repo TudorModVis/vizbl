@@ -56,12 +56,14 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
         fetch("https://api.myvizbl.com/api/signup", {
             method: "POST",
             mode: "cors",
+            credentials: 'include',
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 email: email,
-                password: password
+                password: password,
+                source: 'web'
             }),
         })
         .then(res => res.json())
@@ -84,6 +86,7 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
           fetch("https://api.myvizbl.com/api/google-auth", {
             method: "POST",
             mode: "cors",
+            credentials: 'include',
             headers: {
                 "Content-Type": "application/json",
             },
@@ -135,7 +138,7 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
 
                         <div className="flex justify-center">
                             <p className='font-medium text-gray text-[14px] lg:text-base'>Already have an account?&nbsp;</p>
-                            <Link href="/login" className='font-bold hover:opacity-75 transition duration-200 text-[14px] lg:text-base'>Log in</Link>
+                            <Link href={params.tokens === undefined ? "/login" : `/login/${params.tokens[0]}`} className='font-bold hover:opacity-75 transition duration-200 text-[14px] lg:text-base'>Log in</Link>
                         </div>
                         <div className="flex items-center gap-2 fixed bottom-12 left-1/2 -translate-x-1/2">
                             <img src="/images/login/tick.svg" alt="tick" className="w-[1.125rem] aspect-square"/>

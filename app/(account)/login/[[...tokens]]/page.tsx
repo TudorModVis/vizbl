@@ -138,7 +138,7 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
 
                     <div className="flex justify-center">
                         <p className='font-medium text-gray text-[14px] lg:text-base'>Don’t have an account yet?&nbsp;</p>
-                        <Link href="/signup" className='font-bold hover:opacity-75 transition duration-200 text-[14px] lg:text-base'>Sign up</Link>
+                        <Link href={params.tokens === undefined ? "/signup" : `/signup/${params.tokens[0]}`} className='font-bold hover:opacity-75 transition duration-200 text-[14px] lg:text-base'>Sign up</Link>
                     </div>
                 </div>
             </div>
