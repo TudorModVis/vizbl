@@ -60,8 +60,8 @@ export default function Page ({ params }: { params: { token: string } }) {
 
     const buttons = isSignedIn ?
         <div className="flex gap-6">
-            <button className="py-4 lg:py-[0.875rem] w-48 colored-button flat border border-white font-bold" onClick={acceptFriendRequest}>ACCEPT</button>
-            <button className="py-4 lg:py-[0.875rem] w-48 border border-white font-bold bg-white bg-opacity-0 hover:bg-opacity-10 rounded-lg transition-all duration-200" onClick={declineFriendRequest}>DECLINE</button>
+            <button className="py-4 lg:py-[0.875rem] w-48 colored-button flat border border-white font-bold" onClick={acceptFriendRequest}>SEND REQUEST</button>
+            <button className="py-4 lg:py-[0.875rem] w-48 border border-white font-bold bg-white bg-opacity-0 hover:bg-opacity-10 rounded-lg transition-all duration-200" onClick={declineFriendRequest}>NO, THANK YOU</button>
         </div> :
         <button className="py-4 lg:py-[0.875rem] px-12 colored-button border border-white font-bold" onClick={() => {router.push(`/signup/${params.token}`);}}>SIGN UP & INSTALL</button>
 
@@ -72,7 +72,7 @@ export default function Page ({ params }: { params: { token: string } }) {
                 <div className="relative rounded-lg overflow-hidden border-[2px] border-white bounce mb-12" onClick={(e) => {e.stopPropagation()}}>
                     <img src={friendImage} alt="profile image" className="w-[9.5rem]"/>
                 </div>
-                <p className="font-bold text-[4rem] leading-[140%] mb-12 text-center">@TUDOR-242 <br/> WANTS TO BE FRIENDS ON ViZBL </p>
+                <p className="font-bold text-[4rem] leading-[140%] mb-12 text-center">{params.token} <br/> WANTS TO BE FRIENDS ON ViZBL </p>
                 <p className="text-gray text-2xl font-bold leading-[140%] text-center mb-12"> This person wants to share their YouTube activity with you. <br/> Maybe they’ll also interact with you for much more fun.</p>
                 {buttons}
             </div>
