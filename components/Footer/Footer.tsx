@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
                                     <div className="mt-[1.5rem] flex flex-col gap-[16px] text-custom-white">
                                         <FooterNav />
                                         <div 
-                                            className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer"
+                                            className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer hidden"
                                             onClick={() => { 
                                                 if(pathname !== '/plans-and-pricing') {
                                                     setClickedRoute({
