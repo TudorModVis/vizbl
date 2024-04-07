@@ -18,8 +18,8 @@ const Footer: React.FC = () => {
             outer.style.width = '100px';
             outer.style.overflow = 'scroll';
         
-            outer.style.scrollbarWidth = 'thin';
-            outer.style.scrollbarColor = '#696969 #F1F1F1';
+            //outer.style.scrollbarWidth = 'thin';
+            //outer.style.scrollbarColor = '#696969 #F1F1F1';
         
             document.body.appendChild(outer);
         
