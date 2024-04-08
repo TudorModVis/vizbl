@@ -10,6 +10,7 @@ import { default as Loader } from './Loader'
 
 import { default as PPNavbar } from './PPSectionComponents/PPNavbar/PPNavBar'
 import { default as PlansSection } from './PPSectionComponents/PlansSection/PlansSection'
+
 import { default as FAQ } from './PPSectionComponents/FAQ/FAQ'
  
 export{

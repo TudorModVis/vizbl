@@ -1,15 +1,18 @@
 'use client'
 
 import Image from "next/image"
-import FooterNav from "./FooterNav"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { usePathname, useRouter } from 'next/navigation';
 import { motion } from "framer-motion";
+import { useSectionRefs } from '../SectionContext'
+import { useLenis } from '@studio-freight/react-lenis'
 
 const Footer: React.FC = () => {
 
     const [scrollbarWidth, setScrollbarWidth] = useState(0) 
+    const lenis = useLenis(() => {})
+    const { aboutRef, howItWorksRef, contactsRef } = useSectionRefs();
 
     useEffect(() => {
         setScrollbarWidth(window.innerWidth - document.body.clientWidth)
@@ -92,7 +95,58 @@ const Footer: React.FC = () => {
                                 <div>
                                     <h4 className="text-gray-border font-[600] text-[1rem] uppercase">Features</h4>
                                     <div className="mt-[1.5rem] flex flex-col gap-[16px] text-custom-white">
-                                        <FooterNav />
+                                        {/* footer nav */}
+                                        <p 
+                                            className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer"
+                                            onClick={() => {
+                                                if(pathname === '/'){
+                                                    aboutRef.current && lenis?.scrollTo(aboutRef.current, {
+                                                    duration: 2,
+                                                    easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+                                                    })
+                                                } else {
+                                                    setClickedRoute({
+                                                        isClicked: true,
+                                                        route: '/#about'
+                                                    })
+                                                } 
+                                            }}
+                                            >About</p>
+
+                                        <p 
+                                            className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer"
+                                            onClick={() => {
+                                                if(pathname === '/'){
+                                                    howItWorksRef.current && lenis?.scrollTo(howItWorksRef.current, {
+                                                    duration: 2,
+                                                    easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+                                                    })
+                                                } else {
+                                                    setClickedRoute({
+                                                        isClicked: true,
+                                                        route: '/#how-it-works'
+                                                    })
+                                                } 
+                                            }}
+                                            >How it works</p>
+
+                                        <p 
+                                            className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer"
+                                            onClick={() => {
+                                                if(pathname === '/'){
+                                                    contactsRef.current && lenis?.scrollTo(contactsRef.current, {
+                                                    duration: 2,
+                                                    easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+                                                    })
+                                                } else {
+                                                    setClickedRoute({
+                                                        isClicked: true,
+                                                        route: '/#contacts'
+                                                    })
+                                                } 
+                                            }}
+                                            >Contacts</p>
+                                        {/* footer nav */}
                                         <div 
                                             className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer hidden"
                                             onClick={() => { 
