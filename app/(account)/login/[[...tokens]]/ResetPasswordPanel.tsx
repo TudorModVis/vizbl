@@ -64,12 +64,12 @@ const ResetPasswordPanel:React.FC<ResetPasswordPanelProps> = ({setResetPasswordP
 
 const Confirmation = ({setPasswordPanel, email}: {setPasswordPanel: (value: boolean) => void, email: string}) => {
     return (
-        <div className="w-full px-2 flex pt-2 items-center flex-col relative">
-            <img src="../images/login/mail.gif" alt="mail" className="w-32"/>
-            <p className="text-2xl leading-[140%] font-medium text-center mb-2">VERIFY YOUR EMAIL</p>
-            <p className="text-xs leading-[140%] font-medium text-center text-gray mb-4">We have sent a link to <span className="text-white">{email}</span></p>
-            <p className="text-xs leading-[140%] font-medium text-center text-gray mb-6">Click the link to reset your password. <br/> You might need to <span className="text-white">check your spam.</span></p>
-            <button onClick={() => {setPasswordPanel(false)}} className="border border-transparent transition duration-200 hover:border-white colored-button small text-xs leading-[140%] font-medium px-4 py-2 rounded-[4px]">Done</button>
+        <div className="w-full px-4 flex pt-2 items-center flex-col relative">
+            <img src="../images/login/mail.gif" alt="mail" className="w-[10.6rem]"/>
+            <p className="text-[2rem] leading-[140%] font-bold text-center mb-3">VERIFY YOUR EMAIL</p>
+            <p className="text-base leading-[140%] font-medium text-center text-gray mb-3">We have sent a link to <span className="text-white">{email}</span></p>
+            <p className="text-base leading-[140%] font-medium text-center text-gray mb-8">Click the link to reset your password. <br/> You might need to <span className="text-white">check your spam.</span></p>
+            <button onClick={() => {setPasswordPanel(false)}} className="border border-transparent transition duration-200 hover:border-white colored-button small text-base leading-[140%] font-medium px-8 py-[0.625rem] rounded-[4px]">Done</button>
         </div>
     )
 }

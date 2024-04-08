@@ -35,7 +35,7 @@ const ExtensionLayout = ({ children } : { children: ReactNode }) => {
           <body className='bg-body-bg relative'>
             <GoogleOAuthProvider clientId={clientId}>
                 {children}
-            </GoogleOAuthProvider>;
+            </GoogleOAuthProvider>
           </body>
 
     </html>
