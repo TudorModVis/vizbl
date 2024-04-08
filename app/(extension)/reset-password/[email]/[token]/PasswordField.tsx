@@ -90,13 +90,14 @@ const StyledLabel = styled('label')(({ theme }) => ({
             slots={{ input: innerInput }}
             slotProps={{ input: { placeholder: "", type: showPassword ? 'text' : 'password' } }}
             sx={{
-                '--Input-minHeight': '3.5rem',
+                '--Input-minHeight': '48px',
                 '--Input-radius': '6px',
                 bgcolor: "transparent",
                 borderColor: (error !== null) ? "#C41C1C" : "#a0a0a0",
                 color: (error !== null) ? "#C41C1C" : "#f1f1f1",
                 borderRadius: "8px",
                 marginBottom: "1.3rem",
+                fontSize: '16px',
                 width: '100%',
                 paddingLeft: '1.5rem'
               }}
