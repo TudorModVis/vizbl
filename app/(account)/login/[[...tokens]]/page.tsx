@@ -7,7 +7,7 @@ import { useState } from 'react';
 import PasswordField from '../../shared/PasswordField';
 import EmailField from '../../shared/EmailField';
 import React from 'react';
-import ResetPasswordPanel from '../../shared/ResetPasswordPanel';
+import ResetPasswordPanel from './ResetPasswordPanel';
 import { useGoogleLogin } from '@react-oauth/google';
 
 export default function login ({ params }: { params: { tokens: string[]} }) {
@@ -109,7 +109,7 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
 
     return (
         <>
-            {forgotPasswordPanel && <ResetPasswordPanel setResetPasswordPanel={setForgotPasswordPanel} email={null}/>}
+            {forgotPasswordPanel && <ResetPasswordPanel setResetPasswordPanel={setForgotPasswordPanel}/>}
             <img src="/images/bg.png" alt="background color" className="absolute w-full h-screen object-cover -z-10 left-0 top-0"/>
             <div className='flex justify-center items-center h-screen'>
                 <div className='w-[22.5rem] mt-24'>

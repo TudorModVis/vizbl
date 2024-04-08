@@ -1,19 +1,14 @@
 import { useState } from "react";
-import PasswordInput from "./PasswordInput";
+import PasswordInput from "../../shared/PasswordInput";
 
 interface ResetPasswordPanelProps {
     setResetPasswordPanel: (value: boolean) => void,
-    email: string | null,
 }
 
-const ResetPasswordPanel:React.FC<ResetPasswordPanelProps> = ({setResetPasswordPanel, email}) => {
+const ResetPasswordPanel:React.FC<ResetPasswordPanelProps> = ({setResetPasswordPanel}) => {
     const [confirmation, setConfirmation] = useState(false);
-    const [newEmail, setNewEmail] = useState(() => {return email === null ? '' : email});
+    const [newEmail, setNewEmail] = useState('');
     const [emailError, setEmailError] = useState<string | null>(null);
-
-    const text = email === null ? 
-    "Don’t worry, write your email address and we’ll send you an link to reset your password." :
-    "Don’t worry, we’ll send you an email to reset your password. (don’t forget it this time)";
 
     const checkEmail = () => {
         if (newEmail === '') {
@@ -53,12 +48,12 @@ const ResetPasswordPanel:React.FC<ResetPasswordPanelProps> = ({setResetPasswordP
             <div className="bg-semi-black border border-gray rounded-[5px] p-4 w-[19.3rem] bounce" onClick={(e) => {e.stopPropagation()}}>
                 {confirmation ? <Confirmation setPasswordPanel={setResetPasswordPanel} email={newEmail}/> : 
                     <>
-                        <p className="font-medium leading-[140%] mb-2">Forgot your password?</p>
-                        <p className="text-xs font-medium leading-[140%] text-gray mb-6">{text}</p>
-                        {email === null && <div className="-mt-2 mb-6"><PasswordInput  password={newEmail} setPassword={setNewEmail} error={emailError} setError={setEmailError} label="Email" endDecorator={false} placeholder=""/></div>}
-                        <div className="flex justify-end">
-                            <button onClick={() => {setResetPasswordPanel(false)}} className="px-4 py-2 text-xs leading-[140%] border border-transparent font-medium">Cancel</button>
-                            <button onClick={sendEmail} className="border border-transparent transition duration-200 hover:border-white colored-button small text-xs leading-[140%] font-medium px-4 py-2 rounded-[4px]">Reset password</button>
+                        <p className="font-medium leading-[140%] mb-1 text-2xl">Forgot your password?</p>
+                        <p className="font-medium leading-[140%] text-gray mb-6">Don’t worry, write your email address and we’ll send you an link to reset your password.</p>
+                        <PasswordInput  password={newEmail} setPassword={setNewEmail} error={emailError} setError={setEmailError} label="Email" endDecorator={false} placeholder=""/>
+                        <div className="flex justify-end mt-8">
+                            <button onClick={() => {setResetPasswordPanel(false)}} className="px-4 py-2 leading-[140%] border border-transparent font-medium">Cancel</button>
+                            <button onClick={sendEmail} className="border border-transparent transition duration-200 hover:border-white colored-button small leading-[140%] font-medium px-4 py-2 rounded-[4px]">Reset password</button>
                         </div>
                     </>
                 }
