@@ -97,7 +97,7 @@ const StyledLabel = styled('label')(({ theme }) => ({
                 color: (error !== null) ? "#C41C1C" : "#f1f1f1",
                 borderRadius: "8px",
                 marginBottom: "1.3rem",
-                fontSize: '16px',
+                fontSize: '16px !important',
                 width: '100%',
                 paddingLeft: '1.5rem'
               }}
