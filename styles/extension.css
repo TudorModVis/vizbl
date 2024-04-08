@@ -7,7 +7,7 @@ p, label, button {
 }
 
 @media (min-width: 1536px) {
-  p, input, button {
+  p, label, button {
     font-size: 16px;
   }
 }
