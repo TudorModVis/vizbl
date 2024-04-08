@@ -53,7 +53,7 @@ const ResetPasswordPanel:React.FC<ResetPasswordPanelProps> = ({setResetPasswordP
                         <PasswordInput  password={newEmail} setPassword={setNewEmail} error={emailError} setError={setEmailError} label="Email" endDecorator={false} placeholder=""/>
                         <div className="flex justify-end mt-8">
                             <button onClick={() => {setResetPasswordPanel(false)}} className="px-4 py-2 leading-[140%] border border-transparent font-medium text-base">Cancel</button>
-                            <button onClick={sendEmail} className="border border-transparent transition duration-200 hover:border-white colored-button small leading-[140%] font-medium px-4 py-2 rounded-[4px] text-base">Reset password</button>
+                            <button onClick={sendEmail} className="border border-transparent transition duration-200 hover:border-white colored-button small leading-[140%] font-medium px-5 py-[0.625rem] rounded-[4px] text-base">Reset password</button>
                         </div>
                     </>
                 }
