@@ -32,7 +32,7 @@ const ResetPasswordPanel:React.FC<ResetPasswordPanelProps> = ({setResetPasswordP
     const sendEmail = () => {
         if (checkEmail() === 'error') return;
 
-        fetch("https://server.studiomodvis.com/api/send-reset-password-email", {
+        fetch("https://api.myvizbl.com/api/send-reset-password-email", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

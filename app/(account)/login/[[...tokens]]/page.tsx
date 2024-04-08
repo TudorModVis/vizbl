@@ -91,7 +91,8 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                token: tokenResponse.access_token
+                token: tokenResponse.access_token,
+                invitation: params.tokens === undefined ? '' : decodeURIComponent(params.tokens[0])
             }),
         })
             .then((res) => {

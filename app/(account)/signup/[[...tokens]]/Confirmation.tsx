@@ -5,7 +5,7 @@ export default function Confirmation ({email}: {email:string}) {
     const [disabled, setDisabled] = useState(false);
 
     const resendEmail = () => {
-        fetch("https://server.studiomodvis.com/api/resend-email", {
+        fetch("https://api.myvizbl.com/api/resend-email", {
             method: "POST",
             body: JSON.stringify({email: email}),
             headers: {
