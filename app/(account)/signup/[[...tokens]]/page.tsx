@@ -150,5 +150,5 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
                 }
             </div>
         </>
-    );
+    )
 }

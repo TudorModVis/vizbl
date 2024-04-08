@@ -40,6 +40,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({password, setPassword, err
                     },
                     width: '100%',
                     bgcolor: "transparent",
+                    fontSize: '16px',
                     borderWidth: '1px',
                     color: "#F1F1F1",
                     borderColor: (error !== null) ? "#C41C1C" : "#F1F1F1",

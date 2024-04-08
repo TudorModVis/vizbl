@@ -142,5 +142,5 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
                 </div>
             </div>
         </>
-    );
+    )
 }
