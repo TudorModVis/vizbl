@@ -2,12 +2,12 @@ body {
   background-color: #050505;
 }
 
-p, input, label, button {
+p, label, button {
   font-size: 14px;
 }
 
 @media (min-width: 1536px) {
-  p, input, label, button {
+  p, input, button {
     font-size: 16px;
   }
 }
