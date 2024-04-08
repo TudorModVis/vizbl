@@ -9,31 +9,11 @@ import { motion } from "framer-motion";
 
 const Footer: React.FC = () => {
 
-    const [scrollbarWidth, setScrollbarWidth] = useState(0);
+    const [scrollbarWidth, setScrollbarWidth] = useState(0) 
 
     useEffect(() => {
-        const measureScrollbar = () => {
-            const outer = document.createElement('div');
-            outer.style.visibility = 'hidden';
-            outer.style.width = '100px';
-            outer.style.overflow = 'scroll';
-        
-            //outer.style.scrollbarWidth = 'thin';
-            //outer.style.scrollbarColor = '#696969 #F1F1F1';
-        
-            document.body.appendChild(outer);
-        
-            const inner = document.createElement('div');
-            outer.appendChild(inner);
-        
-            const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
-            document.body.removeChild(outer);
-        
-            return scrollbarWidth;
-        };
-    
-        setScrollbarWidth(measureScrollbar());
-      }, []);
+        setScrollbarWidth(window.innerWidth - document.body.clientWidth)
+    })
 
     const router = useRouter()
     const pathname = usePathname()

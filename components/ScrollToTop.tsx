@@ -6,6 +6,12 @@ import { useLenis } from '@studio-freight/react-lenis'
 
 const ScrollToTop:React.FC = () => {
 
+    const [scrollbarWidth, setScrollbarWidth] = useState(0) 
+
+    useEffect(() => {
+        setScrollbarWidth(window.innerWidth - document.body.clientWidth)
+    })
+
     const lenis = useLenis(() => {})
 
     const [scrollProgress, setScrollProgress] = useState(0)
@@ -27,7 +33,10 @@ const ScrollToTop:React.FC = () => {
 
   return (
     <motion.div 
-        className="bottom-[0] left-1/2 -translate-x-1/2 fixed z-[1000] flex justify-center"
+        className="bottom-[0] -translate-x-1/2 fixed z-[0] flex justify-center"
+        style={{
+            left: `calc(50% - ${scrollbarWidth}px`
+        }}
         initial={{
             translateY: '100%'
         }}

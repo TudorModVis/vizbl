@@ -10,32 +10,12 @@ import HamburgerTransitionBtn from './HamburgerTransitionBtn'
 import { usePathname, useRouter } from 'next/navigation';
 
 const HamburgerBtn = () => {
-
-    const [scrollbarWidth, setScrollbarWidth] = useState(0);
+    
+    const [scrollbarWidth, setScrollbarWidth] = useState(0) 
 
     useEffect(() => {
-        const measureScrollbar = () => {
-            const outer = document.createElement('div');
-            outer.style.visibility = 'hidden';
-            outer.style.width = '100px';
-            outer.style.overflow = 'scroll';
-        
-            //outer.style.scrollbarWidth = 'thin';
-            //outer.style.scrollbarColor = '#696969 #F1F1F1';
-        
-            document.body.appendChild(outer);
-        
-            const inner = document.createElement('div');
-            outer.appendChild(inner);
-        
-            const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
-            document.body.removeChild(outer);
-        
-            return scrollbarWidth;
-        };
-    
-        setScrollbarWidth(measureScrollbar());
-      }, []);
+        setScrollbarWidth(window.innerWidth - document.body.clientWidth)
+    })
 
     const router = useRouter()
     const pathname = usePathname()
@@ -45,7 +25,7 @@ const HamburgerBtn = () => {
   const [toggle, setToggle] = useState(false)
   const [clickedRoute, setClickedRoute] = useState({
     isClicked: false,
-    route: pathname
+    route: pathname,
   })
 
   useEffect(() => {
@@ -68,17 +48,17 @@ const HamburgerBtn = () => {
   const { aboutRef, howItWorksRef, contactsRef } = useSectionRefs();
 
   const [navLinks, setNavLinks] = useState([
-    { text: 'About', divEl: aboutRef, id: 'about' },
-    { text: 'How does it work', divEl: howItWorksRef, id: 'how-it-works' },
-    { text: 'Contacts', divEl: contactsRef, id: 'contacts' },
+    { text: 'About', divEl: aboutRef, id: '#about' },
+    { text: 'How does it work', divEl: howItWorksRef, id: '#how-it-works' },
+    { text: 'Contacts', divEl: contactsRef, id: '#contacts' },
   ]);
 
   useEffect(() => {
     if (aboutRef && howItWorksRef && contactsRef) {
       setNavLinks([
-        { text: 'About', divEl: aboutRef, id: 'about' },
-        { text: 'How does it work', divEl: howItWorksRef, id: 'how-it-works' },
-        { text: 'Contacts', divEl: contactsRef, id: 'contacts' },
+        { text: 'About', divEl: aboutRef, id: '#about' },
+        { text: 'How does it work', divEl: howItWorksRef, id: '#how-it-works' },
+        { text: 'Contacts', divEl: contactsRef, id: '#contacts' },
       ]);
     }
   }, [aboutRef, howItWorksRef, contactsRef]);
@@ -267,7 +247,7 @@ const HamburgerBtn = () => {
                                                     } else {
                                                         setClickedRoute({
                                                             isClicked: true,
-                                                            route: `/#${link.id}`
+                                                            route: `/${link.id}`,
                                                         })
                                                     }
                                                     setToggle(false)
@@ -283,7 +263,7 @@ const HamburgerBtn = () => {
                                             if(pathname !== '/plans-and-pricing') {
                                                 setClickedRoute({
                                                     isClicked: true,
-                                                    route: '/plans-and-pricing'
+                                                    route: '/plans-and-pricing',
                                                 })
                                                 document.body.style.overflow = 'hidden';
                                             } 

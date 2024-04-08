@@ -9,6 +9,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
 const HomePage:NextPage = () => {
+  const router = useRouter()
 
   const lenis = useLenis(() => {})
   useEffect(() => {
@@ -19,6 +20,7 @@ const HomePage:NextPage = () => {
           duration: 2,
           easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
         })
+        window.history.replaceState(null, '', '/')
       }
       console.log(hash)
     }, 2500)
