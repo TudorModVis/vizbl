@@ -83,7 +83,6 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
 
     const googleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
-          console.log(tokenResponse);  
           fetch("https://api.myvizbl.com/api/google-auth", {
             method: "POST",
             mode: "cors",
@@ -97,13 +96,14 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
             }),
         })
             .then((res) => {
-                if (res.ok) {
-                    if (params.tokens === undefined) {
-                        router.push("/authenticated");
-                    } else {
-                        router.push('/invite/' + params.tokens[0])
-                    }
+                if (!res.ok) return;
+
+                if (params.tokens === undefined || res.status === 201) {
+                    router.push("/authenticated");
+                    return;
                 }
+
+                router.push('/invite/' + params.tokens[0])
             })
             .catch(error => console.error('Error:', error));
         },
