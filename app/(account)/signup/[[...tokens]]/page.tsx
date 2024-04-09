@@ -144,7 +144,7 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
                         </div>
                         <div className="flex items-center gap-2 fixed bottom-12 left-1/2 -translate-x-1/2">
                             <img src="/images/login/tick.svg" alt="tick" className="w-[1.125rem] aspect-square"/>
-                            <p className='leading-none font-medium text-gray text-base'>By signing up you accept the <a href='' className='cursor-pointer transition duration-200 hover:opacity-75 font-bold text-white'>Terms of Service and Privacy Policy</a></p>
+                            <p className='leading-none font-medium text-gray text-base'>By signing up you accept the <Link href='/privacy-and-policy' className='cursor-pointer transition duration-200 hover:opacity-75 font-bold text-white'>Terms of Service and Privacy Policy</Link></p>
                         </div>
                     </div>
                 }
