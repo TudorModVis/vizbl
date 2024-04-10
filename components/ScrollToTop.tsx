@@ -32,38 +32,42 @@ const ScrollToTop:React.FC = () => {
       }, []);
 
   return (
-    <motion.div 
-        className="bottom-[0] -translate-x-1/2 fixed z-[0] flex justify-center"
+    <div 
+        className="fixed bottom-0 flex justify-center z-[0] h-[0]"
         style={{
-            left: `calc(50% - ${scrollbarWidth}px`
-        }}
-        initial={{
-            translateY: '100%'
-        }}
-        animate={{
-            translateY: scrollProgress > 90 ? '-50%' : '100%'
-        }}
-        transition={{
-            type: 'spring',
-            duration: 0.5
+            width: `calc(100vw - ${scrollbarWidth}px)`
         }}
     >
-        <div 
-            className="group ss:w-[3rem] ss:h-[3rem] w-[2.5rem] h-[2.5rem] p-[0.5rem] ss:rounded-[1rem] rounded-[0.7rem] bg-custom-white hover:bg-body-bg transition-colors duration-[0.5s] border border-gray-border cursor-pointer"
-            onClick={() => lenis?.scrollTo(0, {
-                duration: 2,
-                easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
-              })}    
+        <motion.div 
+            className="h-fit w-fit"
+            initial={{
+                translateY: '100%'
+            }}
+            animate={{
+                translateY: scrollProgress > 90 ? '-150%' : '100%'
+            }}
+            transition={{
+                type: 'spring',
+                duration: 0.5
+            }}
         >
-            <Image 
-                src="/images/arrow.png"
-                alt="arrow"
-                width={100}
-                height={100}
-                className="w-full h-full group-hover:invert-[100%] duration-[0.5s]"
-            />
-        </div>
-    </motion.div>
+            <div 
+                className="group ss:w-[3rem] ss:h-[3rem] w-[2.5rem] h-[2.5rem] p-[0.5rem] ss:rounded-[1rem] rounded-[0.7rem] bg-custom-white hover:bg-body-bg transition-colors duration-[0.5s] border border-gray-border cursor-pointer"
+                onClick={() => lenis?.scrollTo(0, {
+                    duration: 2,
+                    easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+                })}    
+            >
+                <Image 
+                    src="/images/arrow.png"
+                    alt="arrow"
+                    width={100}
+                    height={100}
+                    className="w-full h-full group-hover:invert-[100%] duration-[0.5s]"
+                />
+            </div>
+        </motion.div>
+    </div>
   )
 }
 

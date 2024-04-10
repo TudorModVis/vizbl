@@ -25,6 +25,7 @@ const MotionEye = () => {
       onMouseLeave={handleMouseLeave}
     >
         <Image
+          unoptimized
           width={255}
           height={255}
           draggable={false}
