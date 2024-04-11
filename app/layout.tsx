@@ -4,7 +4,7 @@ import { ReactNode } from 'react'
 import { SmoothScroll } from '@/components'
 
 export const metadata = {
-    title: "Vizbl"
+    title: "ViZBL | Get to Know Your Friends."
 }
 
 const RootLayout = ({ children } : { children: ReactNode }) => {
