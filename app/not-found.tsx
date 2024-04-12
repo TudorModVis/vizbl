@@ -58,7 +58,7 @@ const NotFound = () => {
                 <div className="flex items-center gap-[1.5rem] smm:text-[16rem] xs:text-[13rem] text-[10rem] leading-[110%] text-custom-white font-[600]">
                     <h1>4</h1>
                     <div className="smm:w-[13rem] xs:w-[10rem] w-[8.5rem] aspect-square flex justify-center items-center overflow-hidden">
-                        <img
+                        <Image
                             src="/gifs/stop.gif"
                             alt="stop"
                             draggable={false}
