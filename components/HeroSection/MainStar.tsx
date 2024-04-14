@@ -37,6 +37,7 @@ const MainStar: React.FC = () => {
             <MouseParallaxChild
             >
                 <Image
+                  unoptimized
                   priority
                   draggable={false}
                   width={813}

@@ -22,8 +22,7 @@ const HomePage:NextPage = () => {
         })
         window.history.replaceState(null, '', '/')
       }
-      console.log(hash)
-    }, 2500)
+    }, 500)
 
   })
 

@@ -6,6 +6,28 @@ import Link from "next/link";
 
 const CTA = () => {
 
+  const [browser, setBrowser] = useState("")
+
+    useEffect(() => {
+        const userAgent = navigator.userAgent
+        let browserName = "Your Browser"
+        if (userAgent.indexOf("Opera") !== -1 || userAgent.indexOf("OPR") !== -1) {
+            browserName = "Opera"
+        } else if (userAgent.indexOf("Chrome") !== -1) {
+            browserName = "Chrome"
+        } else if (userAgent.indexOf("Safari") !== -1) {
+            browserName = "Safari"
+        } else if (userAgent.indexOf("Firefox") !== -1) {
+            browserName = "Firefox"
+        } else if (userAgent.indexOf("MSIE") !== -1 || userAgent.indexOf("Trident") !== -1) {
+            browserName = "Internet Explorer"
+        } else if (userAgent.indexOf("Edge") !== -1) {
+            browserName = "Edge"
+        }
+
+        setBrowser(browserName)
+    }, [])
+
     const [mousePosition, setMousePosition] = useState({
         x: 0,
         y: 0
@@ -76,7 +98,7 @@ const CTA = () => {
                           background: 'linear-gradient(93deg, rgba(253, 162, 255, 1) -64.38%, rgba(120, 42, 213, 1) 48.4%, rgba(82, 184, 255, 1) 158.85%)',
                         }}
                         transition={{ duration: 0.5}}>
-                        Add to chrome - it's free
+                        Add to {browser} - it's free
                     </motion.div>
                 </Link>
 

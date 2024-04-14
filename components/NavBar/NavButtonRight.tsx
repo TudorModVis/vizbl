@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface NavButtonProps {
   text: string;
@@ -11,7 +12,6 @@ interface NavButtonProps {
 }
 
 const NavButtonRight: React.FC<NavButtonProps> = ({ text, route, active }) => {
-  const [isClicked, setIsClicked] = useState(false)
 
   const router = useRouter()
   const pathname = usePathname()
@@ -19,31 +19,8 @@ const NavButtonRight: React.FC<NavButtonProps> = ({ text, route, active }) => {
   const [isEntered, setIsEntered] = useState(false)
 
   return (
-    <div>
-      {/* Overlay on page transition */}
-      {
-        isClicked && (
-          <motion.div
-            className='bg-custom-white w-full h-[100vh] fixed top-0 left-0 z-[2000]'
-            initial={{
-              translateY: '-100%'
-            }}
-            animate={{
-              translateY: '0%'
-            }}
-            transition={{
-              type: 'tween',
-              duration: 0.75
-            }}
-            onAnimationComplete={() => { 
-              router.push(route)
-            }}
-          />
-        )
-      }
-      {/* Overlay on page transition */}
-
-      <div
+      <Link
+        href={route}
         className={`select-none h-[3rem] rounded-[1rem] cursor-pointer relative overflow-hidden border border-gray-border`}
         onMouseEnter={() => setIsEntered(true)}
         onMouseLeave={() => setIsEntered(false)}
@@ -51,7 +28,6 @@ const NavButtonRight: React.FC<NavButtonProps> = ({ text, route, active }) => {
           backdropFilter: 'blur(12.5px)',
           WebkitBackdropFilter: 'blur(12.5px)',
         }}
-        onClick={() => { if(pathname !== route) {setIsClicked(true); document.body.style.overflow = 'hidden';} }}
       >
         <div className='absolute z-[-3] bg-body-bg opacity-50 w-full h-full top-0'/>
 
@@ -82,8 +58,7 @@ const NavButtonRight: React.FC<NavButtonProps> = ({ text, route, active }) => {
           <p 
             className={`text-[1rem] ${active ? 'text-body-bg' : ' mix-blend-difference text-transparent bg-gray-border '} uppercase z-[6] font-black nav-button-text px-[1.5rem] flex justify-center items-center w-full h-full`}
           >{text}</p>
-      </div>
-    </div>
+      </Link>
   )
 }
 

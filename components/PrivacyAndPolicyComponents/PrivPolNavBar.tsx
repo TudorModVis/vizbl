@@ -35,7 +35,7 @@ const PPNavBar:React.FC = () => {
 
           <div className='sm:flex hidden'>
             {
-              <NavButtonRight text="Home" route='/' active={false}/>
+              <NavButtonRight text="Home" route='/?loaded=true' active={false}/>
             }
           </div>
       </div>

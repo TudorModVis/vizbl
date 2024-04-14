@@ -2,7 +2,7 @@ import '@/styles/globals.css'
 import '@/styles/extension.css'
 import { ReactNode } from 'react'
 
-import { SmoothScroll} from '@/components'
+import { Loader, SmoothScroll} from '@/components'
 
 const ExtensionLayout = ({ children } : { children: ReactNode }) => {
 
