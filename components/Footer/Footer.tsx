@@ -21,40 +21,8 @@ const Footer: React.FC = () => {
     const router = useRouter()
     const pathname = usePathname()
 
-    const [clickedRoute, setClickedRoute] = useState({
-        isClicked: false,
-        route: pathname
-      })
-
-
-
-
-
   return (
     <>
-        {/* Overlay on page transition */}
-        {
-            clickedRoute.isClicked && (
-            <motion.div
-                className='bg-custom-white w-full h-[100vh] fixed top-0 left-0 z-[2000]'
-                initial={{
-                translateY: '-100%'
-                }}
-                animate={{
-                translateY: '0%'
-                }}
-                transition={{
-                type: 'tween',
-                duration: 0.75
-                }}
-                onAnimationComplete={() => { 
-                router.push(clickedRoute.route)
-                }}
-            />
-            )
-        }
-        {/* Overlay on page transition */}
-
         <div 
             className='flex flex-col justify-between select-none sm:h-[80vh] h-[85vh] bg-body-bg fixed z-[-1] bottom-0 lg:px-[10.5rem] xxl:px-[14.5rem] 2k:px-[9.5rem] mmd:px-[10rem] px-[1rem]'
             style={{
@@ -105,10 +73,7 @@ const Footer: React.FC = () => {
                                                     easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
                                                     })
                                                 } else {
-                                                    setClickedRoute({
-                                                        isClicked: true,
-                                                        route: '/#about'
-                                                    })
+                                                    router.push('/#about')
                                                 } 
                                             }}
                                             >About</p>
@@ -122,10 +87,7 @@ const Footer: React.FC = () => {
                                                     easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
                                                     })
                                                 } else {
-                                                    setClickedRoute({
-                                                        isClicked: true,
-                                                        route: '/#how-it-works'
-                                                    })
+                                                    router.push('/#how-it-works')
                                                 } 
                                             }}
                                             >How it works</p>
@@ -139,26 +101,12 @@ const Footer: React.FC = () => {
                                                     easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
                                                     })
                                                 } else {
-                                                    setClickedRoute({
-                                                        isClicked: true,
-                                                        route: '/#contacts'
-                                                    })
+                                                    router.push('/#contacts')
                                                 } 
                                             }}
                                             >Contacts</p>
                                         {/* footer nav */}
-                                        <div 
-                                            className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer hidden"
-                                            onClick={() => { 
-                                                if(pathname !== '/plans-and-pricing') {
-                                                    setClickedRoute({
-                                                        isClicked: true,
-                                                        route: '/plans-and-pricing'
-                                                    })
-                                                    document.body.style.overflow = 'hidden';
-                                                } 
-                                            }}
-                                        >Plans & Pricing</div>
+                                        <Link href='/plans-and-pricing' className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer hidden">Plans & Pricing</Link>
 
                                         <Link className="hidden opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="/">Log in</Link>
                                     </div>
@@ -266,18 +214,10 @@ const Footer: React.FC = () => {
                         <p className="text-right">
                             Terms of Services 
                             <br className="ss:hidden"/>&nbsp;|&nbsp;
-                            <span 
+                            <Link 
                                 className="cursor-pointer"
-                                onClick={() => { 
-                                    if(pathname !== '/privacy-and-policy') {
-                                        setClickedRoute({
-                                            isClicked: true,
-                                            route: '/privacy-and-policy'
-                                        })
-                                        document.body.style.overflow = 'hidden';
-                                    } 
-                                }}
-                            >Privacy Policy</span>
+                                href="/privacy-and-policy"
+                            >Privacy Policy</Link>
                         </p>
                     </div>
                 </div>

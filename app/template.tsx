@@ -1,11 +1,29 @@
+'use client'
+import { motion } from 'framer-motion'
+import { usePathname } from "next/navigation"
+import { useEffect } from 'react'
 
-import { Loader } from "@/components"
 
 export default function Template({ children }: { children: React.ReactNode }) {
+    const pathname = usePathname()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
+    
     return (
-        <div>
-            <Loader />
+        <motion.main
+            initial={{
+                opacity: 0
+            }}
+            animate={{
+                opacity: 1
+            }}
+            transition={{
+                duration: 0.5
+            }}
+        >
             {children}
-        </div>
+        </motion.main>
     )
-}
+} 

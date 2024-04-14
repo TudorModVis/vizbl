@@ -65,28 +65,6 @@ const HamburgerBtn = () => {
 
   return (
     <>
-        {/* Overlay on page transition */}
-        {
-            clickedRoute.isClicked && (
-            <motion.div
-                className='bg-custom-white w-full h-[100vh] fixed top-0 left-0 z-[2000]'
-                initial={{
-                translateY: '-100%'
-                }}
-                animate={{
-                translateY: '0%'
-                }}
-                transition={{
-                type: 'tween',
-                duration: 0.75
-                }}
-                onAnimationComplete={() => { 
-                router.push(clickedRoute.route)
-                }}
-            />
-            )
-        }
-        {/* Overlay on page transition */}
         <div className='flex'>
             {/* Star logo */}
             <div className='cursor-pointer transition-colors duration-[0.5s] w-[3rem] h-[3rem] rounded-[1rem] border border-gray-border md:hidden flex justify-center items-center' 
@@ -211,11 +189,15 @@ const HamburgerBtn = () => {
                                         }}
                                         onClick={() => {
                                             lenis?.start()
-                                            lenis?.scrollTo(0, {
-                                                duration: 2,
-                                                easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
-                                            })
-                                            setToggle(false)
+                                            if(pathname === '/'){
+                                                lenis?.scrollTo(0, {
+                                                    duration: 2,
+                                                    easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+                                                })
+                                                setToggle(false)
+                                            } else {
+                                                router.push('/')
+                                            }
                                         }}
                                     >
                                         Home
@@ -245,10 +227,7 @@ const HamburgerBtn = () => {
                                                             easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
                                                         })
                                                     } else {
-                                                        setClickedRoute({
-                                                            isClicked: true,
-                                                            route: `/${link.id}`,
-                                                        })
+                                                        router.push(`/${link.id}`)
                                                     }
                                                     setToggle(false)
                                                 }}
@@ -261,11 +240,7 @@ const HamburgerBtn = () => {
                                         className='hidden'
                                         onClick={() => { 
                                             if(pathname !== '/plans-and-pricing') {
-                                                setClickedRoute({
-                                                    isClicked: true,
-                                                    route: '/plans-and-pricing',
-                                                })
-                                                document.body.style.overflow = 'hidden';
+                                                router.push('/plans-and-pricing')
                                             } 
                                         }}>
                                         <HamburgerTransitionBtn text="Plans & Pricing" delay={0.3 + 4 / 20}/>

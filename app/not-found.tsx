@@ -2,44 +2,12 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { useRouter, usePathname } from "next/navigation"
-import { useState } from "react"
+import Link from "next/link"
 
 const NotFound = () => {
 
-    const router = useRouter()
-    const pathname = usePathname()
-
-    const [clickedRoute, setClickedRoute] = useState({
-        isClicked: false,
-        route: pathname
-      })
-
   return (
     <>
-        {/* Overlay on page transition */}
-        {
-            clickedRoute.isClicked && (
-            <motion.div
-                className='bg-custom-white w-full h-[100vh] fixed top-0 left-0 z-[2000]'
-                initial={{
-                translateY: '-100%'
-                }}
-                animate={{
-                translateY: '0%'
-                }}
-                transition={{
-                type: 'tween',
-                duration: 0.75
-                }}
-                onAnimationComplete={() => { 
-                router.push(clickedRoute.route)
-                }}
-            />
-            )
-        }
-        {/* Overlay on page transition */}
-
         <div className='px-[1rem] h-screen w-screen relative grid place-content-center'
             style={{
                 background: 'url(/images/bg.png)',
@@ -73,7 +41,7 @@ const NotFound = () => {
                 <h2 className="uppercase text-custom-white smm:text-[4rem] xs:text-[3.5rem] text-[2.75rem] leading-[110%] font-bold">Page not found</h2>
                 <p className="mt-[1rem] text-gray-border smm:text-[1.125rem] text-[1rem] font-[500] text-center">Oops! Looks like you got lost... <br />We don't seem to find the page you are looking for.</p>
 
-                <div className="w-full flex justify-center">
+                <Link href="/" className="w-full flex justify-center">
                     <motion.div 
                         className="uppercase mt-[3rem] w-fit h-[3rem] px-[1.5rem] grid place-content-center text-custom-white text-[1rem] rounded-[1rem] border border-gray-border cursor-pointer"
                         initial={{
@@ -85,16 +53,10 @@ const NotFound = () => {
                         transition={{
                             duration: 0.4
                         }}
-                        onClick={() => {
-                            setClickedRoute({
-                                isClicked: true,
-                                route: '/',
-                            })
-                        }}
                     >
                         BACK TO HOME
                     </motion.div>
-                </div>
+                </Link>
             </div>
         </div>
     </>
