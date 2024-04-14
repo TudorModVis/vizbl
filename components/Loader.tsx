@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence, useMotionValue, useTransform, animate } from "framer-motion"
 import { useLenis } from '@studio-freight/react-lenis'
-import { useLockBodyScroll } from "@uidotdev/usehooks"
+import { useRouter } from "next/navigation"
 
 const Loader:React.FC = () => {
-  useLockBodyScroll();
+    const router = useRouter()
     const [isLoading, setIsLoading] = useState(true)
     const lenis = useLenis(() => {})
 
@@ -61,7 +61,7 @@ const Loader:React.FC = () => {
       }
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={() => router.replace('/?loaded=true')}>
         {
             isLoading && (
                 <div className="">

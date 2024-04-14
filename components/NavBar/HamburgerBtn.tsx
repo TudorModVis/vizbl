@@ -196,7 +196,7 @@ const HamburgerBtn = () => {
                                                 })
                                                 setToggle(false)
                                             } else {
-                                                router.push('/')
+                                                router.push('/?loaded=true')
                                             }
                                         }}
                                     >
