@@ -35,7 +35,6 @@ const ExtensionLayout = ({ children } : { children: ReactNode }) => {
 
           <body className='bg-body-bg relative'>
               <SmoothScroll>
-                <Loader />
                 {children}
               </SmoothScroll>
           </body>
