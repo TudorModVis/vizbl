@@ -27,8 +27,8 @@ export default function Page({ params }: { params: { token: string, email: strin
             return 'error';
         }
 
-        if (!/^(?=.*[1-9])[0-9a-zA-Z]{8,16}$/.test(newPassword)) {
-            setNewPasswordError('*Password must be 8-16 characters long and contain at least one digit.');
+        if (!/^(?=.*[1-9])[0-9a-zA-Z~`!#$%^&*()_\-+={[}\]|:;"'<,>.?/]{8,32}$/.test(newPassword)) {
+            setNewPasswordError('*Password must be 8-32 characters long and contain at least one digit.');
             return 'error';
         }
 
