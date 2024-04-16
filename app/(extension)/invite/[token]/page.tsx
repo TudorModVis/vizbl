@@ -4,25 +4,6 @@ import { useEffect, useState } from "react"
 import LinkState from "@/app/(extension)/shared/LinkState"
 import { useRouter } from 'next/navigation';
 
-export const metadata = {
-    metadataBase: new URL('https://myvizbl.com/'),
-    title: "ViZBL | Get to Know Your Friends",
-    description: 'Ever wondered what your friends watch on YouTube? Well, the ViZBL Extension allows you to share that!',
-    twitter: {
-      card: 'summary_large_image',
-      title: 'ViZBL | Get to Know Your Friends',
-      description: 'Ever wondered what your friends watch on YouTube? Well, the ViZBL Extension allows you to share that!',
-      images: ['https://myvizbl.com/twitter-image.jpg'],
-    },
-    openGraph: {
-      title: 'ViZBL | Get to Know Your Friends',
-      description: 'Ever wondered what your friends watch on YouTube? Well, the ViZBL Extension allows you to share that!',
-      type: 'website',
-      url: 'https://myvizbl.com',
-      images: ['/opengraph-image.jpg'],
-    },
-  }
-
 export default function Page ({ params }: { params: { token: string } }) {
     const [isSignedIn, setIsSignedIn] = useState<boolean | null>(null);
     const [pageContent, setPageContent] = useState<string | null>(null);
