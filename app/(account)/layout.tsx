@@ -5,9 +5,22 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
 export const metadata = {
   metadataBase: new URL('https://myvizbl.com/'),
-  title: "ViZBL | Get to Know Your Friends."
+  title: "ViZBL | Get to Know Your Friends",
+  description: 'Ever wondered what your friends watch on YouTube? Well, the ViZBL Extension allows you to share that!',
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ViZBL | Get to Know Your Friends',
+    description: 'Ever wondered what your friends watch on YouTube? Well, the ViZBL Extension allows you to share that!',
+    images: ['https://myvizbl.com/twitter-image.jpg'],
+  },
+  openGraph: {
+    title: 'ViZBL | Get to Know Your Friends',
+    description: 'Ever wondered what your friends watch on YouTube? Well, the ViZBL Extension allows you to share that!',
+    type: 'website',
+    url: 'https://myvizbl.com',
+    images: ['/opengraph-image.jpg'],
+  },
 }
-
 const ExtensionLayout = ({ children } : { children: ReactNode }) => {
   const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID !== undefined ? process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID : '';
   return (
@@ -17,22 +30,6 @@ const ExtensionLayout = ({ children } : { children: ReactNode }) => {
                         width=device-width, initial-scale=1.0, 
                         minimum-scale=1.0, maximum-scale=1.0, 
                         user-scalable=no, target-densitydpi=device-dpi"/>
-                           {/* <!-- Primary Meta Tags -->  */}
-          <title>ViZBL | Get to Know Your Friends.</title> 
-          <meta name="title" content="ViZBL | Get to Know Your Friends." /> 
-          <meta name="description" content="Ever wondered what your friends watch on YouTube? Well, the ViZBL Extension allows you to share that! " /> 
-          
-          {/* <!-- Open Graph / Facebook -->  */}
-          <meta property="og:type" content="website" /> 
-          <meta property="og:url" content="https://myvizbl.com/" /> 
-          <meta property="og:title" content="ViZBL | Get to Know Your Friends." /> 
-          <meta property="og:description" content="Ever wondered what your friends watch on YouTube? Well, the ViZBL Extension allows you to share that! " /> 
-          
-          {/* <!-- Twitter -->  */}
-          <meta property="twitter:card" content="summary_large_image" /> 
-          <meta property="twitter:url" content="https://myvizbl.com/" /> 
-          <meta property="twitter:title" content="ViZBL | Get to Know Your Friends." /> 
-          <meta property="twitter:description" content="Ever wondered what your friends watch on YouTube? Well, the ViZBL Extension allows you to share that! " /> 
         </head>
 
           <body className='bg-body-bg relative'>
