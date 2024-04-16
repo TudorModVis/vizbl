@@ -1,6 +1,7 @@
 'use client'
 
 import { useSectionRefs } from '../SectionContext'
+import useUserData from '@/utils/useUserData'
 
 import Link from 'next/link'
 
@@ -11,9 +12,9 @@ import { useLenis } from '@studio-freight/react-lenis'
 
 import { useEffect, useState } from 'react'
 import HamburgerBtn from './HamburgerBtn'
-import LogInButton from './LogInButton'
 
 const NavBar:React.FC = () => {
+  const { userData } = useUserData()
 
   const lenis = useLenis(() => {})
   
@@ -68,15 +69,18 @@ const NavBar:React.FC = () => {
       </div>
         <div className='flex items-center'>
           <div className='sm:flex hidden'>
-            <div className='hidden'>
-              <LogInButton />
-              <NavButtonRight text="Log In" route='/login' active={false}/>
-            </div>
+            {
+              userData ? (
+                <NavButtonRight text="Sign Out" route='/login' active={false}/>
+              ) : (
+                <NavButtonRight text="Log in" route='/login' active={false}/>
+              )
+            }
             <div className='hidden'>
               <NavButtonRight text="Plans & Pricing" route='/plans-and-pricing' active={false}/>
             </div>
           </div>
-            <GradientButton text="GET STARTED" route='https://chromewebstore.google.com/detail/vizbl-get-to-know-your-fr/lcaeomijnkkglaabildphmdinpoodaho'/>
+            <GradientButton text="GET STARTED" route='/signup' target="_self" />
         </div>
     </nav>
   )
