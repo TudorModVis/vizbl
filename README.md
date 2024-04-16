@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ViZBL Backend API
 
-## Getting Started
+This backend API provides various endpoints for user authentication, profile management, and email functionalities. It utilizes Node.js along with several packages such as Nodemailer, Bcrypt, Crypto, and Handlebars for email verification and password reset functionalities. The API also interacts with MongoDB for user data storage and AWS S3 for profile image uploads.
 
-First, run the development server:
+## Endpoints
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### User Authentication
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### POST /api/signup
+- Creates a new user account with email verification.
+- Required Parameters: `email`, `password`, `invitation`, `source`.
+- Returns: `id` of the newly created user.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### POST /api/login
+- Logs in an existing user with email and password.
+- Required Parameters: `email`, `password`.
+- Returns: User information including `id`, `name`, `email`, `username`, `image`, `dob`, and `authMethod`.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### POST /api/google-auth
+- Logs in or creates a user using Google OAuth.
+- Required Parameters: `token`.
+- Returns: User information similar to the login endpoint.
 
-## Learn More
+### Email Verification
 
-To learn more about Next.js, take a look at the following resources:
+#### GET /api/email-confirmation
+- Confirms the user's email address based on the provided token.
+- Required Query Parameters: `email`, `token`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### POST /api/resend-email
+- Resends the verification email to the user's email address.
+- Required Parameters: `email`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Password Management
 
-## Deploy on Vercel
+#### POST /api/add-password
+- Adds a password to an existing user account.
+- Required Parameters: `password`.
+- Requires user to be logged in.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### PUT /api/update-password
+- Updates the password of the logged-in user.
+- Required Parameters: `oldPassword`, `newPassword`.
+- Requires user to be logged in.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### POST /api/send-reset-password-email
+- Sends an email with a reset password link to the user's email address.
+- Required Parameters: `email`.
+
+#### GET /api/reset-password
+- Validates the reset password token and email address.
+- Required Query Parameters: `email`, `token`.
+
+#### PUT /api/reset-password
+- Resets the user's password based on the provided token and email address.
+- Required Body Parameters: `email`, `token`, `password`.
+
+### Profile Management
+
+#### PUT /api/update-display-name
+- Updates the display name of the logged-in user.
+- Required Parameters: `name`.
+
+#### PUT /api/update-username
+- Updates the username of the logged-in user.
+- Required Parameters: `name`.
+
+#### PUT /api/update-dob
+- Updates the date of birth of the logged-in user.
+- Required Parameters: `date`.
+
+#### POST /api/update-image
+- Updates the profile image of the logged-in user.
+- Required Parameters: `image`.
+
+### Other User Operations
+
+#### GET /api/check-user
+- Checks if the logged-in user is initialized.
+- Requires user to be logged in.
+
+#### GET /api/get-user
+- Retrieves the profile information of the logged-in user.
+
+#### GET /api/get-user-video
+- Retrieves the video information of the logged-in user.
+
+#### GET /api/get-video-data
+- Retrieves data of a video based on the provided video ID.
+
+#### GET /api/get-registration-date
+- Retrieves the registration date of the logged-in user.
+
+#### GET /api/get-notifications
+- Retrieves the notifications of the logged-in user.
+
+#### PUT /api/update-notifications
+- Updates the notifications settings of the logged-in user.
+
+#### PUT /api/update-freeze
+- Updates the freeze status of the logged-in user.
+
+#### DELETE /api/delete-user
+- Deletes the logged-in user account along with associated data.
+
+## Dependencies
+- Nodemailer
+- Bcrypt
+- Crypto
+- Node-fetch
+- Handlebars
+- fs (file system)
+- MongoDB (for user data storage)
+- AWS S3 (for profile image storage)
+
+## Configuration
+Ensure to configure the SMTP service (e.g., Gmail) and AWS S3 credentials in the `config/config.js` file.
+
