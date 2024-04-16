@@ -48,7 +48,7 @@ const PPNavBar:React.FC = () => {
                 <NavButtonRight text="Plans & Pricing" route='/plans-and-pricing' active={false}/>
             </div>
           </div>
-            <GradientButton text="GET STARTED" route='https://chromewebstore.google.com/detail/vizbl-get-to-know-your-fr/lcaeomijnkkglaabildphmdinpoodaho'/>
+            <GradientButton text="GET STARTED" route='/signup' target='_self'/>
         </div>
     </nav>
   )
