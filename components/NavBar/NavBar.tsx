@@ -11,6 +11,7 @@ import { useLenis } from '@studio-freight/react-lenis'
 
 import { useEffect, useState } from 'react'
 import HamburgerBtn from './HamburgerBtn'
+import LogInButton from './LogInButton'
 
 const NavBar:React.FC = () => {
 
@@ -68,7 +69,8 @@ const NavBar:React.FC = () => {
         <div className='flex items-center'>
           <div className='sm:flex hidden'>
             <div className='hidden'>
-              <NavButtonRight text="Log In" route='/log-in' active={false}/>
+              <LogInButton />
+              <NavButtonRight text="Log In" route='/login' active={false}/>
             </div>
             <div className='hidden'>
               <NavButtonRight text="Plans & Pricing" route='/plans-and-pricing' active={false}/>
