@@ -28,7 +28,7 @@ const HeroInstallBtn = () => {
     }, [])
 
   return (
-    <GradientButton text={`ADD TO ${browser.toUpperCase()} - IT'S FREE`} route="https://chromewebstore.google.com/detail/vizbl-get-to-know-your-fr/lcaeomijnkkglaabildphmdinpoodaho"/>
+    <GradientButton text={`ADD TO ${browser.toUpperCase()} - IT'S FREE`} route="https://chromewebstore.google.com/detail/vizbl-get-to-know-your-fr/lcaeomijnkkglaabildphmdinpoodaho" target="_blank"/>
   )
 }
 
