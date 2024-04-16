@@ -2,7 +2,12 @@ import '@/styles/globals.css'
 import '@/styles/extension.css'
 import { ReactNode } from 'react'
 
-import { Loader, SmoothScroll} from '@/components'
+import { SmoothScroll} from '@/components';
+
+export const metadata = {
+  metadataBase: new URL('https://myvizbl.com/'),
+  title: "ViZBL | Get to Know Your Friends."
+}
 
 const ExtensionLayout = ({ children } : { children: ReactNode }) => {
 

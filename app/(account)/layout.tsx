@@ -3,6 +3,11 @@ import '@/styles/extension.css'
 import { ReactNode } from 'react'
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
+export const metadata = {
+  metadataBase: new URL('https://myvizbl.com/'),
+  title: "ViZBL | Get to Know Your Friends."
+}
+
 const ExtensionLayout = ({ children } : { children: ReactNode }) => {
   const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID !== undefined ? process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID : '';
   return (

@@ -4,7 +4,7 @@ import { ReactNode } from 'react'
 import { SmoothScroll} from '@/components'
 
 export const metadata = {
-    metadataBase: new URL('http://localhost:3000'),
+    metadataBase: new URL('https://myvizbl.com/'),
     title: "ViZBL | Get to Know Your Friends."
 }
 

@@ -5,12 +5,9 @@ import { NextPage } from 'next'
 import { SectionProvider } from '@/components/SectionContext'
 
 import { useLenis } from '@studio-freight/react-lenis'
-import { usePathname, useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
 const HomePage:NextPage = () => {
-  const router = useRouter()
-
   const lenis = useLenis(() => {})
   useEffect(() => {
     setTimeout(() => {
