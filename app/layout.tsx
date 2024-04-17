@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import { ReactNode } from 'react'
 
 import { SmoothScroll} from '@/components'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 
 export const metadata = {
   metadataBase: new URL('https://myvizbl.com/'),
@@ -23,22 +24,17 @@ export const metadata = {
 }
 
 const RootLayout = ({ children } : { children: ReactNode }) => {
+  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID !== undefined ? process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID : '';
 
   return (
     <html lang='en'>
-        <head>
-          <meta name="viewport" content="height=device-height, 
-                        width=device-width, initial-scale=1.0, 
-                        minimum-scale=1.0, maximum-scale=1.0, 
-                        user-scalable=no, target-densitydpi=device-dpi"/>
-        </head>
-
           <body className='bg-body-bg relative'>
-            <SmoothScroll>
-                {children}
-            </SmoothScroll>
+            <GoogleOAuthProvider clientId={clientId}>
+              <SmoothScroll>
+                    {children}
+                </SmoothScroll>
+            </GoogleOAuthProvider>
           </body>
-
     </html>
   )
 }
