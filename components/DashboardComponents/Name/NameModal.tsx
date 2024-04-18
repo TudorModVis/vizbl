@@ -21,7 +21,7 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
         setInputValue(name);
         setLetterNum(name.length);
     }, [name]);
-    
+
     const handleInputChange = (e : any) => {
         setInputValue(e.target.value);
         setLetterNum(e.target.value.length)
@@ -36,7 +36,7 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
     }, [showModal])
 
 
-    const handleSubmit = (e : any) => {
+    const handleSubmit = async (e : any) => {
         e.preventDefault()
 
         const errorsArr: string[] = []
@@ -46,9 +46,24 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
         setErrors(errorsArr)
 
         if(errors.length === 0) {
-            setName(inputValue)
 
-            setShowModal(false)
+            try {
+                const res = await fetch('https://api.myvizbl.com/api/update-display-name', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name: inputValue })
+                });
+
+                if (!res.ok) {
+                    throw new Error('Failed to update display name');
+                }
+                setName(inputValue);
+                setShowModal(false);
+            } catch (error) {
+                console.error('Error updating display name:', error);
+            }
         }
         
     }
