@@ -15,23 +15,7 @@ const Username = () => {
         </div>
         <div className="mt-[0.5rem] flex justify-between items-center w-full">
             <div className="w-fit">
-                <input
-                    className={`bg-transparent outline-none text-[1.5rem] font-[500] w-[20ch]`}
-                    readOnly={ editable ? false : true }
-                    type="text" 
-                    value="anatol#234101" 
-                    maxLength={20} 
-                    minLength={5}
-                />
-                <motion.div 
-                    className="h-[1px] bg-custom-white" 
-                    initial={{
-                        width: '0%'
-                    }}
-                    animate={{
-                        width: editable ? '100%' : '0%' 
-                    }}
-                />
+                <span className={`bg-transparent outline-none text-[1.5rem] font-[500] w-[20ch]`}>anatol#234101</span>
             </div>
             <motion.div
                 className="select-none cursor-pointer text-[1rem] font-[500] w-[3rem] h-[1.75rem] grid place-content-center border border-gray-border rounded-[0.125rem]"
@@ -46,9 +30,7 @@ const Username = () => {
                 }}
                 onClick={() => setEditable(prev => !prev)}
             >
-                {
-                    editable ? 'Done' : 'Edit'
-                }
+                Edit
             </motion.div>
         </div>
     </div>

@@ -3,12 +3,25 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { useState } from "react"
+import NameModal from "./NameModal"
+import useUserData from "@/utils/useUserData"
 
 const DisplayName = () => {
 
-    const [editable, setEditable] = useState(false)
+    const { userData } = useUserData()
+    console.log(userData)
+
+    const [showModal, setShowModal] = useState(false)
+    const [name, setName] = useState('Cătălin Deputatovici')
 
   return (
+  <>
+    <NameModal 
+        showModal={showModal} 
+        setShowModal={setShowModal}
+        name={name}
+        setName={setName}
+    />
     <div className="w-full">
         <div className="flex gap-[0.5rem] items-center">
             <p className="uppercase text-gray-border text-[1.125rem] leading-[1.25rem] font-bold">Display name</p>
@@ -16,23 +29,7 @@ const DisplayName = () => {
         </div>
         <div className="mt-[0.5rem] flex justify-between items-center w-full">
             <div className="w-fit">
-                <input
-                    className={`bg-transparent outline-none text-[1.5rem] font-[500] w-[20ch]`}
-                    readOnly={ editable ? false : true }
-                    type="text" 
-                    value="Cătălin Deputatovici" 
-                    maxLength={20} 
-                    minLength={5}
-                />
-                <motion.div 
-                    className="h-[1px] bg-custom-white" 
-                    initial={{
-                        width: '0%'
-                    }}
-                    animate={{
-                        width: editable ? '100%' : '0%' 
-                    }}
-                />
+                <span className={`text-[1.5rem] font-[500] w-[20ch]`}>{ name }</span>
             </div>
             <motion.div
                 className="select-none cursor-pointer text-[1rem] font-[500] w-[3rem] h-[1.75rem] grid place-content-center border border-gray-border rounded-[0.125rem]"
@@ -45,14 +42,13 @@ const DisplayName = () => {
                 transition={{
                     duration: 0.4
                 }}
-                onClick={() => setEditable(prev => !prev)}
+                onClick={() => setShowModal(true)}
             >
-                {
-                    editable ? 'Done' : 'Edit'
-                }
+                Edit
             </motion.div>
         </div>
     </div>
+  </>
   )
 }
 
