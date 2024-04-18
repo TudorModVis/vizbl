@@ -9,6 +9,7 @@ import useUserData from "@/utils/useUserData"
 const DisplayName = () => {
 
     const { userData } = useUserData()
+    console.log(userData)
 
     const [showModal, setShowModal] = useState(false)
     const [name, setName] = useState('')
