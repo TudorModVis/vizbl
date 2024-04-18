@@ -31,7 +31,7 @@ const Username = () => {
             </div>
             <div className="mt-[0.5rem] flex justify-between items-center w-full">
                 <div className="w-fit">
-                    <span className={`bg-transparent outline-none text-[1.5rem] font-[500] w-[20ch]`}>anatol#234101</span>
+                    <span className={`bg-transparent outline-none text-[1.5rem] font-[500] w-[20ch]`}>{ username }</span>
                 </div>
                 <motion.div
                     className="select-none cursor-pointer text-[1rem] font-[500] w-[3rem] h-[1.75rem] grid place-content-center border border-gray-border rounded-[0.125rem]"
