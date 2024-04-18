@@ -38,7 +38,7 @@ const UsernameModal:React.FC<UsernameModalProps> = ({ showModal, setShowModal, u
         e.preventDefault()
 
         const errorsArr: string[] = []
-        const isValid = /^(?=.*[a-zA-Z])[a-zA-Z0-9_]+$/.test(inputValue);
+        const isValid = /^(?=.*[a-zA-Z])[a-zA-Z0-9_@]+$/.test(inputValue);
         if(letterNum < 5) errorsArr.push('*too short (Min 5 characters)')
         if(!isValid) errorsArr.push('*should only contain a-z, 0-9, underscores and at least one letter') 
         setErrors(errorsArr)
