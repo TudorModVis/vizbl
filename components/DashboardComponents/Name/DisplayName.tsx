@@ -20,16 +20,12 @@ const DisplayName = () => {
 
   return (
   <>
-  {
-    userData && (
-        <NameModal 
-            showModal={showModal} 
-            setShowModal={setShowModal}
-            name={name}
-            setName={setName}
-        />
-    )
-  }
+    <NameModal 
+        showModal={showModal} 
+        setShowModal={setShowModal}
+        name={name}
+        setName={setName}
+    />
     <div className="w-full">
         <div className="flex gap-[0.5rem] items-center">
             <p className="uppercase text-gray-border text-[1.125rem] leading-[1.25rem] font-bold">Display name</p>

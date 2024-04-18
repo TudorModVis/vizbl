@@ -13,6 +13,11 @@ interface NameModalProps {
 
 const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, setName }) => {
 
+    useEffect(() => {
+        setName(name);
+    }, [name]);
+
+
     const [inputValue, setInputValue] = useState(name);
     const [letterNum, setLetterNum] = useState(name.length);
     const [errors, setErrors] = useState<string[]>([])
@@ -42,7 +47,7 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
 
         if(errors.length === 0) {
             setName(inputValue)
-            
+
             setShowModal(false)
         }
         
