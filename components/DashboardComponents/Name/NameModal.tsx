@@ -13,15 +13,15 @@ interface NameModalProps {
 
 const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, setName }) => {
 
-    useEffect(() => {
-        setName(name);
-    }, [name]);
-
-
     const [inputValue, setInputValue] = useState(name);
     const [letterNum, setLetterNum] = useState(name.length);
     const [errors, setErrors] = useState<string[]>([])
-
+    
+    useEffect(() => {
+        setInputValue(name);
+        setLetterNum(name.length);
+    }, [name]);
+    
     const handleInputChange = (e : any) => {
         setInputValue(e.target.value);
         setLetterNum(e.target.value.length)
