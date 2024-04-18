@@ -54,7 +54,7 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ name: inputValue })
+                    body: JSON.stringify({ name: inputValue.trim() })
                 });
 
                 if (!res.ok) {

@@ -52,7 +52,7 @@ const UsernameModal:React.FC<UsernameModalProps> = ({ showModal, setShowModal, u
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ name: inputValue })
+                    body: JSON.stringify({ name: inputValue.trim() })
                 });
 
                 if (!res.ok) {
