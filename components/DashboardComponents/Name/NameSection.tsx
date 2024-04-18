@@ -7,13 +7,11 @@ import CardLoader from '../CardLoader'
 const NameSection:React.FC = () => {
   return (
     <CardLoader>
-      <div>
         <UserImage />
         <div className='w-full flex flex-col justify-between'>
           <DisplayName />
           <Username />
         </div>
-      </div>
     </CardLoader>
   )
 }
