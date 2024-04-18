@@ -50,6 +50,7 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
             try {
                 const res = await fetch('https://api.myvizbl.com/api/update-display-name', {
                     method: 'PUT',
+                    credentials: 'include',
                     headers: {
                         'Content-Type': 'application/json',
                     },
