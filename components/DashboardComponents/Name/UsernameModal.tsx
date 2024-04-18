@@ -43,7 +43,7 @@ const UsernameModal:React.FC<UsernameModalProps> = ({ showModal, setShowModal, u
         if(!isValid) errorsArr.push('*should only contain a-z, 0-9, underscores and at least one letter') 
         setErrors(errorsArr)
 
-        if(errors.length === 0) {
+        if(errorsArr.length === 0) {
 
             try {
                 const res = await fetch('https://api.myvizbl.com/api/update-username', {

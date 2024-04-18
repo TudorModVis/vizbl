@@ -45,7 +45,7 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
         if(isNotValid) errorsArr.push('*can not contain 3 whitespaces in a row') 
         setErrors(errorsArr)
 
-        if(errors.length === 0) {
+        if(errorsArr.length === 0) {
 
             try {
                 const res = await fetch('https://api.myvizbl.com/api/update-display-name', {
