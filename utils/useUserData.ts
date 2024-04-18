@@ -1,7 +1,18 @@
 import { useState, useEffect } from 'react';
 
+interface UserData{
+  authMethod: string;
+  email: string;
+  freeze: number;
+  id: string;
+  image: string;
+  name: string;
+  username: string;
+
+}
+
 const useUserData = () => {
-    const [userData, setUserData] = useState(null);
+    const [userData, setUserData] = useState<UserData | null>(null);
 
   useEffect(() => {
     async function fetchUser() {

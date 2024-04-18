@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import NameModal from "./NameModal"
 import useUserData from "@/utils/useUserData"
 
@@ -12,7 +12,11 @@ const DisplayName = () => {
     console.log(userData)
 
     const [showModal, setShowModal] = useState(false)
-    const [name, setName] = useState('Cătălin Deputatovici')
+    const [name, setName] = useState('')
+
+    useEffect(() => {
+        if(userData) setName(userData.name)
+    }, [userData])
 
   return (
   <>
