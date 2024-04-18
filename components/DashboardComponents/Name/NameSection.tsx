@@ -7,7 +7,7 @@ import CardLoader from '../CardLoader'
 const NameSection:React.FC = () => {
   return (
     <CardLoader>
-      <div className='w-full p-[1.5rem] boder-gray-border border rounded-[0.5rem] bg-card-bg flex gap-[1.5rem]'>
+      <div>
         <UserImage />
         <div className='w-full flex flex-col justify-between'>
           <DisplayName />
