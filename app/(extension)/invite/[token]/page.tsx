@@ -69,7 +69,7 @@ export default function Page ({ params }: { params: { token: string } }) {
                 <div className="relative rounded-lg overflow-hidden border-[2px] border-white bounce mb-12" onClick={(e) => {e.stopPropagation()}}>
                     <img src={friendImage} alt="profile image" className="w-[9.5rem]"/>
                 </div>
-                <p className="font-bold text-[4rem] leading-[140%] mb-12 text-center">{decodeURIComponent(params.token)} <br/> WANTS TO BE FRIENDS ON ViZBL </p>
+                <p className="font-bold text-[4rem] leading-[140%] mb-12 text-center">{"@" + decodeURIComponent(params.token)} <br/> WANTS TO BE FRIENDS ON ViZBL </p>
                 <p className="text-gray text-2xl font-bold leading-[140%] text-center mb-12"> This person wants to share their YouTube activity with you. <br/> Maybe they’ll also interact with you for much more fun.</p>
                 {buttons}
             </div>
