@@ -18,6 +18,8 @@ const DisplayName = () => {
         if(userData) setName(userData.name)
     }, [userData])
 
+    if(!userData) return null
+
   return (
   <>
     <NameModal 
