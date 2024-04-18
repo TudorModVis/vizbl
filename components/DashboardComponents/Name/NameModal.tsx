@@ -63,7 +63,7 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
                 setName(inputValue);
                 setShowModal(false);
             } catch (error) {
-                errors.push('*some error occured')
+                setErrors(prevErrors => [...prevErrors, '*some error occured']);
                 console.error('Error updating display name:', error);
             }
         }

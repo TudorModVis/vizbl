@@ -61,7 +61,7 @@ const UsernameModal:React.FC<UsernameModalProps> = ({ showModal, setShowModal, u
                 setUserame(inputValue);
                 setShowModal(false);
             } catch (error) {
-                errors.push('*some error occured')
+                setErrors(prevErrors => [...prevErrors, '*some error occured']);
                 console.error('Error updating display name:', error);
             }
         }
