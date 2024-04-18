@@ -58,6 +58,7 @@ const UsernameModal:React.FC<UsernameModalProps> = ({ showModal, setShowModal, u
                 if (!res.ok) {
                     throw new Error('Failed to update display name');
                 }
+                setErrors([])
                 setUserame(inputValue);
                 setShowModal(false);
             } catch (error) {
@@ -73,7 +74,6 @@ const UsernameModal:React.FC<UsernameModalProps> = ({ showModal, setShowModal, u
         onExitComplete={() => {
             setInputValue(username)
             setLetterNum(username.length)
-            setErrors([])
         }}
     >
         {

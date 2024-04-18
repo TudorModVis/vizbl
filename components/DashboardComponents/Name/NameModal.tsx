@@ -60,6 +60,7 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
                 if (!res.ok) {
                     throw new Error('Failed to update display name');
                 }
+                setErrors([])
                 setName(inputValue);
                 setShowModal(false);
             } catch (error) {
@@ -74,7 +75,6 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
         onExitComplete={() => {
             setInputValue(name)
             setLetterNum(name.length)
-            setErrors([])
         }}
     >
         {
