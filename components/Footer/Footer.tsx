@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
                                                     easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
                                                     })
                                                 } else {
-                                                    router.push('/#about')
+                                                    router.push('/?loaded=true#about')
                                                 } 
                                             }}
                                             >About</p>
@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
                                                     easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
                                                     })
                                                 } else {
-                                                    router.push('/#how-it-works')
+                                                    router.push('/?loaded=true#how-it-works')
                                                 } 
                                             }}
                                             >How it works</p>
@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
                                                     easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
                                                     })
                                                 } else {
-                                                    router.push('/#contacts')
+                                                    router.push('/?loaded=true#contacts')
                                                 } 
                                             }}
                                             >Contacts</p>
