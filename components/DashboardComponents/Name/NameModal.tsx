@@ -74,6 +74,7 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
         onExitComplete={() => {
             setInputValue(name)
             setLetterNum(name.length)
+            setErrors([])
         }}
     >
         {
@@ -113,7 +114,7 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
                                     <div className="mt-[0.25rem]">
                                         {
                                             errors.map((error, index) => (
-                                                <p className="text-[0.75rem] text-danger italic">{error}</p>
+                                                <p key={index} className="text-[0.75rem] text-danger italic">{error}</p>
                                             ))
                                         }
                                     </div>
