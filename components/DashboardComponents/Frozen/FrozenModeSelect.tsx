@@ -84,7 +84,7 @@ const SelectBox = () => {
                 value: userData.freeze
             })
         }
-    })
+    }, [userData])
 
     useEffect(() => {
         const updateOption = () => {
