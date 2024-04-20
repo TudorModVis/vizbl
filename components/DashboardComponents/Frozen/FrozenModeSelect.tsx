@@ -10,26 +10,14 @@ interface Option {
     value: number;
 }
 
-interface UserData{
-    authMethod: string;
-    email: string;
-    freeze: number;
-    id: string;
-    image: string;
-    name: string;
-    username: string;
-  
-  }
-
 interface OptionProps{
     text: string;
     value: number;
     setOption: React.Dispatch<React.SetStateAction<Option>>;
-    setHookedUserData: React.Dispatch<React.SetStateAction<UserData | null>>;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen, setHookedUserData }) => {
+const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen }) => {
 
     const handleClick = async () => {
         try {
@@ -47,8 +35,22 @@ const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen, setHo
             }
 
 
-            const { userData } = useUserData()
-            setHookedUserData(userData)
+            const difference = (value + Date.now()) - Date.now();
+                if (difference <= 0) {
+                    setOption({
+                        text: 'Disabled',
+                        value: 0
+                    });
+                } else {
+                    const hours = Math.floor(difference / (1000 * 60 * 60));
+                    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                    const textTime = hours === 0 ? `${minutes}m ${seconds}s left` : `${hours}h ${minutes}m ${seconds}s left`;
+                    setOption({
+                        text: textTime,
+                        value: difference
+                    });
+                }
             setIsOpen(false);
         } catch (error) {
             setIsOpen(false);
@@ -68,8 +70,7 @@ const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen, setHo
 
 const SelectBox = () => {
 
-    const { userData } = useUserData()
-    const [hookedUserData, setHookedUserData] = useState(userData)
+    const { userData, setUserData } = useUserData()
     const [ option, setOption ] = useState({
         text: '',
         value: 0
@@ -77,8 +78,8 @@ const SelectBox = () => {
 
     useEffect(() => {
         const updateOption = () => {
-            if (hookedUserData) {
-                const difference = hookedUserData.freeze - Date.now();
+            if (userData) {
+                const difference = userData.freeze - Date.now();
                 if (difference <= 0) {
                     setOption({
                         text: 'Disabled',
@@ -102,7 +103,7 @@ const SelectBox = () => {
         const intervalId = setInterval(updateOption, 1000);
     
         return () => clearInterval(intervalId);
-    }, [hookedUserData])
+    }, [userData])
     
     console.log(option)
     const [isOpen, setIsOpen] = useState(false)
@@ -131,6 +132,7 @@ const SelectBox = () => {
                         />
                     </div>
                         <motion.div
+                            onClick={() => setUserData(userData)}
                             className="absolute z-[1] top-0 left-0 right-0 border border-gray-border rounded-[0.15rem] overflow-hidden"
                             initial={{
                                 translateY: 0,
@@ -144,10 +146,10 @@ const SelectBox = () => {
                                 type: 'tween'
                             }}
                         >
-                            <Option text="Disabled" value={0} setOption={setOption} setIsOpen={setIsOpen} setHookedUserData={setHookedUserData}/>
-                            <Option text="1 Hour" value={3600000} setOption={setOption} setIsOpen={setIsOpen} setHookedUserData={setHookedUserData}/>
-                            <Option text="8 Hours" value={28800000} setOption={setOption} setIsOpen={setIsOpen} setHookedUserData={setHookedUserData}/>
-                            <Option text="24 Hours" value={86400000} setOption={setOption} setIsOpen={setIsOpen} setHookedUserData={setHookedUserData}/>
+                            <Option text="Disabled" value={0} setOption={setOption} setIsOpen={setIsOpen}/>
+                            <Option text="1 Hour" value={3600000} setOption={setOption} setIsOpen={setIsOpen}/>
+                            <Option text="8 Hours" value={28800000} setOption={setOption} setIsOpen={setIsOpen}/>
+                            <Option text="24 Hours" value={86400000} setOption={setOption} setIsOpen={setIsOpen}/>
                         </motion.div>
                 </div>
                 ) : (
