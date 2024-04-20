@@ -40,7 +40,7 @@ const Counter: React.FC<CounterProps> = ({ text, refetch }) => {
       </div>
 
       <motion.div
-                className="select-none cursor-pointer text-[1rem] font-[500] w-[3rem] h-[1.5rem] grid place-content-center border border-gray-border rounded-[0.15rem]"
+                className="select-none cursor-pointer text-[0.75rem] font-[500] w-[3rem] h-[1.5rem] grid place-content-center border border-gray-border rounded-[0.15rem]"
                 initial={{
                     background: 'linear-gradient(93deg, rgba(30,30,30,1) -64.38%, rgba(30,30,30,1) 48.4%, rgba(30,30,30,1) 158.85%), rgba(0,0,0,0)'
                 }}
