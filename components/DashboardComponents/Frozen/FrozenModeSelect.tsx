@@ -77,9 +77,18 @@ const SelectBox = () => {
     })
 
     useEffect(() => {
+        if(userData) {
+            setOption({
+                text: '',
+                value: userData.freeze
+            })
+        }
+    }, [])
+
+    useEffect(() => {
         const updateOption = () => {
             if (userData) {
-                const difference = userData.freeze - Date.now();
+                const difference = option.value - Date.now();
                 if (difference <= 0) {
                     setOption({
                         text: 'Disabled',
