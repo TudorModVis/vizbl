@@ -11,7 +11,7 @@ const Notifications = () => {
 
     const [userNotifications, setUserNotifications] = useState<userNotification | null>(null)
 
-    const fetchUser = async () => {
+    const fetchUserNotifications = async () => {
         try {
             const res = await fetch('https://api.myvizbl.com/api/get-notifications', {
                 credentials: 'include',
@@ -30,20 +30,39 @@ const Notifications = () => {
     };
 
     useEffect(() => {
-        fetchUser()
+        fetchUserNotifications()
     }, [])
-    console.log(userNotifications)
 
-    /*
-    GET /api/get-notifications
-Retrieves the notifications of the logged-in user.
-    */
+
+    const handleClick = async(value: string) => {
+        try {
+            const res = await fetch('https://api.myvizbl.com/api/update-notifications', {
+                method: 'PUT',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ notifications: value })
+            });
+
+            if (!res.ok) {
+                throw new Error('Failed to update display name');
+            }
+
+
+            fetchUserNotifications()
+        } catch (error) {
+            console.error('Error updating display name:', error);
+        }
+    }
+
+
 
     const [active, setActive] = useState('')
 
     useEffect(() => {
         if(userNotifications) setActive(userNotifications.value)
-    })
+    }, [userNotifications])
 
     if(!userNotifications) return <p className='text-custom-white text-[1.125rem] leading-[1.125rem] font-[500] mr-[1rem]'>Loading...</p>
 
@@ -55,7 +74,7 @@ Retrieves the notifications of the logged-in user.
 
             <motion.div 
                 className="flex items-center gap-[0.5rem] cursor-pointer"
-                onClick={() => setActive('sound')}
+                onClick={() => handleClick('sound')}
                 whileTap={{ scale: 0.9 }}
             >
                 <svg className="size-[1.25rem]" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +101,7 @@ Retrieves the notifications of the logged-in user.
 
             <motion.div 
                 className="flex items-center gap-[0.5rem] cursor-pointer"
-                onClick={() => setActive('mute')}
+                onClick={() => handleClick('mute')}
                 whileTap={{ scale: 0.9 }}
             >
                 <svg className="size-[1.25rem]" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +128,7 @@ Retrieves the notifications of the logged-in user.
 
             <motion.div 
                 className="flex items-center gap-[0.5rem] cursor-pointer"
-                onClick={() => setActive('hide')}
+                onClick={() => handleClick('hide')}
                 whileTap={{ scale: 0.9 }}
             >
                 <svg className="size-[1.25rem]" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
