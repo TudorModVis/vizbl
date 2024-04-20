@@ -71,30 +71,18 @@ const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen, setRe
     )
 }
 
-const SelectBox = () => {
+interface SelectBoxProps {
+    option: Option,
+    setOption: React.Dispatch<React.SetStateAction<Option>>;
+}
 
-    const { userData } = useUserData()
+const SelectBox:React.FC<SelectBoxProps> = ({ option, setOption }) => {
 
     const [rerender, setRerender] = useState(false)
 
-    const [ option, setOption ] = useState({
-        text: '',
-        value: 0
-    })
-
-    useEffect(() => {
-        if(userData) {
-            setOption({
-                text: '',
-                value: userData.freeze
-            })
-        }
-    }, [userData])
-
     useEffect(() => {
         const updateOption = () => {
-            if (userData) {
-                const difference = option.value! - Date.now();
+                const difference = option.value - Date.now();
                 if (difference <= 0) {
                     setOption({
                         text: 'Disabled',
@@ -110,7 +98,6 @@ const SelectBox = () => {
                         value: difference
                     });
                 }
-            }
         };
     
         updateOption();
@@ -118,7 +105,7 @@ const SelectBox = () => {
         const intervalId = setInterval(updateOption, 1000);
     
         return () => clearInterval(intervalId);
-    }, [userData, rerender])
+    }, [rerender])
     
     console.log(option)
     const [isOpen, setIsOpen] = useState(false)
@@ -175,11 +162,28 @@ const SelectBox = () => {
 }
 
 const FrozenModeSelect = () => {
+
+    const { userData } = useUserData()
+
+    const [ option, setOption ] = useState({
+        text: '',
+        value: 0
+    })
+
+    useEffect(() => {
+        if(userData) {
+            setOption({
+                text: '',
+                value: userData.freeze
+            })
+        }
+    }, [userData])
+
   return (
     <div className='mt-[1.5rem] flex items-center'>
         <img src="/icons/dashboard-icons/snowflake.svg" alt="snowflake" draggable={false} className='size-[1.5rem] mr-[0.5rem]'/>
         <p className='text-custom-white text-[1.125rem] leading-[1.125rem] font-[500] mr-[1rem]'>Frozen mode</p>
-        <SelectBox />
+        <SelectBox option={option} setOption={setOption}/>
     </div>
   )
 }
