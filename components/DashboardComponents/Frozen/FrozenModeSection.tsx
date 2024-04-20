@@ -1,4 +1,5 @@
 import FrozenModeSelect from "./FrozenModeSelect"
+import Notifications from "./Notifications"
 
 const FrozenModeSection:React.FC = () => {
   return (
@@ -9,6 +10,7 @@ const FrozenModeSection:React.FC = () => {
         <FrozenModeSelect />
         <h3 className='uppercase text-[1.125rem] font-bold text-gray-border mt-[2rem]'>Notifications</h3>
         <p className='font-[500] text-[1rem] text-gray-border mt-[0.5rem]'>You can turn on/off the notifications sound from the extension.</p>
+        <Notifications />
       </div>
     </div>
   )
