@@ -64,7 +64,7 @@ const SelectBox = () => {
     useEffect(() => {
         if(userData) {
             let text: string
-            switch(Date.now() - userData.freeze){
+            switch(userData.freeze - Date.now()){
                 case 0 : text = 'Disabled'; break;
                 case 3600000 : text = '1 Hour'; break;
                 case 28800000 : text = '8 Hours'; break;
@@ -73,7 +73,7 @@ const SelectBox = () => {
             }
             setOption({
                 text: text,
-                value: (Date.now() - userData.freeze)
+                value: (userData.freeze - Date.now())
             })
         }
     }, [userData])
