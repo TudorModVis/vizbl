@@ -14,30 +14,33 @@ interface UserData{
 const useUserData = () => {
     const [userData, setUserData] = useState<UserData | null>(null);
 
-  useEffect(() => {
-    async function fetchUser() {
+    const fetchUser = async () => {
       try {
-        const res = await fetch('https://api.myvizbl.com/api/get-user', {
-          credentials: 'include',
-        });
+          const res = await fetch('https://api.myvizbl.com/api/get-user', {
+              credentials: 'include',
+          });
 
-        if (!res.ok) {
-          throw new Error('Network response was not ok');
-        }
+          if (!res.ok) {
+              throw new Error('Network response was not ok');
+          }
 
-        const userData = await res.json();
-        setUserData(userData);
+          const userData = await res.json();
+          setUserData(userData);
       } catch (error) {
-        console.error('Error fetching user data:', error);
-        setUserData(null)
+          console.error('Error fetching user data:', error);
+          setUserData(null);
       }
-    }
+  };
 
-    fetchUser();
-    console.log(userData)
+  useEffect(() => {
+      fetchUser();
   }, []);
 
-  return { userData, setUserData }
+  const refetch = () => {
+      fetchUser();
+  };
+
+  return { userData, refetch }
 
 }
 

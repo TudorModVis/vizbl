@@ -15,10 +15,10 @@ interface OptionProps{
     value: number;
     setOption: React.Dispatch<React.SetStateAction<Option>>;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    setRerender: React.Dispatch<React.SetStateAction<boolean>>;
+    refetch: () => void;
 }
 
-const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen, setRerender }) => {
+const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen, refetch }) => {
 
     const handleClick = async () => {
         try {
@@ -36,24 +36,7 @@ const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen, setRe
             }
 
 
-            const difference = (value + Date.now()) - Date.now();
-                if (difference <= 0) {
-                    setOption({
-                        text: 'Disabled',
-                        value: 0
-                    });
-                    setRerender(prev => !prev)
-                } else {
-                    const hours = Math.floor(difference / (1000 * 60 * 60));
-                    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-                    const textTime = hours === 0 ? `${minutes}m ${seconds}s left` : `${hours}h ${minutes}m ${seconds}s left`;
-                    setOption({
-                        text: textTime,
-                        value: difference
-                    });
-                    setRerender(prev => !prev)
-                }
+            refetch();
             setIsOpen(false);
         } catch (error) {
             setIsOpen(false);
@@ -71,18 +54,19 @@ const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen, setRe
     )
 }
 
-interface SelectBoxProps {
-    option: Option,
-    setOption: React.Dispatch<React.SetStateAction<Option>>;
-}
+const SelectBox = () => {
 
-const SelectBox:React.FC<SelectBoxProps> = ({ option, setOption }) => {
+    const { userData, refetch } = useUserData()
 
-    const [rerender, setRerender] = useState(false)
+    const [ option, setOption ] = useState({
+        text: '',
+        value: 0
+    })
 
     useEffect(() => {
         const updateOption = () => {
-                const difference = option.value - Date.now();
+            if (userData) {
+                const difference = userData.freeze - Date.now();
                 if (difference <= 0) {
                     setOption({
                         text: 'Disabled',
@@ -98,6 +82,7 @@ const SelectBox:React.FC<SelectBoxProps> = ({ option, setOption }) => {
                         value: difference
                     });
                 }
+            }
         };
     
         updateOption();
@@ -105,7 +90,7 @@ const SelectBox:React.FC<SelectBoxProps> = ({ option, setOption }) => {
         const intervalId = setInterval(updateOption, 1000);
     
         return () => clearInterval(intervalId);
-    }, [rerender])
+    }, [userData])
     
     console.log(option)
     const [isOpen, setIsOpen] = useState(false)
@@ -147,10 +132,10 @@ const SelectBox:React.FC<SelectBoxProps> = ({ option, setOption }) => {
                                 type: 'tween'
                             }}
                         >
-                            <Option text="Disabled" value={0} setOption={setOption} setIsOpen={setIsOpen} setRerender={setRerender}/>
-                            <Option text="1 Hour" value={3600000} setOption={setOption} setIsOpen={setIsOpen} setRerender={setRerender}/>
-                            <Option text="8 Hours" value={28800000} setOption={setOption} setIsOpen={setIsOpen} setRerender={setRerender}/>
-                            <Option text="24 Hours" value={86400000} setOption={setOption} setIsOpen={setIsOpen} setRerender={setRerender}/>
+                            <Option text="Disabled" value={0} setOption={setOption} setIsOpen={setIsOpen} refetch={refetch}/>
+                            <Option text="1 Hour" value={3600000} setOption={setOption} setIsOpen={setIsOpen} refetch={refetch}/>
+                            <Option text="8 Hours" value={28800000} setOption={setOption} setIsOpen={setIsOpen} refetch={refetch}/>
+                            <Option text="24 Hours" value={86400000} setOption={setOption} setIsOpen={setIsOpen} refetch={refetch}/>
                         </motion.div>
                 </div>
                 ) : (
@@ -162,28 +147,11 @@ const SelectBox:React.FC<SelectBoxProps> = ({ option, setOption }) => {
 }
 
 const FrozenModeSelect = () => {
-
-    const { userData } = useUserData()
-
-    const [ option, setOption ] = useState({
-        text: '',
-        value: 0
-    })
-
-    useEffect(() => {
-        if(userData) {
-            setOption({
-                text: '',
-                value: userData.freeze
-            })
-        }
-    }, [userData])
-
   return (
     <div className='mt-[1.5rem] flex items-center'>
         <img src="/icons/dashboard-icons/snowflake.svg" alt="snowflake" draggable={false} className='size-[1.5rem] mr-[0.5rem]'/>
         <p className='text-custom-white text-[1.125rem] leading-[1.125rem] font-[500] mr-[1rem]'>Frozen mode</p>
-        <SelectBox option={option} setOption={setOption}/>
+        <SelectBox />
     </div>
   )
 }
