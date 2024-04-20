@@ -70,16 +70,17 @@ const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen }) => 
 
 const SelectBox = () => {
 
-    const { userData, setUserData } = useUserData()
+    const { userData } = useUserData()
+
     const [ option, setOption ] = useState({
         text: '',
-        value: 0
+        value: userData?.freeze
     })
 
     useEffect(() => {
         const updateOption = () => {
             if (userData) {
-                const difference = userData.freeze - Date.now();
+                const difference = option.value! - Date.now();
                 if (difference <= 0) {
                     setOption({
                         text: 'Disabled',
@@ -132,27 +133,6 @@ const SelectBox = () => {
                         />
                     </div>
                         <motion.div
-                            onClick={() => {
-                                async function fetchUser() {
-                                    try {
-                                      const res = await fetch('https://api.myvizbl.com/api/get-user', {
-                                        credentials: 'include',
-                                      });
-                              
-                                      if (!res.ok) {
-                                        throw new Error('Network response was not ok');
-                                      }
-                              
-                                      const userData = await res.json();
-                                      setUserData(userData);
-                                    } catch (error) {
-                                      console.error('Error fetching user data:', error);
-                                      setUserData(null)
-                                    }
-                                  }
-                              
-                                  fetchUser();
-                            }}
                             className="absolute z-[1] top-0 left-0 right-0 border border-gray-border rounded-[0.15rem] overflow-hidden"
                             initial={{
                                 translateY: 0,
