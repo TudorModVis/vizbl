@@ -33,10 +33,24 @@ const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen }) => 
             if (!res.ok) {
                 throw new Error('Failed to update display name');
             }
-            setOption({
-                text: text,
-                value: value
-            });
+
+
+            const difference = (value + Date.now()) - Date.now();
+                if (difference <= 0) {
+                    setOption({
+                        text: 'Disabled',
+                        value: 0
+                    });
+                } else {
+                    const hours = Math.floor(difference / (1000 * 60 * 60));
+                    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                    const textTime = hours === 0 ? `${minutes}m ${seconds}s left` : `${hours}h ${minutes}m ${seconds}s left`;
+                    setOption({
+                        text: textTime,
+                        value: difference
+                    });
+                }
             setIsOpen(false);
         } catch (error) {
             setIsOpen(false);
@@ -75,7 +89,7 @@ const SelectBox = () => {
                     const hours = Math.floor(difference / (1000 * 60 * 60));
                     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
                     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-                    const text = `${hours}h ${minutes}m ${seconds}s`;
+                    const text = hours === 0 ? `${minutes}m ${seconds}s left` : `${hours}h ${minutes}m ${seconds}s left`;
                     setOption({
                         text: text,
                         value: difference
