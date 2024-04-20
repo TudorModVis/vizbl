@@ -65,7 +65,7 @@ const SelectBox = () => {
         const date = Date.now()
         if(userData) {
             let text: string
-            switch(userData.freeze){
+            switch(date - userData.freeze){
                 case 0 : text = 'Disabled'; break;
                 case 3600000 : text = '1 Hour'; break;
                 case 28800000 : text = '8 Hours'; break;
