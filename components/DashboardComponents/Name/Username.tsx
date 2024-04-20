@@ -27,7 +27,6 @@ const Username = () => {
         <div className="w-full">
             <div className="flex gap-[0.5rem] items-center">
                 <p className="uppercase text-gray-border text-[1.125rem] leading-[1.25rem] font-bold">Username</p>
-                <img className="size-[1.125rem]" src="/icons/share_icon.svg" alt="share" draggable={false} />
             </div>
             <div className="mt-[0.5rem] flex justify-between items-center w-full">
                 <div className="w-fit">

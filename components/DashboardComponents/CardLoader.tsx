@@ -16,7 +16,7 @@ const CardLoader = ({ children } : { children : ReactNode }) => {
                     {children}
                 </>
             ) : (
-                <div className='w-full h-full grid place-content-center bg-card-bg boder-gray-border border rounded-[0.5rem]'>
+                <div className='w-full h-full grid place-content-center bg-card-bg rounded-[0.5rem]'>
                     <TailSpin
                         visible={true}
                         height="30"
