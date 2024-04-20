@@ -62,7 +62,7 @@ const SelectBox = () => {
     })
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
+        const updateOption = () => {
             if (userData) {
                 const difference = userData.freeze - Date.now();
                 if (difference <= 0) {
@@ -81,7 +81,11 @@ const SelectBox = () => {
                     });
                 }
             }
-        }, 1000);
+        };
+    
+        updateOption();
+    
+        const intervalId = setInterval(updateOption, 1000);
     
         return () => clearInterval(intervalId);
     }, [userData])
