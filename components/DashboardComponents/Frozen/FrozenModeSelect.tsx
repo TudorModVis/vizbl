@@ -73,11 +73,11 @@ const SelectBox = () => {
             }
             setOption({
                 text: text,
-                value: (userData.freeze - Date.now()) / 100 / 60
+                value: (Date.now() - userData.freeze) / 100 / 60
             })
         }
+        console.log(option, Date.now())
     })
-    console.log(option)
 
     const [isOpen, setIsOpen] = useState(false)
 
