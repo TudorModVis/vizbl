@@ -139,7 +139,7 @@ const SelectBox = () => {
                         </motion.div>
                 </div>
                 ) : (
-                    <Counter text={option.text}/>
+                    <Counter text={option.text} refetch={refetch}/>
                 )
             }
         </>
