@@ -78,7 +78,7 @@ const SelectBox = () => {
             })
         }
         console.log(option)
-    })
+    }, [userData])
 
     const [isOpen, setIsOpen] = useState(false)
 
