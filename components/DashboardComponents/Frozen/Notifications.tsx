@@ -3,10 +3,13 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
+interface userNotification{
+    value: string;
+}
 
 const Notifications = () => {
 
-    const [userNotifications, setUserNotifications] = useState()
+    const [userNotifications, setUserNotifications] = useState<userNotification | null>(null)
 
     const fetchUser = async () => {
         try {
@@ -22,7 +25,7 @@ const Notifications = () => {
             setUserNotifications(userNotifications);
         } catch (error) {
             console.error('Error fetching user data:', error);
-            setUserNotifications(undefined);
+            setUserNotifications(null);
         }
     };
 
@@ -36,7 +39,13 @@ const Notifications = () => {
 Retrieves the notifications of the logged-in user.
     */
 
-    const [active, setActive] = useState('sound')
+    const [active, setActive] = useState('')
+
+    useEffect(() => {
+        if(userNotifications) setActive(userNotifications.value)
+    })
+
+    if(!userNotifications) return <p className='text-custom-white text-[1.125rem] leading-[1.125rem] font-[500] mr-[1rem]'>Loading...</p>
 
   return (
     <div className='flex items-center mt-[1.5rem]'>
