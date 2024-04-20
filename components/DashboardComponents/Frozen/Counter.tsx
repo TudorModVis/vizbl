@@ -50,7 +50,7 @@ const Counter: React.FC<CounterProps> = ({ text, refetch }) => {
                 transition={{
                     duration: 0.4
                 }}
-                
+                onClick={handleClick}
             >
                 Cancel
             </motion.div>
