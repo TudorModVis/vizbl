@@ -113,7 +113,7 @@ const SelectBox = () => {
         const intervalId = setInterval(updateOption, 1000);
     
         return () => clearInterval(intervalId);
-    }, [userData])
+    }, [userData, option])
     
     console.log(option)
     const [isOpen, setIsOpen] = useState(false)
