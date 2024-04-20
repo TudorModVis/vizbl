@@ -65,11 +65,11 @@ const SelectBox = () => {
         if(userData) {
             let text: string
             switch(userData.freeze){
-                case 0 : text = 'Disabled'
-                case 3600000 : text = '1 Hour'
-                case 28800000 : text = '8 Hours'
-                case 86400000 : text = '24 Hours'
-                default : text = 'Err'
+                case 0 : text = 'Disabled'; break;
+                case 3600000 : text = '1 Hour'; break;
+                case 28800000 : text = '8 Hours'; break;
+                case 86400000 : text = '24 Hours'; break;
+                default : text = 'Err'; break;
             }
             setOption({
                 text: text,
