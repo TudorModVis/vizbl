@@ -15,9 +15,10 @@ interface OptionProps{
     value: number;
     setOption: React.Dispatch<React.SetStateAction<Option>>;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    setRerender: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen }) => {
+const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen, setRerender }) => {
 
     const handleClick = async () => {
         try {
@@ -41,6 +42,7 @@ const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen }) => 
                         text: 'Disabled',
                         value: 0
                     });
+                    setRerender(prev => !prev)
                 } else {
                     const hours = Math.floor(difference / (1000 * 60 * 60));
                     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
@@ -50,6 +52,7 @@ const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen }) => 
                         text: textTime,
                         value: difference
                     });
+                    setRerender(prev => !prev)
                 }
             setIsOpen(false);
         } catch (error) {
@@ -71,6 +74,8 @@ const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen }) => 
 const SelectBox = () => {
 
     const { userData } = useUserData()
+
+    const [rerender, setRerender] = useState(false)
 
     const [ option, setOption ] = useState({
         text: '',
@@ -113,7 +118,7 @@ const SelectBox = () => {
         const intervalId = setInterval(updateOption, 1000);
     
         return () => clearInterval(intervalId);
-    }, [userData, option])
+    }, [userData, rerender])
     
     console.log(option)
     const [isOpen, setIsOpen] = useState(false)
@@ -155,10 +160,10 @@ const SelectBox = () => {
                                 type: 'tween'
                             }}
                         >
-                            <Option text="Disabled" value={0} setOption={setOption} setIsOpen={setIsOpen}/>
-                            <Option text="1 Hour" value={3600000} setOption={setOption} setIsOpen={setIsOpen}/>
-                            <Option text="8 Hours" value={28800000} setOption={setOption} setIsOpen={setIsOpen}/>
-                            <Option text="24 Hours" value={86400000} setOption={setOption} setIsOpen={setIsOpen}/>
+                            <Option text="Disabled" value={0} setOption={setOption} setIsOpen={setIsOpen} setRerender={setRerender}/>
+                            <Option text="1 Hour" value={3600000} setOption={setOption} setIsOpen={setIsOpen} setRerender={setRerender}/>
+                            <Option text="8 Hours" value={28800000} setOption={setOption} setIsOpen={setIsOpen} setRerender={setRerender}/>
+                            <Option text="24 Hours" value={86400000} setOption={setOption} setIsOpen={setIsOpen} setRerender={setRerender}/>
                         </motion.div>
                 </div>
                 ) : (
