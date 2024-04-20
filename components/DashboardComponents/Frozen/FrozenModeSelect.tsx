@@ -77,7 +77,7 @@ const SelectBox = () => {
                 value: (date - userData.freeze)
             })
         }
-        //console.log(option, Date.now())
+        console.log(option)
     })
 
     const [isOpen, setIsOpen] = useState(false)
