@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useState } from "react"
 import useUserData from "@/utils/useUserData"
+import Counter from "./Counter";
 
 interface Option {
     text: string;
@@ -94,45 +95,53 @@ const SelectBox = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <div className="relative w-[6rem] h-[1.5rem] text-[.75rem] text-custom-white">
-            <div 
-                className=" bg-card-bg absolute inset-0 z-[2] flex justify-between items-center px-[0.5rem] rounded-[0.15rem] border border-gray-border cursor-pointer"
-                onClick={() => setIsOpen(prev => !prev)}
-            >
-                <span>{option.text}</span>
-                <motion.img 
-                    className="size-[1rem]"
-                    src="/icons/dashboard-icons/angle_arrow.svg" 
-                    alt="arr" 
-                    draggable={false}
-                    animate={{
-                        rotate: isOpen ? '180deg' : '0deg'
-                    }}
-                    transition={{
-                        type: 'tween'
-                    }}
-                />
-            </div>
-                <motion.div 
-                    className="absolute z-[1] top-0 left-0 right-0 border border-gray-border rounded-[0.15rem] overflow-hidden"
-                    initial={{
-                        translateY: 0,
-                        height: '0%'
-                    }}
-                    animate={{
-                        translateY: isOpen ? '2rem' : '0rem',
-                        height: isOpen ? 'fit-content' : '0%'
-                    }}
-                    transition={{
-                        type: 'tween'
-                    }}
-                >
-                    <Option text="Disabled" value={0} setOption={setOption} setIsOpen={setIsOpen}/>
-                    <Option text="1 Hour" value={3600000} setOption={setOption} setIsOpen={setIsOpen}/>
-                    <Option text="8 Hours" value={28800000} setOption={setOption} setIsOpen={setIsOpen}/>
-                    <Option text="24 Hours" value={86400000} setOption={setOption} setIsOpen={setIsOpen}/>
-                </motion.div>
-        </div>
+        <>
+            {
+                option.value !== 0 ? (
+                <div className="relative w-[6rem] h-[1.5rem] text-[.75rem] text-custom-white">
+                    <div 
+                        className=" bg-card-bg absolute inset-0 z-[2] flex justify-between items-center px-[0.5rem] rounded-[0.15rem] border border-gray-border cursor-pointer"
+                        onClick={() => setIsOpen(prev => !prev)}
+                    >
+                        <span>{option.text}</span>
+                        <motion.img 
+                            className="size-[1rem]"
+                            src="/icons/dashboard-icons/angle_arrow.svg" 
+                            alt="arr" 
+                            draggable={false}
+                            animate={{
+                                rotate: isOpen ? '180deg' : '0deg'
+                            }}
+                            transition={{
+                                type: 'tween'
+                            }}
+                        />
+                    </div>
+                        <motion.div 
+                            className="absolute z-[1] top-0 left-0 right-0 border border-gray-border rounded-[0.15rem] overflow-hidden"
+                            initial={{
+                                translateY: 0,
+                                height: '0%'
+                            }}
+                            animate={{
+                                translateY: isOpen ? '2rem' : '0rem',
+                                height: isOpen ? 'fit-content' : '0%'
+                            }}
+                            transition={{
+                                type: 'tween'
+                            }}
+                        >
+                            <Option text="Disabled" value={0} setOption={setOption} setIsOpen={setIsOpen}/>
+                            <Option text="1 Hour" value={3600000} setOption={setOption} setIsOpen={setIsOpen}/>
+                            <Option text="8 Hours" value={28800000} setOption={setOption} setIsOpen={setIsOpen}/>
+                            <Option text="24 Hours" value={86400000} setOption={setOption} setIsOpen={setIsOpen}/>
+                        </motion.div>
+                </div>
+                ) : (
+                    <Counter text={option.text}/>
+                )
+            }
+        </>
     )
 }
 

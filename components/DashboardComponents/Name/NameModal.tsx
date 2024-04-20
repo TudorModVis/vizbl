@@ -80,7 +80,7 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
         {
             showModal && (
                 <motion.div
-                    className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-[5000] grid place-items-center cursor-pointer"
+                    className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-[5000] grid place-items-center"
                     initial={{
                         opacity: 0
                     }}
