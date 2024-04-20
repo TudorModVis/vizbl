@@ -132,7 +132,7 @@ const SelectBox = () => {
                         />
                     </div>
                         <motion.div
-                            onClick={() => refetch()}
+                            onClick={async() => refetch()}
                             className="absolute z-[1] top-0 left-0 right-0 border border-gray-border rounded-[0.15rem] overflow-hidden"
                             initial={{
                                 translateY: 0,
