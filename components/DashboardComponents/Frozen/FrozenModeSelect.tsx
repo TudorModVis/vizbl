@@ -74,7 +74,16 @@ const SelectBox = () => {
 
     const [ option, setOption ] = useState({
         text: '',
-        value: userData?.freeze
+        value: 0
+    })
+
+    useEffect(() => {
+        if(userData) {
+            setOption({
+                text: '',
+                value: userData.freeze
+            })
+        }
     })
 
     useEffect(() => {
