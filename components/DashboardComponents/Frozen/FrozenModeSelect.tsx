@@ -62,20 +62,28 @@ const SelectBox = () => {
     })
 
     useEffect(() => {
-        if(userData) {
-            let text: string
-            switch(userData.freeze - Date.now()){
-                case 0 : text = 'Disabled'; break;
-                case 3600000 : text = '1 Hour'; break;
-                case 28800000 : text = '8 Hours'; break;
-                case 86400000 : text = '24 Hours'; break;
-                default : text = 'Err'; break;
+        const intervalId = setInterval(() => {
+            if (userData) {
+                const difference = userData.freeze - Date.now();
+                if (difference <= 0) {
+                    setOption({
+                        text: 'Disabled',
+                        value: 0
+                    });
+                } else {
+                    const hours = Math.floor(difference / (1000 * 60 * 60));
+                    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                    const text = `${hours}h ${minutes}m ${seconds}s`;
+                    setOption({
+                        text: text,
+                        value: difference
+                    });
+                }
             }
-            setOption({
-                text: text,
-                value: (userData.freeze - Date.now())
-            })
-        }
+        }, 1000);
+    
+        return () => clearInterval(intervalId);
     }, [userData])
     
     console.log(option)
