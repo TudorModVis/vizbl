@@ -26,7 +26,7 @@ const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen }) => 
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ freeze: value })
+                body: JSON.stringify({ timeout: value })
             });
 
             if (!res.ok) {
