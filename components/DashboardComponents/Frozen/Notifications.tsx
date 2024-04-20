@@ -10,7 +10,7 @@ const Notifications = () => {
 
     const fetchUser = async () => {
         try {
-            const res = await fetch('https://api.myvizbl.com/api/get-user', {
+            const res = await fetch('https://api.myvizbl.com/api/get-notifications', {
                 credentials: 'include',
             });
   
