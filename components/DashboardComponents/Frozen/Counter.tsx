@@ -18,7 +18,7 @@ const Counter: React.FC<CounterProps> = ({ text, refetch }) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ timeout: 0 })
+            body: JSON.stringify({ timeout: -100000 })
         });
 
         if (!res.ok) {
