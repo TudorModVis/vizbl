@@ -62,6 +62,7 @@ const SelectBox = () => {
     })
 
     useEffect(() => {
+        const date = Date.now()
         if(userData) {
             let text: string
             switch(userData.freeze){
@@ -73,7 +74,7 @@ const SelectBox = () => {
             }
             setOption({
                 text: text,
-                value: (12 - userData.freeze) / 100 / 60
+                value: (date - userData.freeze)
             })
         }
         //console.log(option, Date.now())
