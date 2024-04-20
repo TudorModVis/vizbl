@@ -70,20 +70,11 @@ const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen }) => 
 
 const SelectBox = () => {
 
-    const { userData } = useUserData()
+    const { userData, refetch } = useUserData()
     const [ option, setOption ] = useState({
         text: '',
         value: 0
     })
-
-    useEffect(() => {
-        if(userData) {
-            setOption({
-                text: '',
-                value: userData.freeze
-            })
-        }
-    }, [])
 
     useEffect(() => {
         const updateOption = () => {
@@ -140,7 +131,8 @@ const SelectBox = () => {
                             }}
                         />
                     </div>
-                        <motion.div 
+                        <motion.div
+                            onClick={() => refetch()}
                             className="absolute z-[1] top-0 left-0 right-0 border border-gray-border rounded-[0.15rem] overflow-hidden"
                             initial={{
                                 translateY: 0,
