@@ -73,7 +73,7 @@ const SelectBox = () => {
             }
             setOption({
                 text: text,
-                value: Date.now() - userData.freeze
+                value: (Date.now() - userData.freeze) * 100 * 60
             })
         }
     })
