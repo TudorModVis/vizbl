@@ -40,7 +40,7 @@ const AddPassModal:React.FC<AddPassModalProps> = ({ showModal, setShowModal, ref
 
             try {
                 const res = await fetch('https://api.myvizbl.com/api/add-password', {
-                    method: 'PUT',
+                    method: 'POST',
                     credentials: 'include',
                     headers: {
                         'Content-Type': 'application/json',
@@ -49,14 +49,14 @@ const AddPassModal:React.FC<AddPassModalProps> = ({ showModal, setShowModal, ref
                 });
 
                 if (!res.ok) {
-                    throw new Error('Failed to update display name');
+                    throw new Error('Failed to add password');
                 }
                 setErrors([])
                 refetch()
                 setShowModal(false);
             } catch (error) {
                 setErrors(prevErrors => [...prevErrors, '*some error occured']);
-                console.error('Error updating display name:', error);
+                console.error('Error adding password:', error);
             }
         }
         
