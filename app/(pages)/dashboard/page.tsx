@@ -19,7 +19,7 @@ const DashBoardPage:NextPage = () => {
             <div className='ss:w-[39.5rem] w-full max-ss:px-[1rem] text-justify font-[300]'>
               <NameSection />
               <FrozenModeSection />
-              <SubscriptionSection />
+              {/* <SubscriptionSection /> */}
               <PasswordSection />
               <FeedbackSection />
               <AccountSection />

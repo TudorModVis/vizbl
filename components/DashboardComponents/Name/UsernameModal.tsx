@@ -74,6 +74,7 @@ const UsernameModal:React.FC<UsernameModalProps> = ({ showModal, setShowModal, u
         onExitComplete={() => {
             setInputValue(username)
             setLetterNum(username.length)
+            setErrors([])
         }}
     >
         {

@@ -75,6 +75,7 @@ const NameModal: React.FC<NameModalProps> = ({ showModal, setShowModal, name, se
         onExitComplete={() => {
             setInputValue(name)
             setLetterNum(name.length)
+            setErrors([])
         }}
     >
         {

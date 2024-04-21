@@ -19,7 +19,7 @@ import { default as AccountSection } from './DashboardComponents/AccountSection'
 import { default as FeedbackSection } from './DashboardComponents/FeedbackSection'
 import { default as FrozenModeSection } from './DashboardComponents/Frozen/FrozenModeSection'
 import { default as NameSection } from './DashboardComponents/Name/NameSection'
-import { default as PasswordSection } from './DashboardComponents/PasswordSection'
+import { default as PasswordSection } from './DashboardComponents/Password/PasswordSection'
 import { default as SubscriptionSection } from './DashboardComponents/SubscriptionSection'
  
 export{
