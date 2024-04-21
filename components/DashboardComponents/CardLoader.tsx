@@ -9,7 +9,7 @@ const CardLoader = ({ children } : { children : ReactNode }) => {
     const { userData } = useUserData()
 
   return (
-    <div className='w-full p-[1.5rem] boder-gray-border border rounded-[0.5rem] bg-card-bg flex gap-[1.5rem]'>
+    <div className='w-full p-[1.5rem] boder-gray-border border rounded-[0.5rem] bg-card-bg flex gap-[1.5rem] mt-[1.5rem]'>
         {
             userData ? (
                 <>

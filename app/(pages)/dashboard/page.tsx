@@ -15,7 +15,7 @@ const DashBoardPage:NextPage = () => {
         <div className="bg-body-bg">
           <PrivPolNavBar />
 
-          <div className='justify-center flex flex-col items-center mt-[3rem]'>
+          <div className='justify-center flex flex-col items-center mt-[1.5rem]'>
             <div className='ss:w-[39.5rem] w-full max-ss:px-[1rem] text-justify font-[300]'>
               <NameSection />
               <FrozenModeSection />

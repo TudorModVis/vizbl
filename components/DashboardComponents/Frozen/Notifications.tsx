@@ -64,7 +64,7 @@ const Notifications = () => {
         if(userNotifications) setActive(userNotifications.value)
     }, [userNotifications])
 
-    if(!userNotifications) return <p className='text-custom-white text-[1.125rem] leading-[1.125rem] font-[500] mr-[1rem]'>Loading...</p>
+    if(!userNotifications) return <p className='text-custom-white text-[1.125rem] leading-[1.125rem] font-[500] mr-[1rem] mt-[1.5rem]'>Loading...</p>
 
   return (
     <div className='flex items-center mt-[1.5rem]'>
