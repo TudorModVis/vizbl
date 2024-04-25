@@ -1,14 +1,14 @@
 'use client'
 
 import { deleteCookie } from "cookies-next"
-import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
 
 const LogOutBtn = () => {
+    const router = useRouter()
 
     const handleClick = () => {
-        console.log('click')
         deleteCookie('vizbl-session')
-        redirect('/')
+        router.replace('/?loaded=true')
     }
 
   return (
