@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
+import ChangeSuccessMsg from './ChangeSuccessMsg';
 
 interface ChangeModalProps {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -11,6 +12,7 @@ const ChangeModal:React.FC<ChangeModalProps> = ({ showModal, setShowModal }) => 
     const [inputValue, setInputValue] = useState("");
     const [newPassInputValue, setNewPassInputValue] = useState("");
     const [repeatNewPassInputValue, setRepeatNewPassInputValue] = useState("");
+    const [showMessage, setShowMessage] = useState(false)
 
     const [passwordVisible, setPasswordVisible] = useState(false)
     const [newPassVisible, setNewPassVisible] = useState(false)
@@ -56,9 +58,10 @@ const ChangeModal:React.FC<ChangeModalProps> = ({ showModal, setShowModal }) => 
                     throw new Error('Failed to change password');
                 }
                 setErrors([])
-                setShowModal(false);
+                // setShowModal(false);
+                setShowMessage(true)
             } catch (error) {
-                setErrors(prevErrors => [...prevErrors, '*some error occured']);
+                setErrors(prevErrors => [...prevErrors, '*current password is incorrect']);
                 console.error('Error adding password:', error);
             }
         }
@@ -72,6 +75,7 @@ const ChangeModal:React.FC<ChangeModalProps> = ({ showModal, setShowModal }) => 
             setNewPassInputValue("")
             setRepeatNewPassInputValue("")
             setErrors([])
+            setShowMessage(false)
         }}
     >
         {
@@ -95,8 +99,9 @@ const ChangeModal:React.FC<ChangeModalProps> = ({ showModal, setShowModal }) => 
                         exit={{ scale: 0, rotate: "0deg" }}
                         onClick={(e) => e.stopPropagation()}
                         onMouseDown={(e) => e.stopPropagation()}
-                        className="w-[40rem] p-[1rem] bg-card-bg border border-gray-border text-center rounded-[0.5rem] cursor-default"
+                        className="w-[40rem] p-[1rem] bg-card-bg border border-gray-border text-center rounded-[0.5rem] cursor-default relative overflow-hidden"
                     >
+                        <ChangeSuccessMsg setShowMessage={setShowMessage} showMessage={showMessage} setShowModal={setShowModal} />
                         <h3 className="text-custom-white font-bold text-[1.5rem]">Update your password</h3>
                         <p className="font-[500] text-[1.125rem] text-gray-border mt-[0.5rem]">Enter your current password and the new one.</p>
 
