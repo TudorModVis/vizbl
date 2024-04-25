@@ -6,6 +6,7 @@ import { redirect } from "next/navigation"
 const LogOutBtn = () => {
 
     const handleClick = () => {
+        console.log('click')
         deleteCookie('vizbl-session')
         redirect('/')
     }
