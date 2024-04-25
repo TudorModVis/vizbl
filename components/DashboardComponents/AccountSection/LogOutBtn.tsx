@@ -7,7 +7,7 @@ const LogOutBtn = () => {
     const router = useRouter()
 
     const handleClick = () => {
-        deleteCookie('test')
+        deleteCookie('vizbl-session', { path: '/', domain: 'myvizbl.com' })
         router.replace('/?loaded=true')
     }
 
