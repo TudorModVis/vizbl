@@ -15,7 +15,7 @@ import { default as PlansSection } from './PPSectionComponents/PlansSection/Plan
 import { default as FAQ } from './PPSectionComponents/FAQ/FAQ'
 
 //Dashboard
-import { default as AccountSection } from './DashboardComponents/AccountSection'
+import { default as AccountSection } from './DashboardComponents/AccountSection/AccountSection'
 import { default as FeedbackSection } from './DashboardComponents/FeedBackSection/FeedbackSection'
 import { default as FrozenModeSection } from './DashboardComponents/Frozen/FrozenModeSection'
 import { default as NameSection } from './DashboardComponents/Name/NameSection'
