@@ -39,11 +39,10 @@ const DeleteAccModal:React.FC<DeleteAccModalProps> = ({ showModal, setShowModal 
                         'Content-Type': 'application/json',
                     }
                 });
-
-                if (!res.ok) {
-                    throw new Error('Failed to delete account');
+                
+                if (res.status === 401) {
+                    router.replace('/login')
                 }
-                router.replace('/login')
             } catch (error) {
                 console.error('Error deleting the account:', error);
             }
