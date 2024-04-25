@@ -111,7 +111,7 @@ const DeleteAccModal:React.FC<DeleteAccModalProps> = ({ showModal, setShowModal 
                         </form>
                     </motion.div>
                 </motion.div>
-            )
+            ) 
         }
     </AnimatePresence>
   )
