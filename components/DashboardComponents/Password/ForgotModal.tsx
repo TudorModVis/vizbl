@@ -37,7 +37,7 @@ const ForgotModal:React.FC<ForgotBtnProps> = ({ showModal, setShowModal }) => {
   if(!userData) return null
   
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={() => setShowMessage(false)}>
         {
             showModal && (
                 <motion.div
