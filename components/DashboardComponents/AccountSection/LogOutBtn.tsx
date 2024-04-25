@@ -1,3 +1,5 @@
+'use client'
+
 import { deleteCookie } from "cookies-next"
 import { redirect } from "next/navigation"
 
