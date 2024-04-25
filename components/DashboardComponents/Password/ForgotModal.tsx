@@ -73,7 +73,7 @@ const ForgotModal:React.FC<ForgotBtnProps> = ({ showModal, setShowModal }) => {
                               }}
                               transition={{
                                 type: 'tween',
-                                duration: 0.5
+                                duration: 0.3
                               }}
                             >
                                 <button 

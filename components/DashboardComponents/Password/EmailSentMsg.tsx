@@ -19,8 +19,8 @@ const EmailSentMsg:React.FC<ChangeSuccessMsgProps> = ({ setShowMessage, setShowM
         }}
         transition={{
             type: 'tween',
-            delay: 0.5,
-            duration: 0.5
+            delay: 0.3,
+            duration: 0.3
         }}
     >
         <img src="/gifs/mail.gif" alt="lock" draggable={false} className='size-[10rem]'/>
