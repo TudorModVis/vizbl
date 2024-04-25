@@ -10,7 +10,7 @@ interface ChangeSuccessMsgProps{
 const EmailSentMsg:React.FC<ChangeSuccessMsgProps> = ({ setShowMessage, setShowModal, showMessage, email }) => {
   return (
     <motion.div 
-        className='absolute inset-0 bg-card-bg rounded-[inherit] flex flex-col items-center pt-[1.5rem] px-[1.5rem] pb-[1rem] text-center'
+        className='absolute inset-0 bg-card-bg rounded-[inherit] flex flex-col items-center pt-[1.5rem] p-[1.5rem] text-center'
         initial={{
             translateX: '100%'
         }}
@@ -19,7 +19,8 @@ const EmailSentMsg:React.FC<ChangeSuccessMsgProps> = ({ setShowMessage, setShowM
         }}
         transition={{
             type: 'tween',
-            delay: 0.5
+            delay: 0.5,
+            duration: 0.5
         }}
     >
         <img src="/gifs/mail.gif" alt="lock" draggable={false} className='size-[10rem]'/>
