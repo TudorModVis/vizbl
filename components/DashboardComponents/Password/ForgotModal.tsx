@@ -69,7 +69,7 @@ const ForgotModal:React.FC<ForgotBtnProps> = ({ showModal, setShowModal }) => {
                                 marginTop: '1.5rem'
                               }}
                               animate={{
-                                marginTop: showMessage ? '16.5rem' : '1.5rem'
+                                marginTop: showMessage ? '17.5rem' : '1.5rem'
                               }}
                               transition={{
                                 type: 'tween',
