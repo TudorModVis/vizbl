@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import ChangeSuccessMsg from './ChangeSuccessMsg';
+import { useLenis } from '@studio-freight/react-lenis'
 
 interface ChangeModalProps {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -8,6 +9,14 @@ interface ChangeModalProps {
 }
 
 const ChangeModal:React.FC<ChangeModalProps> = ({ showModal, setShowModal }) => {
+
+    const lenis = useLenis(() => {})
+
+    useEffect(() => {
+        if(showModal) {
+            lenis?.stop()
+        } else lenis?.start()
+    }, [showModal])
 
     const [inputValue, setInputValue] = useState("");
     const [newPassInputValue, setNewPassInputValue] = useState("");

@@ -1,7 +1,8 @@
 import useUserData from "@/utils/useUserData";
 import { motion, AnimatePresence } from "framer-motion";
 import EmailSentMsg from "./EmailSentMsg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLenis } from '@studio-freight/react-lenis'
 
 interface ForgotBtnProps {
     setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -9,6 +10,14 @@ interface ForgotBtnProps {
 }
 
 const ForgotModal:React.FC<ForgotBtnProps> = ({ showModal, setShowModal }) => {
+
+    const lenis = useLenis(() => {})
+
+    useEffect(() => {
+        if(showModal) {
+            lenis?.stop()
+        } else lenis?.start()
+    }, [showModal])
 
   const [showMessage, setShowMessage] = useState(false)
 
