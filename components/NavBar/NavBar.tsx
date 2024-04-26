@@ -71,7 +71,7 @@ const NavBar:React.FC = () => {
           <div className='sm:flex hidden'>
             {
               userData ? (
-                <NavButtonRight text="Sign Out" route='/login' active={false}/>
+                <NavButtonRight text="My Account" route='/dashboard' active={false}/>
               ) : (
                 <NavButtonRight text="Log in" route='/login' active={false}/>
               )
