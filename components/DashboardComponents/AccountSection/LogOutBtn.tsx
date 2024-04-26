@@ -5,16 +5,32 @@ const LogOutBtn = () => {
     const router = useRouter()
 
     const handleClick = async () => {
-        fetch("https://api.myvizbl.com/api/logout", {
-              method: "POST",
-          })
-          .then(res => {
-              if (res.status === 401) {
-                router.replace('/login')
+        // fetch("https://api.myvizbl.com/api/logout", {
+        //       method: "POST",
+        //   })
+        //   .then(res => {
+        //       if (res.status === 401) {
+        //         router.replace('/login')
+        //       }
+        //   })
+        //   .catch(error => console.error('Error when /api/log-out: ', error));
+
+        try {
+          const res = await fetch('https://api.myvizbl.com/api/logout', {
+              method: 'POST',
+              credentials: 'include',
+              headers: {
+                  'Content-Type': 'application/json',
               }
-          })
-          .catch(error => console.error('Error when /api/log-out: ', error));
-    }
+          });
+          
+          if (res.status === 401) {
+              router.replace('/login')
+          }
+          } catch (error) {
+              console.error('Error logging out:', error);
+          }
+      }
 
   return (
     <div className=' mt-[0.5rem] mb-[2rem] w-fit cursor-pointer transition-opacity duration-[0.5s] hover:opacity-60' onClick={handleClick}>
