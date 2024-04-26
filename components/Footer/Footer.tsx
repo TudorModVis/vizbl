@@ -54,6 +54,13 @@ const Footer: React.FC = () => {
                                     <h3>TAKE PART IN OUR HISTORY</h3>
                                     <div className="bg-custom-white h-[1px] w-[7.5rem]"/>
                                 </div>
+                                <a href="https://www.producthunt.com/posts/vizbl?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vizbl" target="_blank">
+                                    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=454166&theme=dark" 
+                                        alt="ViZBL - Share&#0032;your&#0032;YouTube&#0032;video&#0032;activity&#0032;with&#0032;friends&#0046; | Product Hunt" 
+                                        className="w-[15.625rem] h-[3.375rem] mt-[1.5rem] max-ss:hidden"
+                                        width="250" 
+                                        height="54" />
+                                </a>
                             </div>
                         </div>
 
@@ -191,7 +198,7 @@ const Footer: React.FC = () => {
                                         </div>
                                     </a>
 
-                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="#">
+                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://www.producthunt.com/posts/vizbl?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vizbl">
                                         <div className="group transition-colors duration-[0.5s] hover:bg-body-bg p-[0.1875rem] rounded-[0.3125rem] w-[2rem] h-[2rem] flex justify-center items-center bg-custom-white">
                                             <Image 
                                                 draggable={false}
