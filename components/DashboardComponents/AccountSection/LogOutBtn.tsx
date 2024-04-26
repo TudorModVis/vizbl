@@ -17,9 +17,8 @@ const LogOutBtn = () => {
     }
 
   return (
-    <div className='group mt-[0.5rem] mb-[2rem] w-fit cursor-pointer' onClick={handleClick}>
+    <div className=' mt-[0.5rem] mb-[2rem] w-fit cursor-pointer transition-opacity duration-[0.5s] hover:opacity-60' onClick={handleClick}>
         <h3 className='uppercase text-[1.125rem] font-bold text-custom-white'>log out</h3>
-        <div className='bg-custom-white h-[1px] w-0 group-hover:w-full duration-[0.5s]'/>
     </div>
   )
 }
