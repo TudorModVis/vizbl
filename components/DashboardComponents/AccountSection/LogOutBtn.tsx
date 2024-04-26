@@ -5,16 +5,6 @@ const LogOutBtn = () => {
     const router = useRouter()
 
     const handleClick = async () => {
-        // fetch("https://api.myvizbl.com/api/logout", {
-        //       method: "POST",
-        //   })
-        //   .then(res => {
-        //       if (res.status === 401) {
-        //         router.replace('/login')
-        //       }
-        //   })
-        //   .catch(error => console.error('Error when /api/log-out: ', error));
-
         try {
           const res = await fetch('https://api.myvizbl.com/api/logout', {
               method: 'POST',
