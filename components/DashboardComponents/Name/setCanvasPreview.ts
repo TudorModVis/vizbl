@@ -96,7 +96,6 @@ export const setCanvasPreview = (
       const res = await fetch('https://api.myvizbl.com/api/update-image', {
           method: 'POST',
           credentials: 'include',
-          mode: 'cors',
           headers: {
               'Content-Type': 'application/json',
           },
