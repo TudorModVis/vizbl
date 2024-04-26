@@ -229,7 +229,7 @@ const HamburgerBtn = () => {
                                                             easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
                                                         })
                                                     } else {
-                                                        router.push(`/${link.id}`)
+                                                        router.push(`/?loaded=true${link.id}`)
                                                     }
                                                     setToggle(false)
                                                 }}
