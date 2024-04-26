@@ -73,7 +73,7 @@ const Notifications = () => {
         <div className='flex gap-[1rem] items-center'>
 
             <motion.div 
-                className="flex items-center gap-[0.5rem] cursor-pointer"
+                className="flex items-center gap-[0.5rem] cursor-pointer transition-opacity duration-[0.5s] hover:opacity-50"
                 onClick={() => handleClick('sound')}
                 whileTap={{ scale: 0.9 }}
             >
@@ -100,7 +100,7 @@ const Notifications = () => {
             <div className='w-[1px] h-[1.5rem] bg-gray-border'/>
 
             <motion.div 
-                className="flex items-center gap-[0.5rem] cursor-pointer"
+                className="flex items-center gap-[0.5rem] cursor-pointer transition-opacity duration-[0.5s] hover:opacity-50"
                 onClick={() => handleClick('mute')}
                 whileTap={{ scale: 0.9 }}
             >
@@ -127,7 +127,7 @@ const Notifications = () => {
             <div className='w-[1px] h-[1.5rem] bg-gray-border'/>
 
             <motion.div 
-                className="flex items-center gap-[0.5rem] cursor-pointer"
+                className="flex items-center gap-[0.5rem] cursor-pointer transition-opacity duration-[0.5s] hover:opacity-50"
                 onClick={() => handleClick('hide')}
                 whileTap={{ scale: 0.9 }}
             >
