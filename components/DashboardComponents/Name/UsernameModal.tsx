@@ -90,13 +90,14 @@ const UsernameModal:React.FC<UsernameModalProps> = ({ showModal, setShowModal, u
                     exit={{
                         opacity: 0
                     }}
-                    onClick={() => setShowModal(false)}
+                    onMouseDown={() => setShowModal(false)}
                 >
                     <motion.div
                         initial={{ scale: 0, rotate: "12.5deg" }}
                         animate={{ scale: 1, rotate: "0deg" }}
                         exit={{ scale: 0, rotate: "0deg" }}
                         onClick={(e) => e.stopPropagation()}
+                        onMouseDown={(e) => e.stopPropagation()}
                         className="w-[40rem] p-[1rem] bg-card-bg border border-gray-border text-center rounded-[0.5rem] cursor-default"
                     >
                         <h3 className="text-custom-white font-bold text-[1.5rem]">Change your username</h3>
