@@ -34,10 +34,6 @@ html.lenis, html.lenis body {
     pointer-events: none;
   }
 
-body{
-    overflow: hidden;
-}
-
 html {
     color: #f1f1f1;
 }
