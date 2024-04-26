@@ -2,7 +2,7 @@ import React from 'react'
 
 const BuyACoffeeSVG = () => {
         return (
-            <a href="https://www.buymeacoffee.com/studio.modvis" target="_blank" rel="noopener noreferrer" aria-label="Support me by buying me a coffee" className="block w-fit Navigation-module--coffee--36013 mt-[1.5rem]">
+            <a href="https://www.buymeacoffee.com/studio.modvis" target="_blank" rel="noopener noreferrer" aria-label="Support me by buying me a coffee" className="block w-fit Navigation-module--coffee--36013">
                 <div className="CoffeeButton-module--bmcButton--65aaa">
                     <svg viewBox="0 0 545 153" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-8">
                         <path d="M0 24.48C0 10.96 10.96 0 24.48 0H520.2c13.52 0 24.48 10.96 24.48 24.48v104.04c0 13.52-10.96 24.48-24.48 24.48H24.48C10.96 153 0 142.04 0 128.52V24.48z" fill="#FD0"></path>
