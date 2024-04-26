@@ -68,7 +68,7 @@ const Notifications = () => {
 
   return (
     <div className='flex xs:items-center mt-[1.5rem] xs:flex-row flex-col max-xs:gap-[1rem]'>
-        <div>
+        <div className="flex">
             <img className='mr-[0.5rem] size-[1.5rem]' src="/icons/dashboard-icons/bell.svg" alt="bell" draggable={false} />
             <p className='text-custom-white text-[1.125rem] leading-[1.125rem] font-[500] mr-[1rem]'>Notifications</p>
         </div>
