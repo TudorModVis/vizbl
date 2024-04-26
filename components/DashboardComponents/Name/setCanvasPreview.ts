@@ -84,10 +84,10 @@ export const setCanvasPreview = (
     const finalImage = new Image;
     finalImage.onload = function(){
         ctx2.drawImage(finalImage,0,0, MIN_DIMENSION, MIN_DIMENSION); // Or at whatever offset you like
+        finalImage.src = canvas.toDataURL();
+        updateImage(finalImage, refetch, setPreview)
       };
-    finalImage.src = canvas.toDataURL();
 
-    updateImage(finalImage, refetch, setPreview)
   };
 
 
@@ -108,6 +108,6 @@ export const setCanvasPreview = (
       refetch()
       setPreview('')
   } catch (error) {
-      console.error('Error updating display name:', error);
+      console.error('Error updating image:', error);
   }
   }
