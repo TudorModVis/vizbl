@@ -90,7 +90,7 @@ export const setCanvasPreview = (
         console.log('image loaded: ', finalImage)
       };
 
-      // updateImage(finalImage, refetch, setPreview)
+      updateImage(finalImage, refetch, setPreview)
 
   };
 
@@ -103,7 +103,7 @@ export const setCanvasPreview = (
           headers: {
               'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ image: finalImage })
+          body: JSON.stringify({ image: finalImage.src })
       });
 
       if (!res.ok) {
