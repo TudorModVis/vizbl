@@ -1,5 +1,7 @@
 'use client'
 
+import 'react-image-crop/dist/ReactCrop.css'
+
 import { NextPage } from 'next'
 import React from 'react'
 import { Footer, ScrollToTop } from "@/components"
