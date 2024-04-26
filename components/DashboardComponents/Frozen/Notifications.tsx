@@ -95,7 +95,7 @@ const Notifications = () => {
                         />
                     </motion.g>
                 </svg>
-                <span className="text-[0.75rem] text-gray-border font-[500]">Sound</span>
+                <span className={`text-[0.75rem] transition-colors duration-[0.5s] ${active === 'sound' ? ' text-custom-white ' : ' text-gray-border ' } font-[500]`}>Sound</span>
             </motion.div>
             <div className='w-[1px] h-[1.5rem] bg-gray-border'/>
 
@@ -122,7 +122,7 @@ const Notifications = () => {
                         />
                     </motion.g>
                 </svg>
-                <span className="text-[0.75rem] text-gray-border font-[500]">Muted</span>
+                <span className="text-[0.75rem] text-gray-border font-[500] transition-colors duration-[0.5s] ${active === 'sound' ? ' text-custom-white ' : ' text-gray-border ' }">Muted</span>
             </motion.div>
             <div className='w-[1px] h-[1.5rem] bg-gray-border'/>
 
@@ -161,7 +161,7 @@ const Notifications = () => {
                         </clipPath>
                     </defs>
                 </svg>
-                <span className="text-[0.75rem] text-gray-border font-[500]">Hide</span>
+                <span className="text-[0.75rem] text-gray-border font-[500] transition-colors duration-[0.5s] ${active === 'sound' ? ' text-custom-white ' : ' text-gray-border ' }">Hide</span>
             </motion.div>
 
         </div>
