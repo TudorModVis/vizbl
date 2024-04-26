@@ -31,7 +31,7 @@ const CropModal:React.FC<CropModalProps> = ({ preview, setPreview, refetch }) =>
         {
             preview !== '' && (
                 <motion.div
-                    className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-[5000] grid place-items-center"
+                    className="bg-slate-900/20 backdrop-blur p-[1rem] fixed inset-0 z-[5000] grid place-items-center"
                     initial={{
                         opacity: 0
                     }}
@@ -49,7 +49,7 @@ const CropModal:React.FC<CropModalProps> = ({ preview, setPreview, refetch }) =>
                         exit={{ scale: 0, rotate: "0deg" }}
                         onMouseDown={(e) => e.stopPropagation()}
                         onClick={(e) => e.stopPropagation()}
-                        className="w-[40rem] p-[1rem] bg-card-bg border border-gray-border text-center rounded-[0.5rem] cursor-default relative"
+                        className="ss:w-[40rem] w-full p-[1rem] bg-card-bg border border-gray-border text-center rounded-[0.5rem] cursor-default relative"
                     >
                         <img onClick={() => setPreview('')} src="/icons/dashboard-icons/arrow-left.svg" alt="arr" draggable={false} className="size-[2rem] rotate-180 absolute cursor-pointer" />
                         <h3 className="text-custom-white font-bold text-[1.5rem] uppercase leading-[1.85rem] mb-[2rem]">Crop image</h3>

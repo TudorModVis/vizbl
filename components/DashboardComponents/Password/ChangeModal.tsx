@@ -90,7 +90,7 @@ const ChangeModal:React.FC<ChangeModalProps> = ({ showModal, setShowModal }) => 
         {
             showModal && (
                 <motion.div
-                    className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-[5000] grid place-items-center"
+                    className="bg-slate-900/20 backdrop-blur p-[1rem] fixed inset-0 z-[5000] grid place-items-center"
                     initial={{
                         opacity: 0
                     }}
@@ -108,7 +108,7 @@ const ChangeModal:React.FC<ChangeModalProps> = ({ showModal, setShowModal }) => 
                         exit={{ scale: 0, rotate: "0deg" }}
                         onClick={(e) => e.stopPropagation()}
                         onMouseDown={(e) => e.stopPropagation()}
-                        className="w-[40rem] p-[1rem] bg-card-bg border border-gray-border text-center rounded-[0.5rem] cursor-default relative overflow-hidden"
+                        className="ss:w-[40rem] w-full p-[1rem] bg-card-bg border border-gray-border text-center rounded-[0.5rem] cursor-default relative overflow-hidden"
                     >
                         <ChangeSuccessMsg setShowMessage={setShowMessage} showMessage={showMessage} setShowModal={setShowModal} />
                         <h3 className="text-custom-white font-bold text-[1.5rem]">Update your password</h3>
