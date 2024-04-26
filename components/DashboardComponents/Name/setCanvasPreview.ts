@@ -82,11 +82,15 @@ export const setCanvasPreview = (
     finalCanvas.height = MIN_DIMENSION;
 
     const finalImage = new Image;
+    console.log('image created: ', finalImage)
+    finalImage.src = canvas.toDataURL();
+    console.log('image src assigned: ', finalImage)
     finalImage.onload = function(){
         ctx2.drawImage(finalImage,0,0, MIN_DIMENSION, MIN_DIMENSION); // Or at whatever offset you like
+        console.log('image loaded: ', finalImage)
       };
-      finalImage.src = canvas.toDataURL();
-      updateImage(finalImage, refetch, setPreview)
+
+      // updateImage(finalImage, refetch, setPreview)
 
   };
 
