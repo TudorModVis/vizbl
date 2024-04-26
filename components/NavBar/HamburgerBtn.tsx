@@ -195,6 +195,7 @@ const HamburgerBtn = () => {
                                                     easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
                                                 })
                                                 setToggle(false)
+                                                document.body.style.overflow = 'visible';
                                             } else {
                                                 router.push('/?loaded=true')
                                             }
@@ -230,6 +231,7 @@ const HamburgerBtn = () => {
                                                         router.push(`/${link.id}`)
                                                     }
                                                     setToggle(false)
+                                                    document.body.style.overflow = 'visible';
                                                 }}
                                             >
                                                 {link.text}
@@ -237,13 +239,12 @@ const HamburgerBtn = () => {
                                         ))
                                     }
                                     <div 
-                                        className='hidden'
                                         onClick={() => { 
-                                            if(pathname !== '/plans-and-pricing') {
-                                                router.push('/plans-and-pricing')
+                                            if(pathname !== '/login') {
+                                                router.push('/login')
                                             } 
                                         }}>
-                                        <HamburgerTransitionBtn text="Plans & Pricing" delay={0.3 + 4 / 20}/>
+                                        <HamburgerTransitionBtn text="Log in" delay={0.3 + 4 / 20}/>
                                     </div>
                                 </div>
                             </motion.div>
