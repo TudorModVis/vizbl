@@ -73,7 +73,7 @@ const Notifications = () => {
         <div className='flex gap-[1rem] items-center'>
 
             <motion.div 
-                className="flex items-center gap-[0.5rem] cursor-pointer opacity-75 transition-opacity duration-[0.5s] hover:opacity-[1]"
+                className="flex items-center gap-[0.5rem] cursor-pointer"
                 onClick={() => handleClick('sound')}
                 whileTap={{ scale: 0.9 }}
             >
@@ -95,12 +95,12 @@ const Notifications = () => {
                         />
                     </motion.g>
                 </svg>
-                <span className={`text-[0.75rem] transition-colors duration-[0.5s] ${active === 'sound' ? ' text-custom-white ' : ' text-gray-border ' } font-[500]`}>Sound</span>
+                <span className={`text-[0.75rem] hover:text-custom-white transition-colors duration-[0.5s] ${active === 'sound' ? ' text-custom-white ' : ' text-gray-border ' } font-[500]`}>Sound</span>
             </motion.div>
             <div className='w-[1px] h-[1.5rem] bg-gray-border'/>
 
             <motion.div 
-                className="flex items-center gap-[0.5rem] cursor-pointer opacity-75 transition-opacity duration-[0.5s] hover:opacity-[1]"
+                className="flex items-center gap-[0.5rem] cursor-pointer"
                 onClick={() => handleClick('mute')}
                 whileTap={{ scale: 0.9 }}
             >
@@ -122,12 +122,12 @@ const Notifications = () => {
                         />
                     </motion.g>
                 </svg>
-                <span className={`text-[0.75rem] text-gray-border font-[500] transition-colors duration-[0.5s] ${active === 'sound' ? ' text-custom-white ' : ' text-gray-border ' }`}>Muted</span>
+                <span className={`text-[0.75rem] text-gray-border font-[500] hover:text-custom-white transition-colors duration-[0.5s] ${active === 'sound' ? ' text-custom-white ' : ' text-gray-border ' }`}>Muted</span>
             </motion.div>
             <div className='w-[1px] h-[1.5rem] bg-gray-border'/>
 
             <motion.div 
-                className="flex items-center gap-[0.5rem] cursor-pointer opacity-75 transition-opacity duration-[0.5s] hover:opacity-[1]"
+                className="flex items-center gap-[0.5rem] cursor-pointer"
                 onClick={() => handleClick('hide')}
                 whileTap={{ scale: 0.9 }}
             >
@@ -161,7 +161,7 @@ const Notifications = () => {
                         </clipPath>
                     </defs>
                 </svg>
-                <span className={`text-[0.75rem] text-gray-border font-[500] transition-colors duration-[0.5s] ${active === 'sound' ? ' text-custom-white ' : ' text-gray-border ' }`}>Hide</span>
+                <span className={`text-[0.75rem] text-gray-border font-[500] hover:text-custom-white transition-colors duration-[0.5s] ${active === 'sound' ? ' text-custom-white ' : ' text-gray-border ' }`}>Hide</span>
             </motion.div>
 
         </div>
