@@ -76,7 +76,7 @@ const SelectBox = () => {
                     const hours = Math.floor(difference / (1000 * 60 * 60));
                     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
                     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-                    const text = hours === 0 ? `${minutes}m ${seconds}s left` : `${hours}h ${minutes}m ${seconds}s left`;
+                    const text = hours === 0 ? `${minutes}min. left` : `${hours} hours left`;
                     setOption({
                         text: text,
                         value: difference

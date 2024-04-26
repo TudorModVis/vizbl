@@ -26,7 +26,7 @@ const PasswordSection:React.FC = () => {
           {
             userData && userData.authMethod !== 'password' && (
               <div>
-                <h3 className='uppercase text-[1.125rem] font-bold text-gray-border mt-[2rem]'>ADD A PASSWORD</h3>
+                <h3 className='uppercase text-[1.125rem] font-bold text-gray-border'>ADD A PASSWORD</h3>
                 <p className='font-[500] text-[1rem] text-gray-border mt-[0.5rem]'>Account is registered with Google, but you can enhance security by adding a password to facilitate login through both email and password credentials.</p>
                 <AddPasswordBtn refetch={refetch}/>
               </div>
