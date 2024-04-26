@@ -86,6 +86,9 @@ const Notifications = () => {
                         transition={{
                             duration: 0.3
                         }}
+                        whileHover={{
+                            stroke: '#F1F1F1'
+                        }}
                     >
                         <motion.path 
                             className="duration-[0.5s]" 
