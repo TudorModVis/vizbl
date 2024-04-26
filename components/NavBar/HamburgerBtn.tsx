@@ -221,6 +221,7 @@ const HamburgerBtn = () => {
                                                     delay: 0.3 + (index + 1) / 20
                                                 }}
                                                 onClick={() => {
+                                                    document.body.style.overflow = 'visible';
                                                     lenis?.start()
                                                     if(pathname === '/'){
                                                         lenis?.scrollTo(link.divEl.current!, {
@@ -231,7 +232,6 @@ const HamburgerBtn = () => {
                                                         router.push(`/${link.id}`)
                                                     }
                                                     setToggle(false)
-                                                    document.body.style.overflow = 'visible';
                                                 }}
                                             >
                                                 {link.text}
