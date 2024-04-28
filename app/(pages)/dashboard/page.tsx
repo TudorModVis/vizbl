@@ -16,14 +16,14 @@ import { useRouter } from 'next/navigation'
 const DashBoardPage:NextPage = () => {
 
   const router = useRouter()
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null)
 
   useEffect(() => {
     setIsLoggedIn(hasCookie('vizbl-session'))
-    if(!isLoggedIn) router.replace('/login') 
+    if(isLoggedIn === false) router.replace('/login') 
   }, [])
 
-  if(!isLoggedIn) return null;
+  if(isLoggedIn === null) return null;
 
   return (
     <div>
