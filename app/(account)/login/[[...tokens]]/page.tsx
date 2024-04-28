@@ -120,26 +120,26 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
                             <img src="/images/login/logo.png" alt="logo" className='w-[22.5rem] mx-auto' />
                         </Link>
                     </div>
-                    <p className='mb-8 mt-4 leading-[140%] text-base font-bold text-gray text-center'>Sign in or create an account. <span className='text-white'>It’s free and fun!</span></p>
+                    <p className='mb-8 mt-4 leading-[140%] text-base font-bold text-gray-border text-center'>Sign in or create an account. <span className='text-white'>It's free and fun!</span></p>
                     <form action="" method="post" onSubmit={(event) => {event.preventDefault(); sendLoginData();}}>
                         <EmailField email={email} setEmail={setEmail} error={emailError} setError={setEmailError}/>
                         <PasswordField password={password} setPassword={setPassword} error={passwordError} setError={setPasswordError}/>
-                        <p className='text-[12px] lg:text-sm leading-[140%] font-medium mb-6 cursor-pointer transition duration-200 hover:opacity-75 w-fit' onClick={() => {setForgotPasswordPanel(true)}} >Forgot password?</p>
-                        <button className='w-full max-h-[48px] py-4 lg:py-3 text-black font-medium lg:font-bold rounded-lg text-center bg-white border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white'>Log in</button>
+                        <p className='text-[0.875rem] leading-[140%] font-medium mb-6 cursor-pointer transition duration-200 hover:opacity-75 w-fit' onClick={() => {setForgotPasswordPanel(true)}} >Forgot password?</p>
+                        <button className='text-[1rem] w-full max-h-[3rem] py-4 lg:py-3 text-black font-medium lg:font-bold rounded-lg text-center bg-white border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white'>Log in</button>
                     </form>
                     <div className="flex gap-4 items-center w-full my-2">
                         <div className='h-[1px] bg-gray flex-1'></div>
-                        <p className='text-gray'>or</p>
+                        <p className='text-gray text-[1rem]'>or</p>
                         <div className='h-[1px] bg-gray flex-1'></div>
                     </div>
-                    <button className='w-full max-h-[48px] py-4 lg:py-3 text-black font-medium lg:font-bold rounded-lg relative text-center bg-white mb-4 border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white' onClick={() => {googleLogin()}}>
+                    <button className='text-[1rem] w-full max-h-[3rem] py-4 lg:py-3 text-black font-medium lg:font-bold rounded-lg relative text-center bg-white mb-4 border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white' onClick={() => {googleLogin()}}>
                         <img src="/images/login/google.png" alt="google icon" className='absolute w-8 left-5 top-1/2 -translate-y-1/2'/>
                         Sign in with Google
                     </button>
 
                     <div className="flex justify-center">
-                        <p className='font-medium text-gray text-[14px] lg:text-base'>Don’t have an account yet?&nbsp;</p>
-                        <Link href={params.tokens === undefined ? "/signup" : `/signup/${params.tokens[0]}`} className='font-bold hover:opacity-75 transition duration-200 text-[14px] lg:text-base'>Sign up</Link>
+                        <p className='font-medium text-gray text-[1rem]'>Don't have an account yet?&nbsp;</p>
+                        <Link href={params.tokens === undefined ? "/signup" : `/signup/${params.tokens[0]}`} className='font-bold hover:opacity-75 transition duration-200 text-[1rem]'>Sign up</Link>
                     </div>
                 </div>
             </div>

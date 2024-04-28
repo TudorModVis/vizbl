@@ -42,7 +42,7 @@ export default function Feedback ({setIsSent}: feedbackProps) {
                         <CheckBox label="Other:" id="other" reasons={reasons} setReasons={setReasons} otherCheck={otherCheck} setOtherCheck={setOtherCheck} other={other} setOther={setOther}/>
                     </div>
                 </div>
-                <button className="py-4 lg:py-[0.875rem] px-7 colored-button border border-transparent hover:border-white font-bold mx-auto">Submit responses</button>
+                <button className="py-4 lg:py-[0.875rem] px-7 colored-button border border-transparent hover:border-white font-bold mx-auto text-[1rem]">Submit responses</button>
             </form>
         </>
     )
@@ -50,7 +50,7 @@ export default function Feedback ({setIsSent}: feedbackProps) {
 
 const CheckBox = ({label, id, reasons, setReasons, otherCheck, setOtherCheck, other, setOther}: {label: string, id: string, reasons: Array<string>, setReasons: (value: Array<string>) => void, otherCheck?: boolean, setOtherCheck?: (value: boolean) => void, other?: string, setOther?: (value: string) => void}) => {
     return (
-        <div className="flex items-center">
+        <div className="flex items-center text-[1rem]">
             <label className="relative flex items-center rounded-full cursor-pointer" htmlFor={id}>
                 <input type="checkbox"
                 className="outline-none before:content[''] peer relative h-8 w-8 cursor-pointer appearance-none rounded-md border border-white transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity hover:before:opacity-10"

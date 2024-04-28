@@ -38,6 +38,10 @@ html {
     color: #f1f1f1;
 }
 
+body {
+  background-color: #050505;
+}
+
 body::-webkit-scrollbar {
     display: block;
     background: transparent;
