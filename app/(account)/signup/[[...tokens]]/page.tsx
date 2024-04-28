@@ -120,7 +120,9 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
                         <p className='text-[2.5rem] leading-[110%] font-bold mb-1 text-center relative z-10'>WELCOME TO</p>
                         <div className='relative'>
                             <img src="/images/login/star.gif" alt="star gif" className='absolute top-0 -translate-y-full h-44 left-1/2 -translate-x-1/2'/>
-                            <img src="/images/login/logo.png" alt="logo" className='w-[22.5rem] mx-auto' />
+                            <Link href="/?loaded=true">
+                                <img src="/images/login/logo.png" alt="logo" className='w-[22.5rem] mx-auto' />
+                            </Link>
                         </div>
                         <p className='mb-8 mt-4 text-base leading-[140%] font-bold text-gray text-center'>Sign in or create an account. <span className='text-white'>It’s free and fun!</span></p>
                         <form className='relative' onSubmit={(event) => {event.preventDefault(); sendLoginData();}}>
