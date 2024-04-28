@@ -9,7 +9,11 @@ import { useState } from "react"
 import HamburgerTransitionBtn from './HamburgerTransitionBtn'
 import { usePathname, useRouter } from 'next/navigation';
 
+import useUserData from '@/utils/useUserData'
+
 const HamburgerBtn = () => {
+
+    const { userData } = useUserData()
     
     const [scrollbarWidth, setScrollbarWidth] = useState(0) 
 
@@ -238,14 +242,27 @@ const HamburgerBtn = () => {
                                             </motion.p>
                                         ))
                                     }
-                                    <div 
-                                        onClick={() => { 
-                                            if(pathname !== '/login') {
-                                                router.push('/login')
-                                            } 
-                                        }}>
-                                        <HamburgerTransitionBtn text="Log in" delay={0.3 + 4 / 20}/>
-                                    </div>
+                                    {
+                                        userData ? (
+                                            <div 
+                                                onClick={() => { 
+                                                    if(pathname !== '/dashboard') {
+                                                        router.push('/dashboard')
+                                                    } 
+                                                }}>
+                                                <HamburgerTransitionBtn text="My account" delay={0.3 + 4 / 20}/>
+                                            </div>
+                                        ) : (
+                                            <div 
+                                                onClick={() => { 
+                                                    if(pathname !== '/login') {
+                                                        router.push('/login')
+                                                    } 
+                                                }}>
+                                                <HamburgerTransitionBtn text="Log in" delay={0.3 + 4 / 20}/>
+                                            </div>
+                                        )
+                                    }
                                 </div>
                             </motion.div>
                         )
