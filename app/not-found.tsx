@@ -41,7 +41,7 @@ const NotFound = () => {
                 <h2 className="uppercase text-custom-white smm:text-[4rem] xs:text-[3.5rem] text-[2.75rem] leading-[110%] font-bold">Page not found</h2>
                 <p className="mt-[1rem] text-gray-border smm:text-[1.125rem] text-[1rem] font-[500] text-center">Oops! Looks like you got lost... <br />We don't seem to find the page you are looking for.</p>
 
-                <Link href="/?loaded=true" className="w-full flex justify-center">
+                <Link href="/?loaded=true" replace className="w-full flex justify-center">
                     <motion.div 
                         className="uppercase mt-[3rem] w-fit h-[3rem] px-[1.5rem] grid place-content-center text-custom-white text-[1rem] rounded-[1rem] border border-gray-border cursor-pointer"
                         initial={{
