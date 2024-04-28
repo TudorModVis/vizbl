@@ -98,7 +98,7 @@ const SelectBox = () => {
         <>
             {
                 option.value === 0 ? (
-                <div className="relative w-[6rem] h-[1.5rem] text-[0.875rem] text-custom-white">
+                <div className="relative w-[6rem] h-[1.75rem] text-[0.875rem] text-custom-white">
                     <div 
                         className=" bg-card-bg absolute inset-0 z-[2] flex justify-between items-center px-[0.5rem] rounded-[0.15rem] border border-gray-border cursor-pointer"
                         onClick={() => setIsOpen(prev => !prev)}
