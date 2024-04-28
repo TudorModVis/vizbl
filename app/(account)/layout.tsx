@@ -1,4 +1,3 @@
-import '@/styles/globals.css'
 import '@/styles/extension.css'
 import { ReactNode } from 'react'
 

@@ -3,14 +3,28 @@
 import 'react-image-crop/dist/ReactCrop.css'
 
 import { NextPage } from 'next'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Footer, ScrollToTop } from "@/components"
 import Gradient from "@/components/ContactsSection/Gradient"
 import PrivPolNavBar from "@/components/PrivacyAndPolicyComponents/PrivPolNavBar"
 import { SectionProvider } from "@/components/SectionContext"
 import { AccountSection, FeedbackSection, FrozenModeSection, NameSection, PasswordSection, SubscriptionSection } from '@/components'
 
+import { hasCookie } from 'cookies-next'
+import { useRouter } from 'next/navigation'
+
 const DashBoardPage:NextPage = () => {
+
+  const router = useRouter()
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    setIsLoggedIn(hasCookie('vizbl-session'))
+    if(!isLoggedIn) router.replace('/login') 
+  }, [])
+
+  if(!isLoggedIn) return null;
+
   return (
     <div>
       <SectionProvider>

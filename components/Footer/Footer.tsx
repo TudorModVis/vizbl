@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
                                 <a href="https://www.producthunt.com/posts/vizbl?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vizbl" target="_blank">
                                     <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=454166&theme=dark" 
                                         alt="ViZBL - Share&#0032;your&#0032;YouTube&#0032;video&#0032;activity&#0032;with&#0032;friends&#0046; | Product Hunt" 
-                                        className="w-[15.625rem] h-[3.375rem] mt-[1.5rem] max-ss:hidden"
+                                        className="w-[15.625rem] h-[3.375rem] mt-[1.5rem]"
                                         width="250" 
                                         height="54" />
                                 </a>
