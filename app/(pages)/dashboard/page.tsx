@@ -20,8 +20,14 @@ const DashBoardPage:NextPage = () => {
 
   useEffect(() => {
     setIsLoggedIn(hasCookie('vizbl-session'))
-    if(isLoggedIn === false) router.replace('/login') 
   }, [])
+  
+  console.log(isLoggedIn)
+  
+  if(isLoggedIn !== null && isLoggedIn === false) {
+    router.replace('/login')
+    return null
+  }
 
   if(isLoggedIn === null) return null;
 
