@@ -248,6 +248,7 @@ const HamburgerBtn = () => {
                                                 onClick={() => { 
                                                     if(pathname !== '/dashboard') {
                                                         router.push('/dashboard')
+                                                        setToggle(false)
                                                     } 
                                                 }}>
                                                 <HamburgerTransitionBtn text="My account" delay={0.3 + 4 / 20}/>
