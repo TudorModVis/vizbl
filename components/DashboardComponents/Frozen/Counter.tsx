@@ -35,7 +35,7 @@ const Counter: React.FC<CounterProps> = ({ text, refetch }) => {
 
   return (
     <div className="flex gap-[1rem] items-center">
-      <div className='w-[6rem] h-[1.5rem] text-[.75rem] text-custom-white grid place-content-center border border-gray-border rounded-[0.15rem]'>
+      <div className='w-[6rem] h-[1.5rem] text-[0.875rem] text-custom-white grid place-content-center border border-gray-border rounded-[0.15rem]'>
           {text}
       </div>
 

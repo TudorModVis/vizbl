@@ -46,7 +46,7 @@ const Option:React.FC<OptionProps> = ({ text, value, setOption, setIsOpen, refet
 
     return (
         <div 
-            className={`hover:bg-gray-border/50 transition-colors duration-[0.5s] text-[0.75rem] w-full backdrop-blur-[2px] bg-transparent flex items-center px-[.5rem] py-[.25rem] cursor-pointer`}
+            className={`hover:bg-gray-border/50 transition-colors duration-[0.5s] text-[0.875rem] w-full backdrop-blur-[2px] bg-transparent flex items-center px-[.5rem] py-[.25rem] cursor-pointer`}
             onClick={handleClick}
         >
             {text}
