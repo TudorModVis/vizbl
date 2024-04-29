@@ -81,7 +81,7 @@ export default function Page ({ params }: { params: { token: string } }) {
         if (pageContent === 'invalid') contentToLoad = <LinkState title="THE LINK IS NOT VALID" text="The provided link does not belong to any registered user." text2="Thank you for your time." succes={false} />; 
 
     return(
-        <div className="w-screen h-screen relative flex justify-center items-center">
+        <div className="w-screen h-screen relative flex justify-center items-center px-[1rem]">
             <img src="/images/bg.png" alt="background" className="absolute left-0 top-0 w-full h-full object-cover -z-10"/>
             <Link href="/?loaded=true">
                 <Image 
