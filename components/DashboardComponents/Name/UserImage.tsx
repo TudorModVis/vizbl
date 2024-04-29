@@ -37,7 +37,7 @@ const UserImage = () => {
   return (
     <>
       <CropModal preview={preview} setPreview={setPreview} refetch={refetch}/>
-      <div className='xs:h-[9.5rem] h-[7rem] aspect-square border-2 border-custom-white bg-gray-border rounded-[0.5rem] relative' {...getRootProps()}>
+      <div className='h-[9.5rem] aspect-square border-2 border-custom-white bg-gray-border rounded-[0.5rem] relative' {...getRootProps()}>
         <input {...getInputProps()}/>
         <div className={`absolute inset-0 rounded-[inherit] opacity-0 hover:opacity-[1] ${ isDragActive && ' opacity-[1] ' } transition-opacity duration-[0.5s] bg-body-bg/40 cursor-pointer grid place-content-center`}>
           <img src="/icons/dashboard-icons/pencil.svg" className="size-[1.5rem]" alt="pencli" draggable={false}/>
