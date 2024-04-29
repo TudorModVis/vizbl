@@ -31,7 +31,7 @@ const DisplayName = () => {
             <img className="size-[1.125rem]" src="/icons/share_icon.svg" alt="share" draggable={false} />
         </div>
         <div className="mt-[0.5rem] flex justify-between items-center w-full">
-            <div className="w-[20ch] mr-[1rem] truncate">
+            <div className="max-xs:w-[20ch] w-fit mr-[1rem] truncate">
                 <span className={`text-[1.5rem] font-[500]`}>{ name }</span>
             </div>
             <motion.div
