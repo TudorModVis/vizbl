@@ -70,9 +70,9 @@ export default function Page({ params }: { params: { token: string, email: strin
         })
     }
 
-    let contentToLoad = <div className="w-[40rem] flex flex-col items-center pt-6 pb-12 px-16">
+    let contentToLoad = <div className="w-[40rem] flex flex-col items-center pt-6 pb-12 lg:px-16 px-[1rem]">
     <img src="/images/models/lock.png" alt="lock" className="w-60" />
-    <p className="font-bold text-5xl leading-[140%] mb-6">RESET PASSWORD</p>
+    <p className="font-bold ss:text-5xl text-[2rem] leading-[140%] mb-6">RESET PASSWORD</p>
     <p className="text-gray font-bold leading-[140%] text-center mb-12 small text-[1rem]">Write a new password that doesn’t match your previous one. (and remember it this time)</p>
     <PasswordField label="New Password*" password={newPassword} setPassword={setNewPassword} error={newPasswordError} setError={setNewPasswordError}/>
     <PasswordField label="Confirm New Password*" password={confirmPassword} setPassword={setConfirmPassword} error={confirmPasswordError} setError={setConfirmPasswordError}/>
