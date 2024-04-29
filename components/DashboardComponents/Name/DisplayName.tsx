@@ -21,10 +21,15 @@ const DisplayName = () => {
 
   return (
   <>
-    <InviteModal 
-        showInviteModal={showInviteModal}
-        setShowInviteModal={setShowInviteModal}
-    />
+  {
+    userData && (
+        <InviteModal 
+            showInviteModal={showInviteModal}
+            setShowInviteModal={setShowInviteModal}
+            username={userData.username}
+        />
+    )
+  }
     <NameModal 
         showModal={showModal} 
         setShowModal={setShowModal}

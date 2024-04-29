@@ -8,9 +8,11 @@ import Image from "next/image";
 interface InviteModalProps {
     showInviteModal: boolean;
     setShowInviteModal: React.Dispatch<React.SetStateAction<boolean>>;
+    username: string;
 }
 
-const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInviteModal }) => {
+const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInviteModal, username }) => {
+    console.log(username)
   return (
     <AnimatePresence>
         {
@@ -36,14 +38,16 @@ const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInvite
                         onMouseDown={(e) => e.stopPropagation()}
                         className="ss:w-[40rem] w-full p-[1rem] bg-card-bg border border-gray-border text-center rounded-[0.5rem] cursor-default"
                     >
-                        <Image 
-                            src="/images/people.png"
-                            alt="people"
-                            draggable={false}
-                            width={100}
-                            height={100}
-                            className="size-[10rem]"
-                        />
+                        <div className="w-full flex justify-center">
+                            <Image 
+                                src="/images/people.png"
+                                alt="people"
+                                draggable={false}
+                                width={1500}
+                                height={1500}
+                                className="size-[9rem]"
+                            />
+                        </div>
                         <h3 className="text-custom-white font-bold text-[1.5rem]">INVITE YOUR FRIENDS</h3>
                         <p className="font-[500] text-[1.125rem] text-gray-border mt-[0.5rem]">Share this link with others to add them as friends. (also get rewarded with emojis for that)</p>
 
