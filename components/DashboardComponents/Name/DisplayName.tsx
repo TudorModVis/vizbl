@@ -31,8 +31,8 @@ const DisplayName = () => {
             <img className="size-[1.125rem]" src="/icons/share_icon.svg" alt="share" draggable={false} />
         </div>
         <div className="mt-[0.5rem] flex justify-between items-center w-full">
-            <div className="w-fit">
-                <span className={`text-[1.5rem] font-[500] max-sm:w-[15ch] truncate`}>{ name }</span>
+            <div className="w-full pr-[1rem]">
+                <span className={`text-[1.5rem] font-[500] truncate`}>{ name }</span>
             </div>
             <motion.div
                 className="select-none cursor-pointer text-[1rem] font-[500] w-[3rem] h-[1.75rem] grid place-content-center border border-gray-border rounded-[0.125rem]"
