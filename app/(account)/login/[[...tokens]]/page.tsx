@@ -125,7 +125,7 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
                         <EmailField email={email} setEmail={setEmail} error={emailError} setError={setEmailError}/>
                         <PasswordField password={password} setPassword={setPassword} error={passwordError} setError={setPasswordError}/>
                         <p className='text-[0.875rem] leading-[140%] font-medium mb-6 cursor-pointer transition duration-200 hover:opacity-75 w-fit' onClick={() => {setForgotPasswordPanel(true)}} >Forgot password?</p>
-                        <button className='text-[1rem] w-full max-h-[48px] py-4 lg:py-3 text-black font-medium lg:font-bold rounded-lg text-center bg-white border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white'>Log in</button>
+                        <button className='text-xl md:text-base w-full max-h-[48px] py-4 lg:py-3 text-black font-medium lg:font-bold rounded-lg text-center bg-white border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white'>Log in</button>
                     </form>
                     <div className="flex gap-4 items-center w-full my-2">
                         <div className='h-[1px] bg-gray flex-1'></div>
@@ -138,7 +138,7 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
                     </button>
 
                     <div className="flex justify-center">
-                        <p className='font-medium text-gray text-xl md:text-base'>Don't have an account yet?&nbsp;</p>
+                        <p className='font-medium text-gray text-base'>Don't have an account yet?&nbsp;</p>
                         <Link href={params.tokens === undefined ? "/signup" : `/signup/${params.tokens[0]}`} className='font-bold hover:opacity-75 transition duration-200 text-[1rem]'>Sign up</Link>
                     </div>
                 </div>

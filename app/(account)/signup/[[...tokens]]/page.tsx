@@ -128,7 +128,7 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
                         <form className='relative' onSubmit={(event) => {event.preventDefault(); sendLoginData();}}>
                             <EmailField email={email} setEmail={setEmail} error={emailError} setError={setEmailError}/>
                             <PasswordField password={password} setPassword={setPassword} error={passwordError} setError={setPasswordError}/>
-                            <button className='w-full max-h-[48px] font-medium py-4 lg:py-3 text-black rounded-lg text-center bg-white border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white lg:font-bold mt-10'>Sign up & Accept</button>
+                            <button className='text-xl md:text-base w-full max-h-[48px] font-medium py-4 lg:py-3 text-black rounded-lg text-center bg-white border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white lg:font-bold mt-10'>Sign up & Accept</button>
                         </form>
                         <div className="flex gap-4 items-center w-full my-2">
                             <div className='h-[1px] bg-gray flex-1'></div>
@@ -146,7 +146,7 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
                         </div>
                         <div className="flex items-center gap-2 fixed bottom-12 left-1/2 -translate-x-1/2">
                             <img src="/images/login/tick.svg" alt="tick" className="w-[1.125rem] aspect-square"/>
-                            <p className='leading-none font-medium text-gray text-xl md:text-base'>By signing up you accept the <Link href='/privacy-and-policy' className='cursor-pointer transition duration-200 hover:opacity-75 font-bold text-white'>Terms of Service and Privacy Policy</Link></p>
+                            <p className='leading-none font-medium text-gray text-base'>By signing up you accept the <Link href='/privacy-and-policy' className='cursor-pointer transition duration-200 hover:opacity-75 font-bold text-white'>Terms of Service and Privacy Policy</Link></p>
                         </div>
                     </div>
                 }
