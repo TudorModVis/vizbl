@@ -105,6 +105,12 @@ p, h1, h2, h3, h4, h5, h6, span, button{
     }
   }
 
+  @media only screen and (max-width: 1400px) {
+    html{
+        font-size: 12px;
+    }
+  }
+
   @media only screen and (max-width: 1140px) {
     .blur-about-card{
         backdrop-filter: none !important;
