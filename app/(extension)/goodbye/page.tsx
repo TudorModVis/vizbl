@@ -20,7 +20,7 @@ export default function Page() {
                     className="h-[2rem] w-[10rem] smm:scale-[1] scale-[0.75] absolute smm:left-[4.5rem] left-[1rem] top-[3.25rem]"
                 />
             </Link>
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center sm:items-center w-full px-[1rem]">
                 <Goodbye />
             </div>
         </div>
