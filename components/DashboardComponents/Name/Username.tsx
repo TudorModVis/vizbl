@@ -29,8 +29,8 @@ const Username = () => {
                 <p className="uppercase text-gray-border text-[1.125rem] leading-[1.25rem] font-bold">Username</p>
             </div>
             <div className="mt-[0.5rem] flex justify-between items-center w-full">
-                <div className="w-fit">
-                    <span className={`bg-transparent outline-none text-[1.5rem] font-[500] w-[20ch]`}>{ username }</span>
+                <div className="max-xs:w-[20ch] w-fit mr-[1rem] truncate">
+                    <span className={`bg-transparent outline-none text-[1.5rem] font-[500]`}>{ username }</span>
                 </div>
                 <motion.div
                     className="select-none cursor-pointer text-[1rem] font-[500] w-[3rem] h-[1.75rem] grid place-content-center border border-gray-border rounded-[0.125rem]"
