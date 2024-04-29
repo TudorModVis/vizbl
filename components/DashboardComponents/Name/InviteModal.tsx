@@ -50,7 +50,7 @@ const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInvite
                         <h3 className="text-custom-white font-bold text-[1.5rem]">INVITE YOUR FRIENDS</h3>
                         <p className="font-[500] text-[1.125rem] text-gray-border mt-[0.5rem]">Share this link with others to add them as friends. (also get rewarded with emojis for that)</p>
 
-                        <div className="w-full h-[3rem] border border-custom-white grid place-content-center">
+                        <div className="w-full h-[3rem] mt-[1.5rem] rounded-[0.25rem] border border-custom-white grid place-content-center">
                             {
                                 "myvizbl.com/invite/" + username.substring(1)
                             }
