@@ -10,6 +10,7 @@ const DisplayName = () => {
 
     const { userData } = useUserData()
 
+    const [showInviteModal, setShowInviteModal] = useState(false)
     const [showModal, setShowModal] = useState(false)
     const [name, setName] = useState('')
 
@@ -28,7 +29,7 @@ const DisplayName = () => {
     <div className="w-full">
         <div className="flex gap-[0.5rem] items-center">
             <p className="uppercase text-gray-border text-[1.125rem] leading-[1.25rem] font-bold">Display name</p>
-            <img className="size-[1.125rem]" src="/icons/share_icon.svg" alt="share" draggable={false} />
+            <img className="size-[1.125rem] cursor-pointer" src="/icons/share_icon.svg" alt="share" draggable={false} onClick={() => setShowInviteModal(true)}/>
         </div>
         <div className="mt-[0.5rem] flex justify-between items-center w-full">
             <div className="max-xs:w-[20ch] w-fit mr-[1rem] truncate">
