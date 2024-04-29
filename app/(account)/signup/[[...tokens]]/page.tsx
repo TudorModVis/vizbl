@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { useState } from 'react';
 import PasswordField from '../../shared/PasswordField';
@@ -113,6 +114,15 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
     return (
         <>
             <img src="/images/bg.png" alt="background color" className="absolute w-full h-full object-cover -z-10 left-0 top-0"/>
+            <Link href="/?loaded=true">
+                <Image 
+                    src="/images/logo.png"
+                    alt="logo"
+                    width={163}
+                    height={32}
+                    className="h-[2rem] w-[10rem] smm:scale-[1] scale-[0.75] absolute smm:left-[4.5rem] left-[1rem] top-[3.25rem]"
+                />
+            </Link>
             <div className='flex justify-center items-center h-screen'>
                 {confirmation ? 
                     <Confirmation email={email}/> :

@@ -14,13 +14,15 @@ const NotFound = () => {
                 backgroundPosition: 'center'
             }}
         >
-            <Image 
-                src="/images/logo.png"
-                alt="logo"
-                width={163}
-                height={32}
-                className="h-[2rem] w-[10rem] smm:scale-[1] scale-[0.75] absolute smm:left-[4.5rem] left-[1rem] top-[3.25rem]"
-            />
+            <Link href="/?loaded=true">
+                <Image 
+                    src="/images/logo.png"
+                    alt="logo"
+                    width={163}
+                    height={32}
+                    className="h-[2rem] w-[10rem] smm:scale-[1] scale-[0.75] absolute smm:left-[4.5rem] left-[1rem] top-[3.25rem]"
+                />
+            </Link>
 
             <div className="select-none flex flex-col items-center">
                 <div className="flex items-center gap-[1.5rem] smm:text-[16rem] xs:text-[13rem] text-[10rem] leading-[110%] text-custom-white font-[600]">
