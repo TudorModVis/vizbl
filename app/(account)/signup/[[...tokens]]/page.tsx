@@ -135,7 +135,7 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
                             <p className='text-gray text-[1rem]'>or</p>
                             <div className='h-[1px] bg-gray flex-1'></div>
                         </div>
-                        <button className='w-full max-h-[48px] font-medium py-4 lg:py-3 text-black lg:font-bold rounded-lg relative text-center bg-white mb-4 border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white' onClick={() => {googleLogin()}}>
+                        <button className='text-xl md:text-base w-full max-h-[48px] font-medium py-4 lg:py-3 text-black lg:font-bold rounded-lg relative text-center bg-white mb-4 border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white' onClick={() => {googleLogin()}}>
                             <img src="/images/login/google.png" alt="google icon" className='absolute w-8 left-5 top-1/2 -translate-y-1/2'/>
                             Sign in with Google
                         </button>
@@ -146,7 +146,7 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
                         </div>
                         <div className="flex items-center gap-2 fixed bottom-12 left-1/2 -translate-x-1/2">
                             <img src="/images/login/tick.svg" alt="tick" className="w-[1.125rem] aspect-square"/>
-                            <p className='leading-none font-medium text-gray text-base'>By signing up you accept the <Link href='/privacy-and-policy' className='cursor-pointer transition duration-200 hover:opacity-75 font-bold text-white'>Terms of Service and Privacy Policy</Link></p>
+                            <p className='leading-none font-medium text-gray text-xl md:text-base'>By signing up you accept the <Link href='/privacy-and-policy' className='cursor-pointer transition duration-200 hover:opacity-75 font-bold text-white'>Terms of Service and Privacy Policy</Link></p>
                         </div>
                     </div>
                 }

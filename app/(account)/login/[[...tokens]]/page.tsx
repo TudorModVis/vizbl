@@ -132,13 +132,13 @@ export default function login ({ params }: { params: { tokens: string[]} }) {
                         <p className='text-gray text-[1rem]'>or</p>
                         <div className='h-[1px] bg-gray flex-1'></div>
                     </div>
-                    <button className='text-[1rem] w-full max-h-[48px] py-4 lg:py-3 text-black font-medium lg:font-bold rounded-lg relative text-center bg-white mb-4 border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white' onClick={() => {googleLogin()}}>
+                    <button className='text-xl md:text-base w-full max-h-[48px] py-4 lg:py-3 text-black font-medium lg:font-bold rounded-lg relative text-center bg-white mb-4 border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white' onClick={() => {googleLogin()}}>
                         <img src="/images/login/google.png" alt="google icon" className='absolute w-8 left-5 top-1/2 -translate-y-1/2'/>
                         Sign in with Google
                     </button>
 
                     <div className="flex justify-center">
-                        <p className='font-medium text-gray text-[1rem]'>Don't have an account yet?&nbsp;</p>
+                        <p className='font-medium text-gray text-xl md:text-base'>Don't have an account yet?&nbsp;</p>
                         <Link href={params.tokens === undefined ? "/signup" : `/signup/${params.tokens[0]}`} className='font-bold hover:opacity-75 transition duration-200 text-[1rem]'>Sign up</Link>
                     </div>
                 </div>
