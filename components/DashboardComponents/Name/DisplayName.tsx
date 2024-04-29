@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import NameModal from "./NameModal"
 import useUserData from "@/utils/useUserData"
+import InviteModal from "./InviteModal"
 
 const DisplayName = () => {
 
@@ -20,6 +21,10 @@ const DisplayName = () => {
 
   return (
   <>
+    <InviteModal 
+        showInviteModal={showInviteModal}
+        setShowInviteModal={setShowInviteModal}
+    />
     <NameModal 
         showModal={showModal} 
         setShowModal={setShowModal}
