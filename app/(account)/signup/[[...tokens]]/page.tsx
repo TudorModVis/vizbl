@@ -128,14 +128,14 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
                         <form className='relative' onSubmit={(event) => {event.preventDefault(); sendLoginData();}}>
                             <EmailField email={email} setEmail={setEmail} error={emailError} setError={setEmailError}/>
                             <PasswordField password={password} setPassword={setPassword} error={passwordError} setError={setPasswordError}/>
-                            <button className='w-full max-h-[3rem] font-medium py-4 lg:py-3 text-black rounded-lg text-center bg-white border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white lg:font-bold mt-10'>Sign up & Accept</button>
+                            <button className='w-full max-h-[48px] font-medium py-4 lg:py-3 text-black rounded-lg text-center bg-white border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white lg:font-bold mt-10'>Sign up & Accept</button>
                         </form>
                         <div className="flex gap-4 items-center w-full my-2">
                             <div className='h-[1px] bg-gray flex-1'></div>
                             <p className='text-gray text-[1rem]'>or</p>
                             <div className='h-[1px] bg-gray flex-1'></div>
                         </div>
-                        <button className='w-full max-h-[3rem] font-medium py-4 lg:py-3 text-black lg:font-bold rounded-lg relative text-center bg-white mb-4 border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white' onClick={() => {googleLogin()}}>
+                        <button className='w-full max-h-[48px] font-medium py-4 lg:py-3 text-black lg:font-bold rounded-lg relative text-center bg-white mb-4 border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white' onClick={() => {googleLogin()}}>
                             <img src="/images/login/google.png" alt="google icon" className='absolute w-8 left-5 top-1/2 -translate-y-1/2'/>
                             Sign in with Google
                         </button>
