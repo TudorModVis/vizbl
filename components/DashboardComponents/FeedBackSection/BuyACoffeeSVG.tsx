@@ -4,7 +4,7 @@ const BuyACoffeeSVG = () => {
         return (
             <a href="https://www.buymeacoffee.com/studio.modvis" target="_blank" rel="noopener noreferrer" aria-label="Support me by buying me a coffee" className="block w-fit Navigation-module--coffee--36013">
                 <div className="CoffeeButton-module--bmcButton--65aaa">
-                    <svg viewBox="0 0 545 153" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-8">
+                    <svg viewBox="0 0 545 153" fill="none" xmlns="http://www.w3.org/2000/svg" className="xl:h-8 h-[2.5rem]">
                         <path d="M0 24.48C0 10.96 10.96 0 24.48 0H520.2c13.52 0 24.48 10.96 24.48 24.48v104.04c0 13.52-10.96 24.48-24.48 24.48H24.48C10.96 153 0 142.04 0 128.52V24.48z" fill="#FD0"></path>
                         <path d="M109.522 50.318l-.067-.04-.156-.047a.372.372 0 00.223.087zM110.507 57.313l-.075.021.075-.02zM109.549 50.306a.117.117 0 01-.025-.006.046.046 0 000 .017.055.055 0 00.025-.01z" fill="#0D0C22"></path>
                         <path d="M109.523 50.32h.013v-.007l-.013.008zM110.447 57.3l.113-.064.042-.024.038-.04a.652.652 0 00-.193.129zM109.715 50.471l-.111-.105-.075-.04a.314.314 0 00.186.145zM81.88 118.353a.573.573 0 00-.225.174l.07-.045c.047-.043.114-.095.155-.129zM98.046 115.173c0-.1-.05-.082-.037.274 0-.029.012-.058.017-.086.006-.063.012-.125.02-.188zM96.376 118.353a.574.574 0 00-.225.174l.07-.045c.047-.043.114-.095.155-.129zM70.489 119.11a.479.479 0 00-.238-.111c.072.035.143.069.19.095l.048.016zM67.93 116.657a.754.754 0 00-.093-.295c.036.094.066.191.09.29l.003.005z" fill="#0D0C22"></path>

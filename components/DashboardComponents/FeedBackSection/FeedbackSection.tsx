@@ -24,7 +24,7 @@ const FeedbackSection:React.FC = () => {
               transition={{
                   duration: 0.4
               }}
-              className="h-[2rem] font-[500] text-[0.75rem] px-[1rem] border border-gray-border grid place-content-center rounded-[0.25rem]" type="submit"
+              className="xl:h-[2rem] h-[2.5rem] font-[500] xl:text-[0.75rem] text-[0.875rem] px-[1rem] border border-gray-border grid place-content-center rounded-[0.25rem]" type="submit"
           >
               Give us feedback
           </motion.button>

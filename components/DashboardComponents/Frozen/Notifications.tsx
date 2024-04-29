@@ -97,7 +97,7 @@ const Notifications = () => {
                         />
                     </motion.g>
                 </svg>
-                <span className={`text-[0.75rem] ${active !== 'sound' && ' group-hover:text-custom-white '} transition-colors duration-[0.5s] ${active === 'sound' ? ' text-custom-white ' : ' text-gray-border ' } font-[500]`}>Sound</span>
+                <span className={`xl:text-[0.75rem] text-[0.875rem] ${active !== 'sound' && ' group-hover:text-custom-white '} transition-colors duration-[0.5s] ${active === 'sound' ? ' text-custom-white ' : ' text-gray-border ' } font-[500]`}>Sound</span>
             </motion.div>
             <div className='w-[1px] h-[1.5rem] bg-gray-border'/>
 
@@ -124,7 +124,7 @@ const Notifications = () => {
                         />
                     </motion.g>
                 </svg>
-                <span className={`text-[0.75rem] text-gray-border font-[500] ${active !== 'mute' && ' group-hover:text-custom-white '} transition-colors duration-[0.5s] ${active === 'mute' ? ' text-custom-white ' : ' text-gray-border ' }`}>Mute</span>
+                <span className={`xl:text-[0.75rem] text-[0.875rem] text-gray-border font-[500] ${active !== 'mute' && ' group-hover:text-custom-white '} transition-colors duration-[0.5s] ${active === 'mute' ? ' text-custom-white ' : ' text-gray-border ' }`}>Mute</span>
             </motion.div>
             <div className='w-[1px] h-[1.5rem] bg-gray-border'/>
 
@@ -163,7 +163,7 @@ const Notifications = () => {
                         </clipPath>
                     </defs>
                 </svg>
-                <span className={`text-[0.75rem] text-gray-border font-[500] ${active !== 'hide' && ' group-hover:text-custom-white '} transition-colors duration-[0.5s] ${active === 'hide' ? ' text-custom-white ' : ' text-gray-border ' }`}>Hide</span>
+                <span className={`xl:text-[0.75rem] text-[0.875rem] text-gray-border font-[500] ${active !== 'hide' && ' group-hover:text-custom-white '} transition-colors duration-[0.5s] ${active === 'hide' ? ' text-custom-white ' : ' text-gray-border ' }`}>Hide</span>
             </motion.div>
 
         </div>
