@@ -86,7 +86,7 @@ const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInvite
                                     {
                                         copyAnimation.state && (
                                             <motion.div
-                                                className="w-[7rem] h-[2rem] text-[1rem] text-custom-white bg-card-bg border rounded-[0.25rem] absolute top-0"
+                                                className="w-[7rem] h-[2rem] grid place-content-center text-[1rem] text-custom-white bg-card-bg border rounded-[0.25rem] absolute top-0"
                                                 initial={{
                                                     translateY: '100%',
                                                     opacity: 0
