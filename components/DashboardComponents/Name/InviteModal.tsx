@@ -13,14 +13,33 @@ interface InviteModalProps {
 
 const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInviteModal, username }) => {
 
+    const [copyAnimation, setCopyAnimation] = useState({
+        state: false,
+        text: ''
+    })
+
     const handleClick = () => {
         const link = "myvizbl.com/invite/" + username.substring(1);
         navigator.clipboard.writeText(link)
             .then(() => {
-                console.log('Link copied to clipboard:', link);
+                setCopyAnimation({
+                    state: true,
+                    text: 'Copied!'
+                })
+                setCopyAnimation({
+                    state: false,
+                    text: 'Copied!'
+                })
             })
             .catch(err => {
-                console.error('Failed to copy link to clipboard:', err);
+                setCopyAnimation({
+                    state: true,
+                    text: 'Error'
+                })
+                setCopyAnimation({
+                    state: false,
+                    text: 'Error'
+                })
             });
     };
 
@@ -68,7 +87,28 @@ const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInvite
                             }
                         </div>
 
-                        <div className="w-full flex justify-center">
+                        <div className="w-full flex justify-center relative">
+                                <AnimatePresence>
+                                    {
+                                        copyAnimation.state && (
+                                            <motion.div
+                                                className="w-[7rem] h-[2rem] text-[1rem] text-custom-white bg-card-bg border rounded-[0.25rem] absolute left-0 top-0 z-10"
+                                                initial={{
+                                                    translateY: '0%'
+                                                }}
+                                                animate={{
+                                                    translateY: '100%'
+                                                }}
+                                                exit={{
+                                                    translateY: '0%'
+                                                }}
+                                            >
+                                                {copyAnimation.text}
+                                            </motion.div>
+                                        )
+                                    }
+                                </AnimatePresence>
+
                             <motion.button
                                 initial={{
                                     background: 'linear-gradient(93deg, rgba(253,162,255,1) -64.38%, rgba(120,42,213,1) 48.4%, rgba(82,184,255,1) 158.85%), rgba(0,0,0,0)'
@@ -79,7 +119,7 @@ const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInvite
                                 transition={{
                                     duration: 0.4
                                 }}
-                                className="py-[0.5rem] mt-[1.5rem] text-[1.125rem] font-[500] text-custom-white px-[1rem] border border-gray-border grid place-content-center rounded-[0.25rem]"
+                                className="z-20 py-[0.5rem] mt-[1.5rem] text-[1.125rem] font-[500] text-custom-white px-[1rem] border border-gray-border grid place-content-center rounded-[0.25rem]"
                                 onClick={handleClick}
                             >
                                 Copy to clipboard
