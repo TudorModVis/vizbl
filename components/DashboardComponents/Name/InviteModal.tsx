@@ -91,7 +91,7 @@ const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInvite
                                                     translateY: '100%'
                                                 }}
                                                 animate={{
-                                                    translateY: '-150%'
+                                                    translateY: '-100%'
                                                 }}
                                                 transition={{
                                                     type: 'spring',
