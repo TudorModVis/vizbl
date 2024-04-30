@@ -88,10 +88,10 @@ const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInvite
                                             <motion.div
                                                 className="w-[7rem] h-[2rem] text-[1rem] text-custom-white bg-card-bg border rounded-[0.25rem] absolute top-0"
                                                 initial={{
-                                                    translateY: '-100%'
+                                                    translateY: '100%'
                                                 }}
                                                 animate={{
-                                                    translateY: '150%'
+                                                    translateY: '-150%'
                                                 }}
                                                 transition={{
                                                     type: 'spring',
@@ -103,7 +103,7 @@ const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInvite
                                                     text: prevState.text
                                                 }))}
                                                 exit={{
-                                                    translateY: '0%'
+                                                    translateY: '100%'
                                                 }}
                                             >
                                                 {copyAnimation.text}
