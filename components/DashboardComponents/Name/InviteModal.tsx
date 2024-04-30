@@ -26,18 +26,10 @@ const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInvite
                     state: true,
                     text: 'Copied!'
                 })
-                setCopyAnimation({
-                    state: false,
-                    text: 'Copied!'
-                })
             })
             .catch(err => {
                 setCopyAnimation({
                     state: true,
-                    text: 'Error'
-                })
-                setCopyAnimation({
-                    state: false,
                     text: 'Error'
                 })
             });
@@ -101,6 +93,10 @@ const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInvite
                                                 animate={{
                                                     translateY: '100%'
                                                 }}
+                                                onAnimationComplete={() => setCopyAnimation(prevState => ({
+                                                    state: false,
+                                                    text: prevState.text
+                                                }))}
                                                 exit={{
                                                     translateY: '0%'
                                                 }}
