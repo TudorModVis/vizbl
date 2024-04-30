@@ -1,6 +1,6 @@
 'use client'
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, spring } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useLenis } from '@studio-freight/react-lenis'
 import Image from "next/image";
@@ -88,10 +88,15 @@ const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInvite
                                             <motion.div
                                                 className="w-[7rem] h-[2rem] text-[1rem] text-custom-white bg-card-bg border rounded-[0.25rem] absolute top-0"
                                                 initial={{
-                                                    translateY: '0%'
+                                                    translateY: '-100%'
                                                 }}
                                                 animate={{
-                                                    translateY: '100%'
+                                                    translateY: '150%'
+                                                }}
+                                                transition={{
+                                                    type: 'spring',
+                                                    stiffness: 250,
+                                                    damping: 25
                                                 }}
                                                 onAnimationComplete={() => setCopyAnimation(prevState => ({
                                                     state: false,
