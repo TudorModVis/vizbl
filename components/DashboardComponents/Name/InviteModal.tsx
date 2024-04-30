@@ -35,8 +35,6 @@ const InviteModal:React.FC<InviteModalProps> = ({ showInviteModal, setShowInvite
             });
     };
 
-    console.log(copyAnimation)
-
   return (
     <AnimatePresence>
         {

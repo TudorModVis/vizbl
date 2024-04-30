@@ -22,8 +22,6 @@ const DashBoardPage:NextPage = () => {
     setIsLoggedIn(hasCookie('vizbl-session'))
   }, [])
   
-  console.log(isLoggedIn)
-  
   if(isLoggedIn !== null && isLoggedIn === false) {
     router.replace('/login')
     return null
