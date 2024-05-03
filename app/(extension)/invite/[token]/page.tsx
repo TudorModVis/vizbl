@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react"
 import LinkState from "@/app/(extension)/shared/LinkState"
 import { useRouter } from 'next/navigation';
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Page ({ params }: { params: { token: string } }) {
     const [isSignedIn, setIsSignedIn] = useState<boolean | null>(null);
@@ -57,10 +59,10 @@ export default function Page ({ params }: { params: { token: string } }) {
 
     const buttons = isSignedIn ?
         <div className="flex gap-6">
-            <button className="py-4 lg:py-[0.875rem] w-48 colored-button flat border border-white font-bold" onClick={sendFriendRequest}>SEND REQUEST</button>
-            <button className="py-4 lg:py-[0.875rem] w-48 border border-white font-bold bg-white bg-opacity-0 hover:bg-opacity-10 rounded-lg transition-all duration-200" onClick={declineFriendRequest}>NO, THANK YOU</button>
+            <button className="h-[3rem] grid place-content-center w-48 colored-button flat border border-white font-bold text-[1rem]" onClick={sendFriendRequest}>SEND REQUEST</button>
+            <button className="h-[3rem] grid place-content-center w-48 border border-white font-bold bg-white bg-opacity-0 hover:bg-opacity-10 rounded-lg transition-all duration-200 text-[1rem]" onClick={declineFriendRequest}>NO, THANK YOU</button>
         </div> :
-        <button className="py-4 lg:py-[0.875rem] px-12 colored-button border border-white font-bold" onClick={() => {router.push(`/signup/${params.token}`);}}>SIGN UP & INSTALL</button>
+        <button className="h-[3rem] grid place-content-center px-12 colored-button border border-white font-bold text-[1rem]" onClick={() => {router.push(`/signup/${params.token}`);}}>SIGN UP & INSTALL</button>
 
         let contentToLoad = 
         <>
@@ -69,8 +71,8 @@ export default function Page ({ params }: { params: { token: string } }) {
                 <div className="relative rounded-lg overflow-hidden border-[2px] border-white bounce mb-12" onClick={(e) => {e.stopPropagation()}}>
                     <img src={friendImage} alt="profile image" className="w-[9.5rem]"/>
                 </div>
-                <p className="font-bold text-[4rem] leading-[140%] mb-12 text-center">{"@" + decodeURIComponent(params.token)} <br/> WANTS TO BE FRIENDS ON ViZBL </p>
-                <p className="text-gray text-2xl font-bold leading-[140%] text-center mb-12"> This person wants to share their YouTube activity with you. <br/> Maybe they’ll also interact with you for much more fun.</p>
+                <p className="font-bold lg:text-[4rem] ss:text-[3rem] text-[2rem] leading-[140%] mb-12 text-center">{"@" + decodeURIComponent(params.token)} <br/> WANTS TO BE FRIENDS ON ViZBL </p>
+                <p className="text-gray lg:text-2xl ss:text-xl text-base font-bold leading-[140%] text-center mb-12"> This person wants to share their YouTube activity with you. <br/> Maybe they’ll also interact with you for much more fun.</p>
                 {buttons}
             </div>
         </>;
@@ -79,9 +81,17 @@ export default function Page ({ params }: { params: { token: string } }) {
         if (pageContent === 'invalid') contentToLoad = <LinkState title="THE LINK IS NOT VALID" text="The provided link does not belong to any registered user." text2="Thank you for your time." succes={false} />; 
 
     return(
-        <div className="w-screen h-screen relative flex justify-center items-center">
+        <div className="w-screen h-screen relative flex justify-center items-center px-[1rem]">
             <img src="/images/bg.png" alt="background" className="absolute left-0 top-0 w-full h-full object-cover -z-10"/>
-            <img src="/images/logo.png" alt="logo" className="absolute left-[4.5rem] top-12 w-[8.3vw] max-w-40" />
+            <Link href="/?loaded=true">
+                <Image 
+                    src="/images/logo.png"
+                    alt="logo"
+                    width={163}
+                    height={32}
+                    className="h-[2rem] w-[10rem] smm:scale-[1] scale-[0.75] absolute smm:left-[4.5rem] left-[1rem] top-[3.25rem]"
+                />
+            </Link>
             {contentToLoad}
         </div>
     )

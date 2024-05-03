@@ -14,6 +14,7 @@ const Loader:React.FC = () => {
     const rounded = useTransform(count, latest => Math.round(latest))
 
     useEffect(() => {
+      document.body.style.overflow="hidden"
       const controls = animate(
         count,
         [0, 25, 100],

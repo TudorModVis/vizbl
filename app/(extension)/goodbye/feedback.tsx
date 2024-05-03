@@ -27,10 +27,10 @@ export default function Feedback ({setIsSent}: feedbackProps) {
 
     return(
         <>
-            <p className="font-bold text-[4rem] leading-[140%] mb-4 text-center">THANK YOU FOR USING ViZBL</p>
-            <p className="text-gray text-2xl font-medium leading-[140%] text-center mb-12">We are sorry to see you leave! <br/> Can you tell us why are you uninstalling? (select all that apply)</p>
+            <p className="font-bold lg:text-[4rem] ss:text-[3rem] text-[2rem] leading-[140%] mb-4 ss:text-center">THANK YOU FOR USING ViZBL</p>
+            <p className="text-gray lg:text-2xl sm:text-xl text-base font-medium leading-[140%] ss:text-center mb-12">We are sorry to see you leave! <br/> Can you tell us why are you uninstalling? (select all that apply)</p>
             <form className="flex flex-col" onSubmit={(e) => {e.preventDefault(); sendFeedback();}}>
-                <div className="flex gap-16 w-fit mx-auto mb-16">
+                <div className="flex sm:flex-row flex-col gap-16 w-full mx-auto mb-16">
                     <div className="flex flex-col gap-6">
                         <CheckBox label="I have privacy concerns" id="privacy_concerns" reasons={reasons} setReasons={setReasons}/>
                         <CheckBox label="It is difficult to use/learn" id="difficult_to_learn" reasons={reasons} setReasons={setReasons}/>
@@ -42,7 +42,7 @@ export default function Feedback ({setIsSent}: feedbackProps) {
                         <CheckBox label="Other:" id="other" reasons={reasons} setReasons={setReasons} otherCheck={otherCheck} setOtherCheck={setOtherCheck} other={other} setOther={setOther}/>
                     </div>
                 </div>
-                <button className="py-4 lg:py-[0.875rem] px-7 colored-button border border-transparent hover:border-white font-bold mx-auto">Submit responses</button>
+                <button className="py-4 lg:py-[0.875rem] px-7 colored-button border border-transparent hover:border-white font-bold mx-auto text-[1rem]">Submit responses</button>
             </form>
         </>
     )
@@ -50,7 +50,7 @@ export default function Feedback ({setIsSent}: feedbackProps) {
 
 const CheckBox = ({label, id, reasons, setReasons, otherCheck, setOtherCheck, other, setOther}: {label: string, id: string, reasons: Array<string>, setReasons: (value: Array<string>) => void, otherCheck?: boolean, setOtherCheck?: (value: boolean) => void, other?: string, setOther?: (value: string) => void}) => {
     return (
-        <div className="flex items-center">
+        <div className="flex items-center text-[1rem]">
             <label className="relative flex items-center rounded-full cursor-pointer" htmlFor={id}>
                 <input type="checkbox"
                 className="outline-none before:content[''] peer relative h-8 w-8 cursor-pointer appearance-none rounded-md border border-white transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity hover:before:opacity-10"

@@ -10,6 +10,7 @@ import { useEffect } from 'react'
 const HomePage:NextPage = () => {
   const lenis = useLenis(() => {})
   useEffect(() => {
+    window.scroll(0, 0)
     setTimeout(() => {
       const hash = window.location.hash;
       if(hash === '#about' || hash === '#how-it-works' || hash === '#contacts'){
@@ -17,7 +18,7 @@ const HomePage:NextPage = () => {
           duration: 2,
           easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
         })
-        window.history.replaceState(null, '', '/')
+        window.history.replaceState(null, '', '/?loaded=true')
       }
     }, 500)
 

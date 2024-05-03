@@ -20,6 +20,7 @@ const NavButtonRight: React.FC<NavButtonProps> = ({ text, route, active }) => {
 
   return (
       <Link
+        prefetch
         href={route}
         className={`select-none h-[3rem] rounded-[1rem] cursor-pointer relative overflow-hidden border border-gray-border`}
         onMouseEnter={() => setIsEntered(true)}

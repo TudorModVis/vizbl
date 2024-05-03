@@ -25,7 +25,7 @@ export default function Confirmation ({email}: {email:string}) {
                     <p className="text-[4rem] leading-none mb-12 text-center font-bold">VERIFY YOUR EMAIL</p>
                     <p className="text-gray text-2xl font-bold leading-[140%] text-center mb-6">We have sent a verification link to <span className="text-white">{email}</span></p>
                     <p className="text-gray text-2xl font-bold leading-[140%] text-center mb-12">Click the link to verify your account. <br/> You might need to <span className="text-white">check your spam.</span></p>
-                    <button className="py-4 lg:py-[0.875rem] px-12 colored-button border border-white font-bold disabled:opacity-50 disabled:pointer-events-none" disabled={disabled} onClick={resendEmail}>RESEND EMAIL</button>
+                    <button className="py-4 lg:py-[0.875rem] text-base px-12 colored-button border border-white font-bold disabled:opacity-50 disabled:pointer-events-none" disabled={disabled} onClick={resendEmail}>RESEND EMAIL</button>
                     {disabled && <Countdown expiryTimestamp={new Date(Date.now() + 59000)} setDisabled={setDisabled}/>}
                 </div>
             </div>

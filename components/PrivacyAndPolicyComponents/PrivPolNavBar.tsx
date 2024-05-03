@@ -6,10 +6,14 @@ import NavButtonRight from '../../components/NavBar/NavButtonRight'
 import GradientButton from '@/components/GradientButton'
 import HamburgerBtn from '../NavBar/HamburgerBtn'
 
+import useUserData from '@/utils/useUserData'
+
 
 const PPNavBar:React.FC = () => {
 
   const lenis = useLenis(() => {})
+
+  const { userData } = useUserData()
 
   return (
     <nav className='w-full sm:h-[6rem] h-[5rem] smm:px-[3.5rem] px-[1rem] flex justify-between items-end sticky left-0 top-0 z-[100]'>
@@ -40,15 +44,19 @@ const PPNavBar:React.FC = () => {
           </div>
       </div>
         <div className='flex items-center'>
-          <div className='sm:flex hidden'>
+        <div className='sm:flex hidden'>
+            {
+              userData ? (
+                <NavButtonRight text="My Account" route='/dashboard' active={true}/>
+              ) : (
+                <NavButtonRight text="Log in" route='/login' active={false}/>
+              )
+            }
             <div className='hidden'>
-              <NavButtonRight text="Log In" route='/log-in' active={false}/>
-            </div>
-            <div className='hidden'>
-                <NavButtonRight text="Plans & Pricing" route='/plans-and-pricing' active={false}/>
+              <NavButtonRight text="Plans & Pricing" route='/plans-and-pricing' active={false}/>
             </div>
           </div>
-            <GradientButton text="GET STARTED" route='https://chromewebstore.google.com/detail/vizbl-get-to-know-your-fr/lcaeomijnkkglaabildphmdinpoodaho'/>
+            <GradientButton text="GET STARTED" route='/signup' target='_self'/>
         </div>
     </nav>
   )

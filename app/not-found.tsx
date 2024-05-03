@@ -11,16 +11,20 @@ const NotFound = () => {
         <div className='px-[1rem] h-screen w-screen relative grid place-content-center'
             style={{
                 background: 'url(/images/bg.png)',
-                backgroundPosition: 'center'
+                backgroundPosition: 'center',
+                backgroundSize: '100%',
+                backgroundRepeat: 'no-repeat'
             }}
         >
-            <Image 
-                src="/images/logo.png"
-                alt="logo"
-                width={163}
-                height={32}
-                className="h-[2rem] w-[10rem] smm:scale-[1] scale-[0.75] absolute smm:left-[4.5rem] left-[1rem] top-[3.25rem]"
-            />
+            <Link href="/?loaded=true">
+                <Image 
+                    src="/images/logo.png"
+                    alt="logo"
+                    width={163}
+                    height={32}
+                    className="h-[2rem] w-[10rem] smm:scale-[1] scale-[0.75] absolute smm:left-[4.5rem] left-[1rem] top-[3.25rem]"
+                />
+            </Link>
 
             <div className="select-none flex flex-col items-center">
                 <div className="flex items-center gap-[1.5rem] smm:text-[16rem] xs:text-[13rem] text-[10rem] leading-[110%] text-custom-white font-[600]">
@@ -41,7 +45,7 @@ const NotFound = () => {
                 <h2 className="uppercase text-custom-white smm:text-[4rem] xs:text-[3.5rem] text-[2.75rem] leading-[110%] font-bold">Page not found</h2>
                 <p className="mt-[1rem] text-gray-border smm:text-[1.125rem] text-[1rem] font-[500] text-center">Oops! Looks like you got lost... <br />We don't seem to find the page you are looking for.</p>
 
-                <Link href="/?loaded=true" className="w-full flex justify-center">
+                <Link href="/?loaded=true" replace className="w-full flex justify-center">
                     <motion.div 
                         className="uppercase mt-[3rem] w-fit h-[3rem] px-[1.5rem] grid place-content-center text-custom-white text-[1rem] rounded-[1rem] border border-gray-border cursor-pointer"
                         initial={{

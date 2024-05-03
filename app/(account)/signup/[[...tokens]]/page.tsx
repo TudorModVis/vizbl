@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { useState } from 'react';
 import PasswordField from '../../shared/PasswordField';
@@ -113,38 +114,49 @@ export default function signup ({ params }: { params: { tokens: string[]} }) {
     return (
         <>
             <img src="/images/bg.png" alt="background color" className="absolute w-full h-full object-cover -z-10 left-0 top-0"/>
+            <Link href="/?loaded=true">
+                <Image 
+                    src="/images/logo.png"
+                    alt="logo"
+                    width={163}
+                    height={32}
+                    className="h-[2rem] w-[10rem] smm:scale-[1] scale-[0.75] absolute smm:left-[4.5rem] left-[1rem] top-[3.25rem]"
+                />
+            </Link>
             <div className='flex justify-center items-center h-screen'>
                 {confirmation ? 
                     <Confirmation email={email}/> :
                     <div className='w-[22.5rem] mt-24 mb-16'>
-                        <p className='text-[2.5rem] leading-[110%] font-bold mb-1 text-center relative z-10'>WELCOME TO</p>
+                        <p className='lg:text-[2.5rem] text-[2.25rem] leading-[110%] font-bold mb-1 text-center relative z-10'>WELCOME TO</p>
                         <div className='relative'>
-                            <img src="/images/login/star.gif" alt="star gif" className='absolute top-0 -translate-y-full h-44 left-1/2 -translate-x-1/2'/>
-                            <img src="/images/login/logo.png" alt="logo" className='w-[22.5rem] mx-auto' />
+                            <img src="/images/login/star.gif" alt="star gif" className='absolute top-0 -translate-y-full lg:h-44 h-[9.9rem] left-1/2 -translate-x-1/2'/>
+                            <Link href="/?loaded=true">
+                                <img src="/images/login/logo.png" alt="logo" className='lg:w-[22.5rem] w-[20.25rem] mx-auto' />
+                            </Link>
                         </div>
-                        <p className='mb-8 mt-4 text-base leading-[140%] font-bold text-gray text-center'>Sign in or create an account. <span className='text-white'>It’s free and fun!</span></p>
+                        <p className='lg:mb-8 mb-4  mt-4 text-base leading-[140%] font-bold text-gray text-center'>Sign in or create an account. <span className='text-white'>It’s free and fun!</span></p>
                         <form className='relative' onSubmit={(event) => {event.preventDefault(); sendLoginData();}}>
                             <EmailField email={email} setEmail={setEmail} error={emailError} setError={setEmailError}/>
                             <PasswordField password={password} setPassword={setPassword} error={passwordError} setError={setPasswordError}/>
-                            <button className='w-full max-h-[48px] font-medium py-4 lg:py-3 text-black rounded-lg text-center bg-white border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white lg:font-bold mt-10'>Sign up & Accept</button>
+                            <button className='grid place-content-center text-[1rem] w-full h-[3rem] font-medium text-black rounded-lg text-center bg-white border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white lg:font-bold lg:mt-10 mt-4'>Sign up & Accept</button>
                         </form>
                         <div className="flex gap-4 items-center w-full my-2">
                             <div className='h-[1px] bg-gray flex-1'></div>
-                            <p className='text-gray'>or</p>
+                            <p className='text-gray text-[1rem]'>or</p>
                             <div className='h-[1px] bg-gray flex-1'></div>
                         </div>
-                        <button className='w-full max-h-[48px] font-medium py-4 lg:py-3 text-black lg:font-bold rounded-lg relative text-center bg-white mb-4 border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white' onClick={() => {googleLogin()}}>
+                        <button className='grid place-content-center text-[1rem] w-full h-[3rem] font-medium text-black lg:font-bold rounded-lg relative text-center bg-white mb-4 border border-white hover:border-gray hover:bg-transparent transition duration-200 hover:text-white' onClick={() => {googleLogin()}}>
                             <img src="/images/login/google.png" alt="google icon" className='absolute w-8 left-5 top-1/2 -translate-y-1/2'/>
                             Sign in with Google
                         </button>
 
                         <div className="flex justify-center">
-                            <p className='font-medium text-gray text-[14px] lg:text-base'>Already have an account?&nbsp;</p>
-                            <Link href={params.tokens === undefined ? "/login" : `/login/${params.tokens[0]}`} className='font-bold hover:opacity-75 transition duration-200 text-[14px] lg:text-base'>Log in</Link>
+                            <p className='font-medium text-gray text-base'>Already have an account?&nbsp;</p>
+                            <Link href={params.tokens === undefined ? "/login" : `/login/${params.tokens[0]}`} className='font-bold hover:opacity-75 transition duration-200 text-base'>Log in</Link>
                         </div>
-                        <div className="flex items-center gap-2 fixed bottom-12 left-1/2 -translate-x-1/2">
-                            <img src="/images/login/tick.svg" alt="tick" className="w-[1.125rem] aspect-square"/>
-                            <p className='leading-none font-medium text-gray text-base'>By signing up you accept the <Link href='/privacy-and-policy' className='cursor-pointer transition duration-200 hover:opacity-75 font-bold text-white'>Terms of Service and Privacy Policy</Link></p>
+                        <div className="flex w-full justify-center px-[2rem] items-center gap-2 fixed bottom-12 left-1/2 -translate-x-1/2">
+                            <img src="/images/login/tick.svg" alt="tick" className="size-[1.125rem]"/>
+                            <p className='font-medium text-gray text-base'>By signing up you accept the <Link href='/privacy-and-policy' className='cursor-pointer transition duration-200 hover:opacity-75 font-bold text-white'>Terms of Service and Privacy Policy</Link></p>
                         </div>
                     </div>
                 }
