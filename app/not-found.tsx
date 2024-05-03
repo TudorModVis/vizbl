@@ -11,7 +11,9 @@ const NotFound = () => {
         <div className='px-[1rem] h-screen w-screen relative grid place-content-center'
             style={{
                 background: 'url(/images/bg.png)',
-                backgroundPosition: 'center'
+                backgroundPosition: 'center',
+                backgroundSize: '100%',
+                backgroundRepeat: 'no-repeat'
             }}
         >
             <Link href="/?loaded=true">
