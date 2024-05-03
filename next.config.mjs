@@ -1,8 +1,8 @@
 const cspHeader = `
-    default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    default-src 'self' api.myvizbl.com;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' accounts.google.com/gsi/client;
     style-src 'self' 'unsafe-inline' fonts.googleapis.com;
-    img-src 'self' blob: data:;
+    img-src 'self' blob: data: api.producthunt.com;
     font-src * data: blob: 'unsafe-inline';
     object-src 'none';
     base-uri 'self';
