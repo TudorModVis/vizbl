@@ -1,7 +1,7 @@
 const cspHeader = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
-    style-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline' fonts.googleapis.com;
     img-src 'self' blob: data:;
     font-src * data: blob: 'unsafe-inline';
     object-src 'none';
