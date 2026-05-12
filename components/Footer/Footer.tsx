@@ -43,10 +43,10 @@ const Footer: React.FC = () => {
                             <div className="">
                                 <h4 className="text-gray-border font-[600] text-[1rem] uppercase">Company</h4>
                                 <div className="mt-[1.5rem] flex flex-col gap-[16px] text-custom-white">
-                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://studiomodvis.com/EN/home">About Us</a>
-                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://studiomodvis.com/EN/portfolio">Portfolio</a>
-                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://studiomodvis.com/EN/services">Services</a>
-                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://studiomodvis.com/EN/contacts">Contacts</a>
+                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://modvis.studio/EN/home">About Us</a>
+                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://modvis.studio/EN/portfolio">Portfolio</a>
+                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://modvis.studio/EN/services">Services</a>
+                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://modvis.studio/EN/contacts">Contacts</a>
                                 </div>
                             </div>
                         </div>
