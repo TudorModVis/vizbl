@@ -85,19 +85,16 @@ const Footer: React.FC = () => {
                                             }}
                                             >About</p>
 
-                                        <p 
-                                            className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer"
-                                            onClick={() => {
-                                                if(pathname === '/'){
-                                                    howItWorksRef.current && lenis?.scrollTo(howItWorksRef.current, {
-                                                    duration: 2,
-                                                    easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
-                                                    })
-                                                } else {
-                                                    router.push('/?loaded=true#how-it-works')
-                                                } 
-                                            }}
-                                            >How it works</p>
+                            <div className="">
+                                <h4 className="text-gray-border font-[600] text-[1rem] uppercase">Company</h4>
+                                <div className="mt-[1.5rem] flex flex-col gap-[16px] text-custom-white">
+                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://modvis.studio/EN/home">About Us</a>
+                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://modvis.studio/EN/portfolio">Portfolio</a>
+                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://modvis.studio/EN/services">Services</a>
+                                    <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" href="https://modvis.studio/EN/contacts">Contacts</a>
+                                </div>
+                            </div>
+                        </div>
 
                                         <p 
                                             className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer"
