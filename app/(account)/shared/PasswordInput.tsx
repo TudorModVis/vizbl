@@ -15,14 +15,14 @@ interface PasswordInputProps {
 const PasswordInput: React.FC<PasswordInputProps> = ({password, setPassword, error, setError, label, errorY='0', endDecorator = true, placeholder = ""}) => {
     const [showPassword, setShowPassword] = useState(!endDecorator);
     return (
-        <FormControl sx={{width: '100%', marginBottom: '8px'}}>
-        {error !== null && <FormHelperText sx={{fontSize: '10px', fontStyle: 'italic', justifyContent: 'end', fontWeight: "bold", margin: 0, color:"#FF4141", position: 'absolute', right: '0', maxWidth: '200px', top: errorY}}>{error}</FormHelperText>}
+        <FormControl sx={{width: '100%', marginBottom: '0.5rem'}}>
+        {error !== null && <FormHelperText sx={{fontSize: '0.625rem', fontStyle: 'italic', justifyContent: 'end', fontWeight: "bold", margin: 0, color:"#FF4141", position: 'absolute', right: '0', maxWidth: '12.5rem', top: errorY}}>{error}</FormHelperText>}
             <FormLabel
                 sx={{
-                    fontSize: '12px',
+                    fontSize: '0.75',
                     fontWeight: 'bold',
                     lineHeight: '140%',
-                    marginBottom: '4px',
+                    marginBottom: '0.25rem',
                     color: '#F1F1F1'
                 }}
             >{label}</FormLabel>
@@ -36,16 +36,16 @@ const PasswordInput: React.FC<PasswordInputProps> = ({password, setPassword, err
                   value={password}
                 sx={{
                     '&:placeholder': {
-                        fontSize: '12px'
+                        fontSize: '0.75rem'
                     },
                     width: '100%',
                     bgcolor: "transparent",
-                    fontSize: '16px',
-                    minHeight: '42px',
+                    fontSize: '1rem',
+                    minHeight: '2.625',
                     borderWidth: '1px',
                     color: "#F1F1F1",
                     borderColor: (error !== null) ? "#C41C1C" : "#F1F1F1",
-                    borderRadius: '4px',
+                    borderRadius: '0.25rem',
                     '--Input-focusedInset': 'var(--any, )',
                     '--Input-focusedThickness': '1px',
                     '--Input-focusedHighlight': 'rgba(13,110,253,.25)',

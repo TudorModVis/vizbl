@@ -10,12 +10,36 @@
     font-family: 'Roboto', sans-serif;
 }
 
-body{
-    overflow: hidden;
+html{
+    scrollbar-gutter: stable;
 }
+
+html.lenis, html.lenis body {
+    height: auto;
+  }
+  
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
 
 html {
     color: #f1f1f1;
+}
+
+body {
+  background-color: #050505;
 }
 
 body::-webkit-scrollbar {

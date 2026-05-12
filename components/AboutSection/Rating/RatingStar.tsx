@@ -5,11 +5,12 @@ interface SvgProps {
         percentage: number;
         delay: number;
         noAnimation: boolean;
+        id: number;
     }
 
-const RatingStar: React.FC<SvgProps> = ({shouldFill, percentage, delay, noAnimation}) => {
-  const maskId = `halfStarMask_${Math.random().toString(36)}`;
-  const gradientId = `linearGradient_${Math.random().toString(36)}`;
+const RatingStar: React.FC<SvgProps> = ({shouldFill, percentage, delay, noAnimation, id}) => {
+  const maskId = `halfStarMask_${id}`;
+  const gradientId = `linearGradient_${id}`;
 
   const variants = {
     fill: {

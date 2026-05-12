@@ -1,6 +1,5 @@
 'use client'
 
-import { useRef, useEffect, useState } from "react"
 import { useSectionRefs } from '../SectionContext'
 
 import { MouseParallax } from "react-just-parallax"
@@ -18,7 +17,7 @@ const About: React.FC = () => {
   const { aboutRef } = useSectionRefs();
 
   return (
-    <div ref={aboutRef} className="bg-body-bg relative sm:pt-[12rem] pt-[6rem] mt-[3rem] w-full flex justify-center">
+    <div ref={aboutRef} id="about" className="bg-body-bg relative sm:pt-[12rem] pt-[6rem] mt-[3rem] w-full flex justify-center">
 
       
       <div className="relative w-full md:max-w-full max-w-[40rem] flex md:flex-row flex-col gap-[1.5rem] justify-center items-center">

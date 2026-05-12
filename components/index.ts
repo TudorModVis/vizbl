@@ -1,3 +1,4 @@
+//Home | General
 import { default as HeroSection } from './HeroSection/HeroSection'
 import { default as NavBar } from './NavBar/NavBar'
 import { default as SmoothScroll } from './SmoothScroll'
@@ -7,6 +8,19 @@ import { default as Contacts } from './ContactsSection/Contacts'
 import { default as Footer } from './Footer/Footer'
 import { default as ScrollToTop } from './ScrollToTop'
 import { default as Loader } from './Loader'
+
+// Plans and Pricing
+import { default as PPNavbar } from './PPSectionComponents/PPNavbar/PPNavBar'
+import { default as PlansSection } from './PPSectionComponents/PlansSection/PlansSection'
+import { default as FAQ } from './PPSectionComponents/FAQ/FAQ'
+
+//Dashboard
+import { default as AccountSection } from './DashboardComponents/AccountSection/AccountSection'
+import { default as FeedbackSection } from './DashboardComponents/FeedBackSection/FeedbackSection'
+import { default as FrozenModeSection } from './DashboardComponents/Frozen/FrozenModeSection'
+import { default as NameSection } from './DashboardComponents/Name/NameSection'
+import { default as PasswordSection } from './DashboardComponents/Password/PasswordSection'
+import { default as SubscriptionSection } from './DashboardComponents/SubscriptionSection'
  
 export{
     NavBar,
@@ -17,5 +31,16 @@ export{
     Contacts,
     Footer,
     ScrollToTop,
-    Loader
+    Loader,
+
+    PPNavbar,
+    PlansSection,
+    FAQ,
+
+    AccountSection,
+    FeedbackSection,
+    FrozenModeSection,
+    NameSection,
+    PasswordSection,
+    SubscriptionSection
 }

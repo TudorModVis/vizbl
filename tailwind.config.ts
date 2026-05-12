@@ -25,7 +25,8 @@ const config: Config = {
         'accent': '#F74264',
         'black': '#050505',
         'semi-black': '#1E1E1E',
-        'gray': "#A0A0A0"
+        'gray': "#A0A0A0",
+        'danger': '#FF4141'
       },
       fontFamily: {
         'roboto' : "'Roboto', sans-serif"

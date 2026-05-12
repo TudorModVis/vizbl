@@ -6,6 +6,28 @@ import Link from "next/link";
 
 const CTA = () => {
 
+  const [browser, setBrowser] = useState("")
+
+    useEffect(() => {
+        const userAgent = navigator.userAgent
+        let browserName = "Your Browser"
+        if (userAgent.indexOf("Opera") !== -1 || userAgent.indexOf("OPR") !== -1) {
+            browserName = "Opera"
+        } else if (userAgent.indexOf("Chrome") !== -1) {
+            browserName = "Chrome"
+        } else if (userAgent.indexOf("Safari") !== -1) {
+            browserName = "Safari"
+        } else if (userAgent.indexOf("Firefox") !== -1) {
+            browserName = "Firefox"
+        } else if (userAgent.indexOf("MSIE") !== -1 || userAgent.indexOf("Trident") !== -1) {
+            browserName = "Internet Explorer"
+        } else if (userAgent.indexOf("Edge") !== -1) {
+            browserName = "Edge"
+        }
+
+        setBrowser(browserName)
+    }, [])
+
     const [mousePosition, setMousePosition] = useState({
         x: 0,
         y: 0
@@ -40,15 +62,7 @@ const CTA = () => {
         onMouseEnter={() => setIsEntered(true)}
         onMouseLeave={() => setIsEntered(false)}>
 
-        <div
-          className={`absolute p-[1rem] flex justify-center items-center h-[100%] w-[100%] z-[2] rounded-[1.5rem]`}
-          style={{
-            transform: 'translate3D(0, 0, 0)',
-            WebkitTransform: 'translate3D(0, 0, 0)',
-            backdropFilter: `blur(10rem)`,
-            WebkitBackdropFilter: `blur(10rem)`
-          }}
-        >
+        <div className={`absolute p-[1rem] flex justify-center items-center h-[100%] w-[100%] z-[2] rounded-[1.5rem]`}>
             <div className="flex flex-col items-center">
                 <div className="max-ss:hidden uppercase text-custom-white mmd:text-[4rem] text-[2.5rem] font-[600] leading-[110%]">
                     <h1>DON'T MISS OUT ON</h1>
@@ -84,7 +98,7 @@ const CTA = () => {
                           background: 'linear-gradient(93deg, rgba(253, 162, 255, 1) -64.38%, rgba(120, 42, 213, 1) 48.4%, rgba(82, 184, 255, 1) 158.85%)',
                         }}
                         transition={{ duration: 0.5}}>
-                        Add to chrome - it's free
+                        Add to {browser} - it's free
                     </motion.div>
                 </Link>
 
@@ -93,18 +107,26 @@ const CTA = () => {
             
         </div>
   
-        <motion.div
-          className='z-[1] absolute aspect-square mmd:h-[145%] ss:h-[120%] h-[100%] gradient-background rounded-full'
-          initial={{
-            translateX: '-50%',
-            translateY: '-50%',
-          }}
-          animate={{
-            left: isEntered ? mousePosition.x : '50%',
-            top: isEntered ? mousePosition.y : '50%',
-          }}
-          transition={{ type: 'tween', ease: 'backOut', duration: 3 }}
-        />
+        <motion.div 
+          className='absolute inset-0 w-full aspect-square'
+            initial={{
+              translateX: '-50%',
+              translateY: '-50%',
+            }}
+            animate={{
+              left: isEntered ? mousePosition.x : '50%',
+              top: isEntered ? mousePosition.y : '50%',
+            }}
+            transition={{ type: 'tween', ease: 'backOut', duration: 2}}
+          >
+            <img 
+              src="/images/hover_blob_cta.png" 
+              alt="blob"
+              width={350}
+              height={350}
+              className="w-full h-full max-ss:scale-125 max-xs:scale-150"
+            />
+          </motion.div>
         
     </div>
   )

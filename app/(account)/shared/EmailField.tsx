@@ -24,8 +24,8 @@ const StyledInput = styled('input')({
     opacity: 1,
   },
   '&:focus ~ label, &:not(:placeholder-shown) ~ label, &:-webkit-autofill ~ label': {
-    top: '8px',
-    fontSize: '12px',
+    top: '0.5rem',
+    fontSize: '0.75rem',
   },
   '&:focus ~ label': {
     color: 'var(--Input-focusedHighlight)',
@@ -73,8 +73,8 @@ const StyledLabel = styled('label')(({ theme }) => ({
 
 const EmailField: React.FC<EmailProps> = ({email, setEmail, error, setError}) => {
   return (
-    <FormControl sx={{marginTop: (error !== null) ? "-14.28px" : "0"}}  error={error !== null}>
-        {error !== null && <FormHelperText sx={{fontSize: '10px', fontStyle: 'italic', justifyContent: 'end', fontWeight: "bold", margin: 0}}>{error}</FormHelperText>}
+    <FormControl sx={{marginTop: (error !== null) ? "-0.8925rem" : "0"}}  error={error !== null}>
+        {error !== null && <FormHelperText sx={{fontSize: '0.625rem', fontStyle: 'italic', justifyContent: 'end', fontWeight: "bold", margin: 0}}>{error}</FormHelperText>}
         <Input
             onChange = {(e) => {if (setEmail !== undefined && setError !== undefined) {
               setEmail(e.target.value)};
@@ -84,14 +84,14 @@ const EmailField: React.FC<EmailProps> = ({email, setEmail, error, setError}) =>
             slots={{ input: InnerInput }}
             slotProps={{ input: { placeholder: "", type: "text" } }}
             sx={{
-                '--Input-minHeight': '48px',
-                '--Input-radius': '6px',
+                '--Input-minHeight': '3rem',
+                '--Input-radius': '0.375rem',
                 bgcolor: "transparent",
                 borderColor: (error !== null) ? "#C41C1C" : "#a0a0a0",
                 color: (error !== null) ? "#C41C1C" : "#f1f1f1",
-                borderRadius: "8px",
-                marginBottom: "16px",
-                fontSize: '16px'
+                borderRadius: "0.5rem",
+                marginBottom: "1rem",
+                fontSize: '1rem'
               }}
             className={error !== null ? "error" : ""}
         />

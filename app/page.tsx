@@ -1,32 +1,46 @@
 'use client'
-import { useRef } from 'react'
-import { NavBar, HeroSection, About, HowItWorks, Contacts, Footer, Loader, ScrollToTop } from '@/components'
+
+import { NavBar, HeroSection, About, HowItWorks, Contacts, Footer, ScrollToTop } from '@/components'
 import { NextPage } from 'next'
 import { SectionProvider } from '@/components/SectionContext'
 
-const HomePage:NextPage = () => {
+import { useLenis } from '@studio-freight/react-lenis'
+import { useEffect } from 'react'
 
-  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+const HomePage:NextPage = () => {
+  const lenis = useLenis(() => {})
+  useEffect(() => {
+    window.scroll(0, 0)
+    setTimeout(() => {
+      const hash = window.location.hash;
+      if(hash === '#about' || hash === '#how-it-works' || hash === '#contacts'){
+        lenis?.scrollTo(hash, {
+          duration: 2,
+          easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+        })
+        window.history.replaceState(null, '', '/?loaded=true')
+      }
+    }, 500)
+
+  })
 
   return (
-    <SectionProvider>
-      <div ref={scrollContainerRef} className='relative'>
+      <SectionProvider>
+        <div  className='relative'>
 
-      <Loader />
-
-        <div className='bg-body-bg'>
-          <NavBar />
-          <div className='overflow-hidden lg:px-[10.5rem] xxl:px-[14.5rem] 2k:px-[9.5rem] md:px-[10rem] px-[1rem]'>
-            <HeroSection />
-            <About />
-            <HowItWorks />
+          <div className='bg-body-bg'>
+            <NavBar />
+            <div className='overflow-hidden  lg:px-[10.5rem] xxl:px-[14.5rem] 2k:px-[9.5rem] md:px-[10rem] px-[1rem]'>
+              <HeroSection />
+              <About />
+              <HowItWorks />
+            </div>
+              <Contacts />
           </div>
-            <Contacts />
+              <Footer />
+              <ScrollToTop />
         </div>
-            <Footer />
-            <ScrollToTop />
-      </div>
-    </SectionProvider>
+      </SectionProvider>
   )
 }
 
