@@ -119,10 +119,10 @@ const Footer: React.FC = () => {
                                 <div className="">
                                     <h4 className="text-gray-border font-[600] text-[1rem] uppercase">Company</h4>
                                     <div className="mt-[1.5rem] flex flex-col gap-[16px] text-custom-white">
-                                        <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://studiomodvis.com/EN/home">About Us</a>
-                                        <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://studiomodvis.com/EN/portfolio">Portfolio</a>
-                                        <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://studiomodvis.com/EN/services">Services</a>
-                                        <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://studiomodvis.com/EN/contacts">Contacts</a>
+                                        <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://modvis.studio">About Us</a>
+                                        <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://modvis.studio">Portfolio</a>
+                                        <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://modvis.studio">Services</a>
+                                        <a className="opacity-[1] hover:opacity-[0.75] transition-opacity duration-[0.7s] cursor-pointer" target="_blank" href="https://modvis.studio">Contacts</a>
                                     </div>
                                 </div>
                             </div>
@@ -224,7 +224,6 @@ const Footer: React.FC = () => {
                             >Privacy Policy</Link>
                         </p>
                     </div>
-                </div>
         </div>
     </>
   )
